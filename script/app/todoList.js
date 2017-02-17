@@ -16,7 +16,7 @@ $a.page(function() {
 		}
 
 /**
-* 이벤트 처리
+* 이벤트 처리 1
 */
 		this.defineEvent = function(){
 			$("#btnSave").on("click", this.btnSave);
