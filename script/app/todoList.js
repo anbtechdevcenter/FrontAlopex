@@ -15,6 +15,9 @@ $a.page(function() {
 			readBoard();
 		}
 
+/**
+* 이벤트 처리
+*/
 		this.defineEvent = function(){
 			$("#btnSave").on("click", this.btnSave);
 			$('#btnDelete').on("click", this.btnDelete);
