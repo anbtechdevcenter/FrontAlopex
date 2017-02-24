@@ -6,25 +6,28 @@ $a.page(function() {
 				url : function(id, param) {
 		            return  'http://api.anbtech.net/api'+ id+'.json'; // $a.request ANP API CAll 1
 			    }, //서버 URL
-        dataType : 'json',
+				contentType: 'application/json; charset=utf-8',
+				dataType : 'json',
 				method : 'GET',
 				before : function(id, option) {
-          this.requestHeaders["Content-Type"] ="application/json; charset=UTF-8";
+          //this.requestHeaders["Content-Type"] ="application/json; charset=UTF-8"; // 위와 같이 컨텐츠타입 지정하도록 변경
 					$('body').progress(); //progress bar 시작
-				},
-				after : function(res) {
-				    $('body').progress().remove();  //progress 종료
 				},
 
 				fail : function(res) {
 					alert('서버오류 입니다.');
-					$('body').progress().remove();  //progress 종료
 				},
-				error : function(err) {
-        //  console.error("[에러발생] ",err);
 
+				error : function(err) {
 					//alert('현재 네트상태를 확인하십시요.');
-					$('body').progress().remove();  //progress 종료
+					if (err.errorMessage) {
+						//console.log(err);
+						//console.log("에러 코드 : " + err.errorMessage);
+					}
+				},
+
+				after : function(res) {
+				    $('body').progress().remove();  //progress 종료
 				}
 			});
 

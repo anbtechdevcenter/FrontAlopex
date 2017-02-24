@@ -30,21 +30,15 @@ $a.page(function() {
     this.btnSave = function(){
 			var check = confirm("저장하시겠습니까?");
 			if(check){
-				var data = $("#boardTb").getData();
-				console.log("data ", data);
-
-				$a.request("/board",{
-					method : 'post',
-					data : '#boardTb',
-					error : function(){
-						$("#boardTb").setData({boardTitle:'',boardContents:''});
-						readBoard();
-					}
-				});
-
-
+				//var data = $("#boardTb").getData();
+				//console.log("data ", data);
+				ANBTX.C('/board', '#boardTb',
+				 				function(res){
+									$("#boardTb").setData({boardTitle:'',boardContents:''});
+									readBoard();
+				 				}
+			  );
 			}
-
 		};
 
 
@@ -60,27 +54,25 @@ $a.page(function() {
 
 				if(selData.length>0){
 					var id = selData[0].seqBoard;
-					$a.request("/board/"+id,{
-						method : 'delete',
-						error : function(){
-							readBoard();
-						}
-					});
+
+					ANBTX.D('/board/'+id,
+									function(res){
+										readBoard();
+									}
+					);
 				}else{
 					alert("선택된 열이 없습니다.");
 				}
-
-
 			}
 		}
 
 
 		function readBoard(){
-			$a.request('/board', {
-		       success: function(res){
-						 $('#grid_todolist').alopexGrid("dataSet", res);
-					 }
-				});
+			ANBTX.R('/board',
+			 				function(res){
+			 					$('#grid_todolist').alopexGrid("dataSet", res);
+			 				}
+		  );
 		}
 
 
