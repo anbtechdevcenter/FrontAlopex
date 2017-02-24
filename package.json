@@ -1,0 +1,10 @@
+{
+  "name": "FrontAlopex",
+  "private": true,
+  "scripts": {
+    "start": "http-server -p 9292"
+  },
+  "dependencies": {
+    "http-server": "^0.9.0"
+  }
+}

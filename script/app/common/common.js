@@ -1,3 +1,7 @@
+/**
+*@author 김상훈
+*/
+
 // 객체 리터럴 네임스페이싱(Object Literal Namespacing)
 var ANBTX = ANBTX || {};
 
