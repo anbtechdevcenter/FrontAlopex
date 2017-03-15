@@ -4,7 +4,7 @@ $a.page(function() {
 		  //a.request.setup은 모든 reqeust에 공통으로 사용되므로 통신을 여러 번 사용하는 프로젝트에서는 각 페이지에서 정의하지 않고 common.js 같은 파일에 따로 작성하여 사용하시면 됩니다.
 		 $a.request.setup({
 				url : function(id, param) {
-		            return  'http://api.anbtech.net:8080/api'+ id+'.json'; // $a.request ANP API CAll 1
+		            return  'http://restnfeel.com:8080/api'+ id+'.json'; // $a.request ANP API CAll 1
 			    }, //서버 URL
 				contentType: 'application/json; charset=utf-8',
 				dataType : 'json',
