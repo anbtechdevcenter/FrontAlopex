@@ -22,11 +22,16 @@ $a.page(function() {
 			$("#btnSave").on("click", this.btnSave);
 			$('#btnDelete').on("click", this.btnDelete);
 			$("#btnSearch").on("click", this.btnSearch);
+			$("#btnTest").on("click", this.btnTest);
 		};
 
 		/**
 		* 게시판 저장
 		*/
+		this.btnTest = function() {
+			$a.navigate('html/todoList.html' , {pageInfo:document.URL}); // pageInfo : 현재 페이지 url
+		};
+
     this.btnSave = function(){
 			var check = confirm("저장하시겠습니까?");
 			if(check){
