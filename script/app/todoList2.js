@@ -3,6 +3,7 @@
 * @description : 직원등록현황
 */
 $a.page(function() {
+<<<<<<< HEAD
 	  this.init = function(id, param) {
 			// 화면로딩시 초기 설정함수
 			this.setInit();
@@ -66,5 +67,52 @@ $a.page(function() {
 				]
 			});
 	  }
+=======
+	this.init = function(id, param) {
+		//그리드 초기화
+		initGrid();
+		readBoard();
+	};
+
+	// 조회
+	function readBoard(){
+		ANBTX.R('/board',
+			function(res){
+				$('#grid_todolist2').alopexGrid("dataSet", res);
+			}
+		);
+	}
+	//그리드 초기화
+	function initGrid() {
+		$('#grid_todolist2').alopexGrid({
+			columnMapping : [
+				{
+					align : 'center',
+					selectorColumn : true,
+					title: '선택',
+					width : '20px',
+				},
+				{
+					align : 'center',
+					numberingColumn : true,
+					title: 'No',
+					width : '20px',
+				},
+				{
+					align : 'center',
+					key : 'boardTitle',
+					title: '제목',
+					width : '200px',
+				},
+				{
+					align : 'center',
+					key : 'boardContents',
+					title : '내용',
+					width : '300px'
+				}
+			]
+		});
+	}
+>>>>>>> origin/master
 
 });
