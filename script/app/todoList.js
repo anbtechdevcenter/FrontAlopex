@@ -23,16 +23,27 @@ $a.page(function() {
 			$('#btnDelete').on("click", this.btnDelete);
 			$("#btnSearch").on("click", this.btnSearch);
 			$("#btnTest").on("click", this.btnTest);
+			$("#btnMealTicketApply").on("click", this.btnMealTicketApply);
 		};
 
 		/**
-		* 게시판 저장
+		* 테스트 페이지로
 		*/
 		this.btnTest = function() {
 			$a.navigate('html/todoList.html' , {pageInfo:document.URL}); // pageInfo : 현재 페이지 url
 		};
-
-    this.btnSave = function(){
+	
+		/**
+		* 식권 신청 페이지로
+		*/
+		this.btnMealTicketApply = function() {
+			$a.navigate('html/mealTicketApply.html' , {pageInfo:document.URL}); // pageInfo : 현재 페이지 url
+		};
+	
+		/**
+		* 저장
+		*/
+    	this.btnSave = function(){
 			var check = confirm("저장하시겠습니까?");
 			if(check){
 				//var data = $("#boardTb").getData();
@@ -46,7 +57,9 @@ $a.page(function() {
 			}
 		};
 
-
+		/**
+		* 조회
+		*/
 		this.btnSearch = function(){
 			readBoard();
 		};
@@ -69,14 +82,14 @@ $a.page(function() {
 					alert("선택된 열이 없습니다.");
 				}
 			}
-		}
+		};
 
 
 		function readBoard(){
 			ANBTX.R('/board',
-			 				function(res){
-			 					$('#grid_todolist').alopexGrid("dataSet", res);
-			 				}
+			 	function(res){
+			 		$('#grid_todolist').alopexGrid("dataSet", res);
+			 	}
 		  );
 		}
 
