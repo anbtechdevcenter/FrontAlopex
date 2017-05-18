@@ -38,7 +38,7 @@ $a.page(function() {
         rowSingleSelect : true,
         rowClickSelect : true,
         fitTableWidth: true,
-      	height: 300
+      	height: '25row'
       });
 
 
