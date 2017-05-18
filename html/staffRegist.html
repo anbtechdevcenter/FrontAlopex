@@ -17,7 +17,7 @@
 <script type="text/javascript" src="../script/app/staffRegist.js"></script>
 
 <style>
-input[type=text], select {
+input[type=text],input[type=email], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -27,7 +27,7 @@ input[type=text], select {
     box-sizing: border-box;
 }
 
-input[type=button] {
+input[type=submit] {
     width: 100%;
     background-color: #4CAF50;
     color: white;
@@ -38,7 +38,7 @@ input[type=button] {
     cursor: pointer;
 }
 
-input[type=button]:hover {
+input[type=submit]:hover {
     background-color: #45a049;
 }
 
@@ -55,17 +55,32 @@ div {
 <body>
 
 
-<div id="staffWrap">
-	<label for="userName">이름</label>
-	<input data-bind="value:empNm" id="userName"
-		type="text" placeholder="이름 입력"/>
 
-	<label for="userRank">직급</label>
-	<select id="userRank"
-	  data-bind-option="rankCode:rankName"
-		data-bind="options: rankList, selectedOptions : rankCode"></select>
+<div>
+	<form id="staffWrap" data-validation-option="{onsubmit:true}" action="#">
+		<label for="userName">이름</label>
+		<span data-for="userName" style="color: red;"></span>
+		<input data-bind="value:empNm" id="userName"
+			type="text" placeholder="이름 입력"
+			data-validation-rule="{required:true, minlength:2}"/>
 
-	<input type="button"  value="등록">
+
+		<label for="userEmail">이메일</label>
+		<span data-for="userEmail" style="color: red;"></span>
+		<input data-bind="value:email" id="userEmail"
+				type="email" placeholder="이메일 입력"
+				data-validation-rule="{required:true, minlength:2}"/>
+
+		<label for="userRank">직급</label>
+		<span data-for="userRank" style="color: red;"></span>
+		<select id="userRank"
+		  data-bind-option="rankCode:rankName"
+			data-bind="options: rankList, selectedOptions : rankCode"
+			data-validation-rule="{required:true, minlength:2}"></select>
+
+		<input type="submit" value="등록" id="btnStaffRegister">
+</form>
+	<h5>필수 정보만 등록합니다. 세부설정은 개인이 마이페이지에서 처리합니다.</h5>
 </div>
 
 

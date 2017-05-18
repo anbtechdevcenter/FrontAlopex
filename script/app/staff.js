@@ -27,7 +27,26 @@ $a.page(function() {
 
 			$("#btnSearch").on("click", this.btnSearch);
 			$("#btnStaffRegister").on("click", this.btnStaffRegister);
+			$("#btnStaffDelete").on("click", this.btnStaffDelete);
 		};
+
+		/*
+		* 직원삭제
+		*/
+		this.btnStaffDelete = function(){
+			var check = confirm("삭제하시겠습니까?");
+			var selData = $("#grid_staff").alopexGrid("dataGet", {_state :{selected:true}});
+			console.log("seldata ", selData);
+			if(check && selData.length>0){
+
+				var userId = AlopexGrid.trimData(selData[0]).empId;
+
+				ANBTX.D('/employee/'+userId, function(res){
+					readStaff();
+				});
+			}
+		}
+
 
 		/*
 		* 테스트
@@ -125,7 +144,11 @@ $a.page(function() {
 						title : '직급',
 						width : '30px',
             render : function(value, data, render, mapping, grid){
-              return value.rankName;
+							var rankName = "";
+							if(value){
+								rankName = value.rankName;
+							}
+              return rankName;
             }
 					}, {
 						key : 'team',

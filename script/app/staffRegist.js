@@ -15,40 +15,39 @@ $a.page(function() {
 
 
 		function setData(){
+      $("#staffWrap").validator();
 			readRank();
 			readStaff();
 		}
 
-/**
-* 이벤트 처리 1234
-*/
+    /**
+    * 이벤트 처리
+    */
 		this.defineEvent = function(){
-			$("#btnTest").on("click", this.btnTest);
-
-			$("#btnSearch").on("click", this.btnSearch);
 			$("#btnStaffRegister").on("click", this.btnStaffRegister);
 		};
 
-		/*
-		* 테스트
-		*/
-		this.btnTest = function() {
-			var data = $("#staffWrap").getData();
-			console.log("[get data is] " , data);
-		}
 
     /*
     * 조회 버튼 액션
     */
-		this.btnSearch = function(){
-			readStaff();
-		};
+		this.btnStaffRegister = function(e){
+      var check = $("#staffWrap").validate();
 
-		this.btnStaffRegister = function(){
-			$a.popup({
-				title : '직원등록',
-				url : 'staffRegist.html'
-			});
+console.log(" >> ", check);
+      if(check){
+        var data = $("#staffWrap").getData();
+        console.log("[get data is] " , data);
+        ANBTX.C('/employee' , '#staffWrap', function(res){
+          console.log("[직원등록] ", res);
+        });
+      }else{
+        console.log("stop");
+
+      }
+
+      e.preventDefault();
+
 		};
 
 
