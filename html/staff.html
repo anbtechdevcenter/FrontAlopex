@@ -20,7 +20,21 @@
 </head>
 <body>
 
+<div id="staffWrap">
+
+<label>이름</label>
+<input data-bind="value:empNm"/>
+<br/>
+
+<label>직급</label>
+<select data-bind-option="rankCode:rankName"
+	data-bind="options: rankList, selectedOptions : rankCode"></select>
+
+</div>
+
+
 <div>
+	<button class="Button" id="btnTest">바인딩</button>
 	<button class="Button" id="btnSearch">직원조회</button>
 </div>
 

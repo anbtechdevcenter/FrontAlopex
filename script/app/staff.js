@@ -16,6 +16,7 @@ $a.page(function() {
 
 
 		function setData(){
+			readRank();
 			readStaff();
 		}
 
@@ -24,7 +25,16 @@ $a.page(function() {
 */
 		this.defineEvent = function(){
 			$("#btnSearch").on("click", this.btnSearch);
+			$("#btnTest").on("click", this.btnTest);
 		};
+
+		/*
+		* 테스트
+		*/
+		this.btnTest = function() {
+			var data = $("#staffWrap").getData();
+			console.log("[get data is] " , data);
+		}
 
     /*
     * 조회 버튼 액션
@@ -46,6 +56,18 @@ $a.page(function() {
 		  );
 		}
 
+    /**
+		* 직급 조회
+		*/
+		function readRank(){
+			ANBTX.R('/rank', function(res){
+				console.log("[rank is] ", res);
+				$("#staffWrap").setData({
+					rankList: res
+				});
+
+			});
+		}
 
 
 	  //그리드 초기화
