@@ -1,15 +1,15 @@
 /*********************************
-* 직원관리
+* 직원등록
 * @author : anbtechdevcenter
 * @create : 2017-05-18
 *************************************/
 $a.page(function() {
 	  this.init = function(id, param) {
-			initGrid();
 
-			this.defineEvent();
 
-			setData();
+  		this.defineEvent();
+
+  		setData();
 
 	  };
 
@@ -97,62 +97,6 @@ $a.page(function() {
 		}
 
 
-	  //그리드 초기화
-	  function initGrid() {
-			$('#grid_staff').alopexGrid({
-        defaultColumnMapping : {
-          align : 'center'
-        },
-				columnMapping : [
-					{
-						align : 'center',
-						selectorColumn : true,
-						title: '선택',
-						width : '20px',
-					},
-					{
-						align : 'center',
-						numberingColumn : true,
-						title: 'No',
-						width : '20px',
-					},
-					{
-						key : 'empNm',
-						title: '이름',
-						width : '100px',
-					}, {
-						key : 'rank',
-						title : '직급',
-						width : '30px',
-            render : function(value, data, render, mapping, grid){
-              return value.rankName;
-            }
-					}, {
-						key : 'team',
-						title : '소속팀',
-						width : '50px'
-					}, {
-						key : 'email',
-						title : 'E-mail',
-						width : '100px'
-					}, {
-						key : 'project',
-						title : '진행 프로젝트',
-						width : '150px',
-            render : function(value, data, render, mapping, grid){
-              var prjName = "";
-              if(value!=null){
-                prjName = value.prjNm;
-              }
-              return prjName;
-            }
-					}, {
-						key : 'enteringDate',
-						title : '입사일',
-						width : '50px'
-					}
-				]
-			});
-	  }
+
 
 });
