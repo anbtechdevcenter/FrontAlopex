@@ -19,7 +19,8 @@ $a.page(function() {
 			readStaff();
 
 			// anbwidget
-			$("#ranksel").rankselect();
+			$("#ranksel").selectRank();
+			$("#projectsel").selectProject();
 		}
 
 /**

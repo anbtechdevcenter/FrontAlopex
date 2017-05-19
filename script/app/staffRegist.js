@@ -18,6 +18,10 @@ $a.page(function() {
       $("#staffWrap").validator();
 			readRank();
 			readStaff();
+
+			// anbwidget
+			$("#userRank").selectRank();
+
 		}
 
     /**
@@ -32,6 +36,12 @@ $a.page(function() {
     * 조회 버튼 액션
     */
 		this.btnStaffRegister = function(e){
+
+var data = $("#staffWrap").getData();
+console.log("[data is] ", data);
+
+return false;
+
       var check = $("#staffWrap").validate();
 
 console.log(" >> ", check);

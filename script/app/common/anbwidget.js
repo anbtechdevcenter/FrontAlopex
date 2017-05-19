@@ -9,14 +9,17 @@ $(function(){
   /**
   * 직급 셀렉트
   */
-  $.widget("ui.rankselect", {
+  $.widget("ui.selectRank", {
     options : {
 
     },
     _create : function(){
+
       var comp = document.createElement('select');
-    //  comp.id = "anbwidget-select";
-      comp.className = "Divselect";
+
+      comp.className = "Select";
+
+    //  comp.className = "Divselect";
       comp.setAttribute("data-bind-option", "rankCode:rankName");
       comp.setAttribute("data-bind","options: rankList, selectedOptions : rankCode");
 
@@ -36,10 +39,42 @@ $(function(){
           });
         });
 
-      return $(this.element).append(comp);
+      return $(this.element).replaceWith(comp).convert();
     }
-  });
+  }); // rankselect end
 
+
+
+  /**
+  * 직급 셀렉트
+  */
+  $.widget("ui.selectProject", {
+    options : {
+
+    },
+    _create : function(){
+
+      var comp = document.createElement('select');
+
+      comp.className = "Select";
+
+    //  comp.className = "Divselect";
+      comp.setAttribute("data-bind-option", "prjId:prjNm");
+      comp.setAttribute("data-bind","options: projectList, selectedOptions : prjId");
+
+      ANBTX.R('/project', function(res){
+        console.log("[project is] ", res);
+
+        res.unshift({"prjId":"", "prjNm": "==선택=="});
+
+          $(comp).setData({
+            projectList: res
+          });
+        });
+
+      return $(this.element).replaceWith(comp).convert();
+    }
+  }); // rankselect end
 
 
 });

@@ -9,11 +9,14 @@
 <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
 
 <script type="text/javascript" src="../script/lib/jquery/jquery-1.10.1.js"></script>
+<script type="text/javascript" src="../script/lib/jquery/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../script/lib/alopex/alopex-ui.min.js"></script>
 <script type="text/javascript" src="../script/lib/alopex/alopex-grid-trial.min.js"></script>
 
 <script type="text/javascript" src="../script/app/common/component-setup.js"></script>
 <script type="text/javascript" src="../script/app/common/common.js"></script>
+
+<script type="text/javascript" src="../script/app/common/anbwidget.js"></script>
 <script type="text/javascript" src="../script/app/staffRegist.js"></script>
 
 <style>
@@ -73,10 +76,13 @@ div {
 
 		<label for="userRank">직급</label>
 		<span data-for="userRank" style="color: red;"></span>
-		<select id="userRank"
+    <div id="userRank"></div>
+<!--
+    <select id="userRank"
 		  data-bind-option="rankCode:rankName"
 			data-bind="options: rankList, selectedOptions : rankCode"
 			data-validation-rule="{required:true, minlength:2}"></select>
+-->
 
 		<input type="submit" value="등록" id="btnStaffRegister">
 </form>
