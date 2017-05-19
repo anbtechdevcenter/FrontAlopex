@@ -9,11 +9,13 @@
 <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
 
 <script type="text/javascript" src="../script/lib/jquery/jquery-1.10.1.js"></script>
+<script type="text/javascript" src="../script/lib/jquery/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../script/lib/alopex/alopex-ui.min.js"></script>
 <script type="text/javascript" src="../script/lib/alopex/alopex-grid-trial.min.js"></script>
 
 <script type="text/javascript" src="../script/app/common/component-setup.js"></script>
 <script type="text/javascript" src="../script/app/common/common.js"></script>
+<script type="text/javascript" src="../script/app/common/anbwidget.js"></script>
 <script type="text/javascript" src="../script/app/staff.js"></script>
 
 <title>직원관리 [작업중]</title>
@@ -27,13 +29,16 @@
 <br/>
 
 <label>직급</label>
-<select data-bind-option="rankCode:rankName"
-	data-bind="options: rankList, selectedOptions : rankCode"></select>
-
+<div id="ranksel"></div>
 <span>
 	[필수 정보]
 	이름, 직급
 </span>
+
+<p>
+
+</p>
+<hr/>
 
 </div>
 

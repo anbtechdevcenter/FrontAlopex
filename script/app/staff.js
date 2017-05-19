@@ -17,6 +17,9 @@ $a.page(function() {
 		function setData(){
 			readRank();
 			readStaff();
+
+			// anbwidget
+			$("#ranksel").rankselect();
 		}
 
 /**
@@ -107,6 +110,13 @@ $a.page(function() {
 		function readRank(){
 			ANBTX.R('/rank', function(res){
 				//console.log("[rank is] ", res);
+				res.sort(function(a, b) {
+					var aRcd = a.rankCode.substr(4,2);
+					var bRcd = b.rankCode.substr(4,2);
+				//	console.log(aRcd+ "" + bRcd , aRcd > bRcd);
+					return aRcd < bRcd ? -1 : aRcd > bRcd ? 1 : 0;
+				});
+
 				res.unshift({"rankCode":"", "rankName": "==선택=="});
 
 				$("#staffWrap").setData({
