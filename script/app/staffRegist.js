@@ -21,6 +21,7 @@ $a.page(function() {
 
 			// anbwidget
 			$("#userRank").selectRank();
+			$("#userProject").selectProject();
 
 		}
 

@@ -46,7 +46,7 @@ $(function(){
 
 
   /**
-  * 직급 셀렉트
+  * 프로젝트 셀렉트
   */
   $.widget("ui.selectProject", {
     options : {
@@ -63,7 +63,7 @@ $(function(){
       comp.setAttribute("data-bind","options: projectList, selectedOptions : prjId");
 
       ANBTX.R('/project', function(res){
-        console.log("[project is] ", res);
+      //  console.log("[project is] ", res);
 
         res.unshift({"prjId":"", "prjNm": "==선택=="});
 
