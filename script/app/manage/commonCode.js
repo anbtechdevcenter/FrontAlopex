@@ -4,7 +4,11 @@
 * @create : 2017-05-18
 *************************************/
 $a.page(function() {
+
+var codeTypeArr = [];
+
 	  this.init = function(id, param) {
+      codeTypeGet();
 			initGrid();
 
 			this.defineEvent();
@@ -17,6 +21,7 @@ $a.page(function() {
 		function setData(){
 			readCodeType();
 
+
       $("#selcodetype").selectCodeType();
 			//
 			var today = moment().format("YYYY-MM-DD");
@@ -26,6 +31,15 @@ $a.page(function() {
 			});
 
 		}
+
+    /**
+    *
+    */
+    function codeTypeGet(){
+      ANBTX.R('/codeType', function(res){
+        codeTypeArr = res;
+      });
+    }
 
 		/**
 		* 이벤트 처리
@@ -109,6 +123,20 @@ $a.page(function() {
         defaultColumnMapping : {
           align : 'center'
         },
+        renderMapping : {
+					"codetype" : {
+						renderer : function(value, data, render, mapping){
+            //  console.log("render " , codeTypeArr);
+              var rtnVal = codeTypeArr.filter(function(val){
+              //  console.log(val);
+               return val.codeType === value;
+              });
+
+            // console.log(" >> " , rtnVal);
+							return rtnVal[0].codeTypeName;
+						}
+					}
+				},
 				columnMapping : [
 					{
 						align : 'center',
@@ -124,7 +152,8 @@ $a.page(function() {
 					}, {
 						key : 'codeType',
 						title : '코드타입',
-						width : '150px'
+						width : '150px',
+            render : {type : "codetype"}
 					}, {
 						key : 'codeId',
 						title : '코드아이디',

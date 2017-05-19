@@ -87,7 +87,7 @@ $a.page(function() {
 								reason : ''
 						});
 						$("#codeTypeNm").focus();
-						
+
 				 	}
 			  );
 		}
