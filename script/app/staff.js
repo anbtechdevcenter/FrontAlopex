@@ -15,12 +15,15 @@ $a.page(function() {
 
 
 		function setData(){
-			readRank();
 			readStaff();
 
 			// anbwidget
 			$("#ranksel").selectRank();
 			$("#projectsel").selectProject();
+			$("#codetypesel").selectCodeType();
+			$("#stafftypesel").selectCommon({type : 'staffType'});
+			$("#workareasel").selectCommon({type : 'workArea'});
+//workareasel
 		}
 
 /**
@@ -84,6 +87,12 @@ $a.page(function() {
 					console.log("[직원] ", res);
 					var gridData = [];
 
+					res.sort(function(a,b) {
+						var aCd = a.rank.rankCode.substr(4,2);
+						var bCd = b.rank.rankCode.substr(4,2);
+						return aCd < bCd ? -1 : aCd > bCd ? 1 :0 ;
+					});
+
 					var selData = $("#staffWrap").getData();
 					//console.log("selData is ", selData);
 					if(selData){
@@ -105,26 +114,6 @@ $a.page(function() {
 		  );
 		}
 
-    /**
-		* 직급 처리
-		*/
-		function readRank(){
-			ANBTX.R('/rank', function(res){
-				//console.log("[rank is] ", res);
-				res.sort(function(a, b) {
-					var aRcd = a.rankCode.substr(4,2);
-					var bRcd = b.rankCode.substr(4,2);
-				//	console.log(aRcd+ "" + bRcd , aRcd > bRcd);
-					return aRcd < bRcd ? -1 : aRcd > bRcd ? 1 : 0;
-				});
-
-				res.unshift({"rankCode":"", "rankName": "==선택=="});
-
-				$("#staffWrap").setData({
-					rankList: res
-				});
-			});
-		}
 
 
 	  //그리드 초기화

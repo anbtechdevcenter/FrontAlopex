@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+<link rel="stylesheet" type="text/css" href="../../css/lib/alopex/alopex-ui-default.css" />
+<link rel="stylesheet" href="http://grid.alopex.io/dist/css/alopex-grid.css" />
+<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+
+<script type="text/javascript" src="../../script/lib/jquery/jquery-1.10.1.js"></script>
+<script type="text/javascript" src="../../script/lib/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../../script/lib/alopex/alopex-ui.min.js"></script>
+<script type="text/javascript" src="../../script/lib/alopex/alopex-grid-trial.min.js"></script>
+
+<!--3rd party libs -->
+<script type="text/javascript" src="../../script/lib/moment/moment.min.js"></script>
+<script type="text/javascript" src="../../script/lib/moment/moment-with-locales.min.js"></script>
+
+<!-- app custom libs -->
+<script type="text/javascript" src="../../script/app/common/component-setup.js"></script>
+<script type="text/javascript" src="../../script/app/common/common.js"></script>
+<script type="text/javascript" src="../../script/app/common/anbwidget.js"></script>
+<script type="text/javascript" src="../../script/app/manage/codeType.js"></script>
+
+<title>코드타입관리 [작업중]</title>
+
+<style>
+body{
+  margin : 10px;
+}
+</style>
+
+</head>
+<body>
+
+<div id="codeTypeWrap">
+
+<label>코드타입명</label>
+<input id="codeTypeNm" class="Textinput" data-bind="value:codeTypeName"/>
+<br/>
+
+<label>코드타입설명</label>
+<textarea class="Textarea" rows="6" cols="40"
+  data-bind="value:reason"></textarea>
+<br/>
+
+<label>등록일자</label>
+<div class="Dateinput" data-format="yyyy-MM-dd">
+    <input data-bind="value:registDate">
+</div>
+<br/>
+
+
+<label>사용여부</label>
+<label class="ImageRadio">
+    <input class="Radio" name="useYnNm" value="Y" data-bind="value:useYn"/> 사용
+</label>
+<label class="ImageRadio">
+    <input class="Radio" name="useYnNm" value="N" data-bind="value:useYn"/> 미사용
+</label>
+<br/>
+
+<p>
+
+</p>
+<hr/>
+
+</div>
+
+
+<div>
+	<button class="Button" id="btnSearch">조회</button>
+	<button class="Button" id="btnRegiste">등록</button>
+	<button class="Button" id="btnDelete">선택삭제</button>
+</div>
+
+
+	<div>
+		<div id="grid"></div>
+	</div>
+</body>
+</html>

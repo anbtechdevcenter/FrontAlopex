@@ -16,7 +16,6 @@ $a.page(function() {
 
 		function setData(){
       $("#staffWrap").validator();
-			readRank();
 			readStaff();
 
 			// anbwidget
@@ -92,19 +91,6 @@ console.log(" >> ", check);
 		  );
 		}
 
-    /**
-		* 직급 처리
-		*/
-		function readRank(){
-			ANBTX.R('/rank', function(res){
-				//console.log("[rank is] ", res);
-				res.unshift({"rankCode":"", "rankName": "==선택=="});
-
-				$("#staffWrap").setData({
-					rankList: res
-				});
-			});
-		}
 
 
 
