@@ -5,13 +5,16 @@ $a.page(function() {
 		 $a.request.setup({
 				url : function(id, param) {
 		           // return  'http://restnfeel.com:8080/api'+ id+'.json'; // $a.request ANP API CAll 1  https://restnfeel.cloud.tyk.io/
-							  return  'https://restnfeel.cloud.tyk.io'+ id+"/";
+							  //return  'https://restnfeel.cloud.tyk.io'+ id+"/";
+								 return  'http://localhost:8080/api'+ id+'.json';
 			    }, //서버 URL
-				contentType: 'application/json; charset=utf-8',
-				dataType : 'json',
+				requestHeaders: {
+					'Content-Type' : 'application/json; charset=UTF-8'
+				},
 				method : 'GET',
 				before : function(id, option) {
-          //this.requestHeaders["Content-Type"] ="application/json; charset=UTF-8"; // 위와 같이 컨텐츠타입 지정하도록 변경
+          //this.requestHeaders["Content-Type"] ="application/json; charset=UTF-8";
+
 					$('body').progress(); //progress bar 시작
 				},
 

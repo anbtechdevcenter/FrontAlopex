@@ -4,6 +4,11 @@
 * @create : 2017-05-18
 *************************************/
 $a.page(function() {
+
+	var gridId = "#grid",
+		wrapId = "#codeTypeWrap";
+
+
 	  this.init = function(id, param) {
 			initGrid();
 
@@ -20,7 +25,7 @@ $a.page(function() {
 			//
 			var today = moment().format("YYYY-MM-DD");
 			//console.log(today);
-			$("#codeTypeWrap").setData({
+			$(wrapId).setData({
 				registDate : today
 			});
 
@@ -33,19 +38,32 @@ $a.page(function() {
 			$("#btnSearch").on("click", this.btnSearch);
 			$("#btnRegiste").on("click", this.btnRegiste);
 			$("#btnDelete").on("click", this.btnDelete);
+			$("#btnUpdate").on("click", this.btnUpdate);
+
+			$(gridId).on("dataSelect", this.gridSelect);
 		};
+
+		/**
+		* 그리드 선택시 해당 값들을 세터 처리
+		*/
+		this.gridSelect = function(event){
+			var selObj = AlopexGrid.parseEvent(event);
+			var data = selObj.datalist[0];
+			//console.log("[select is ] ", data);
+			$(wrapId).setData(data);
+		}
 
 		/*
 		* 직원삭제
 		*/
 		this.btnDelete = function(){
 			var check = confirm("삭제하시겠습니까?");
-			var selData = $("#grid").alopexGrid("dataGet", {_state :{selected:true}});
+			var selData = selectedGridData();
 			console.log("seldata ", selData);
-			if(check && selData.length>0){
+			if(check){
 
-				var userId = AlopexGrid.trimData(selData[0]).codeType;
-
+				var userId = selData.codeType;
+console.log(">> ", userId);
 				ANBTX.D('/codeType/'+userId, function(res){
 					readCodeType();
 				});
@@ -68,6 +86,29 @@ $a.page(function() {
 					readCodeType();
 				});
 		};
+
+		/**
+		* 코드타입 수정
+		*/
+		this.btnUpdate = function(){
+			var data = $(wrapId).getData();
+
+			console.log("", data);
+
+			ANBTX.U("/codeType", wrapId, function(){
+				readCodeType();
+			});
+		};
+
+		/**
+		* 선택한 그리드의 데이터 값을 반환
+		* single selection 에 대한 처리만 담당.
+		*/
+		function selectedGridData(){
+			var seldata = $(gridId).alopexGrid("dataGet", {_state :{selected:true}})[0];
+			//console.log("[선택 값] ", seldata);
+			return seldata;
+		}
 
 
     /*
@@ -114,7 +155,7 @@ $a.page(function() {
 						width : '20px',
 					}, {
 						key : 'codeTypeName',
-						title : '코드타입',
+						title : '코드타입명',
 						width : '150px'
 					}, {
 						key : 'useYn',
