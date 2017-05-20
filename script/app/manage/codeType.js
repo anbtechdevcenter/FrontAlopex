@@ -81,10 +81,18 @@ console.log(">> ", userId);
 		* 코드타입 등록
 		*/
 		this.btnRegiste = function(){
-				var data = $("#codeTypeWrap").getData();
-				ANBTX.C("/codeType", data, function(res){
-					readCodeType();
-				});
+			 $a.popup({
+				 url : "/html/manage/popup/codeTypePopup.html",
+				 title : '코드타입 등록',
+				 callback : function(res){
+					 console.log("res " , res);
+					 if(res=="success"){
+						 readCodeType();
+					 }
+
+				 }
+			 });
+
 		};
 
 		/**
@@ -95,7 +103,9 @@ console.log(">> ", userId);
 
 			console.log("", data);
 
-			ANBTX.U("/codeType", wrapId, function(){
+			ANBTX.U("/codeType",
+			data
+			, function(){
 				readCodeType();
 			});
 		};
@@ -146,7 +156,7 @@ console.log(">> ", userId);
 						align : 'center',
 						selectorColumn : true,
 						title: '선택',
-						width : '20px',
+						width : '35px',
 					},
 					{
 						align : 'center',

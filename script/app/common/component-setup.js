@@ -5,8 +5,8 @@ $a.page(function() {
 		 $a.request.setup({
 				url : function(id, param) {
 		           // return  'http://restnfeel.com:8080/api'+ id+'.json'; // $a.request ANP API CAll 1  https://restnfeel.cloud.tyk.io/
-							  //return  'https://restnfeel.cloud.tyk.io'+ id+"/";
-								 return  'http://localhost:8080/api'+ id+'.json';
+							  return  'https://restnfeel.cloud.tyk.io'+ id+"/";
+								// return  'http://localhost:8080/api'+ id+'.json';
 			    }, //서버 URL
 				requestHeaders: {
 					'Content-Type' : 'application/json; charset=UTF-8'
