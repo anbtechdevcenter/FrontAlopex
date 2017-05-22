@@ -41,7 +41,7 @@ var codeTypeArr = [];
     function codeTypeGet(){
       ANBTX.R('/codeType', function(res){
         codeTypeArr = res;
-      }, true);
+      }, false);
     }
 
 		/**
