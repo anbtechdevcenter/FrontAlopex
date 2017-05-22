@@ -79,6 +79,9 @@ $a.page(function() {
 		*/
 		this.btnUpdate = function(){
 			var data = $(wrapId).getData();
+			// 수정일자 넣어주기
+			var today = moment().format("YYYY-MM-DD");
+			data.updateDate = today;
 			ANBTX.U("/codeType", data, function(){
 				$a.close('success');
 			});
