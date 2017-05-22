@@ -21,7 +21,7 @@ var codeTypeArr = [];
 		function setData(){
 			readCodeType();
 
-
+			// 코드타입 셀력트를 만드는 파사트 유틸함수
       $("#selcodetype").selectCodeType();
 			//
 			var today = moment().format("YYYY-MM-DD");
@@ -33,7 +33,9 @@ var codeTypeArr = [];
 		}
 
     /**
-    *
+    * @constructor 코드타입 데이터 조회하기
+		* 그리드의 코드타입이 코드로 불려지기때문에
+		* 한글명으로 코드명을 보여주기 위한 로딩.
     */
     function codeTypeGet(){
       ANBTX.R('/codeType', function(res){
@@ -92,7 +94,7 @@ var codeTypeArr = [];
 
 
     /*
-    * 코드 타입조회
+    * 공통 코드조회
     */
 		function readCodeType(){
 
