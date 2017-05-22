@@ -31,8 +31,8 @@ $a.page(function() {
 				// 수정인 경우 넘겨온 데이터 받기
 				$(btnCId).hide();
 				seqId = param.seqBoard;
-				$(wrapId).setData(param);
 			}
+			$(wrapId).setData(param);
 		}
 
 		/**
@@ -58,39 +58,64 @@ $a.page(function() {
 		* 게시글 등록
 		*/
 		this.btnRegiste = function(){
-				var data = $(wrapId).getData();
-				data.regEmpId = 'testid';
-				data.regEmpNm = 'test유저';
-
-				ANBTX.C("/board", data, function(res){
-					$a.close('success');
-				});
+			transactionAction('C');
 		};
 
 		/*
 		* 게시글 수정
 		*/
 		this.btnUpdate = function(){
-			var data = $(wrapId).getData();
-			data.seqBoard = seqId;
-			data.regEmpId = 'testid';
-			data.regEmpNm = 'test유저';
-			console.log(data);
-			ANBTX.U("/board", data, function(){
-				$a.close('success');
-			});
+			transactionAction('U');
 		};
 
 		/*
 		* 게시글 삭제
 		*/
 		this.btnDelete = function(){
-			var pid = '/board/'+seqId;
-			var data = {};
-			ANBTX.U(pid, data, function(){
-				$a.close('success');
-			});
+			transactionAction('D');
 		};
 
+		/*
+		* transaction 에 대한 공통함수
+		  action : C - 등록
+			         U - 수정
+							 D - 삭제
+		*/
+		function transactionAction(action){
+			var msg = ''
+				, pId = ''
+				, data = $(wrapId).getData()
+				, pdata = {};
+			data.regEmpId = 'testid';
+			data.regEmpNm = 'test유저';
+
+			if(action == 'C'){
+				msg = '등록완료되었습니다.';
+				pid = '/board';
+				ANBTX.C(pid, data, function(res){
+					alert(msg);
+					$a.close('success');
+				});
+			}	else if(action == 'U'){
+				msg = '수정완료되었습니다.';
+				data.seqBoard = seqId;
+				data.registDate = moment().format("YYYY-MM-DD");
+				pid = '/board';
+				// pdata.registDate = moment().format("YYYY-MM-DD")
+				// $("#txtDate").setData(pdata)
+				ANBTX.U(pid, data, function(){
+					alert(msg);
+					$a.close('success');
+				});
+			} else if(action == 'D'){
+				msg = '삭제완료되었습니다.';
+				pid = '/board/'+seqId;
+				ANBTX.D(pid, function(){
+					alert(msg);
+					$a.close('success');
+				});
+			}
+
+		}
 
 });

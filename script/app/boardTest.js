@@ -20,7 +20,7 @@ $a.page(function() {
 		}
 
 /**
-* 이벤트 처리 
+* 이벤트 처리
 */
 		this.defineEvent = function(){
 			$("#btnSearch").on("click", this.btnSearch);
@@ -68,7 +68,8 @@ $a.page(function() {
 		* 게시글 조회
 		*/
 		this.grid_dblClick = function(){
-			openPopup('R');
+			var sdata = $("#grid1").alopexGrid("dataGet", {_state :{selected:true}});
+			if(sdata.length > 0) openPopup('R');
 		};
 
 		/*
@@ -86,7 +87,6 @@ $a.page(function() {
 				var sdata = $("#grid1").alopexGrid("dataGet", {_state :{selected:true}});
 				data = sdata[0];
 				data.type = type;
-				data.typlog(data);
 				title = '글 수정(추후 글 조회 및 버튼을 이용하여 수정기능 반영필요)';
 			}
 			var popupUrl = "/html/manage/popup/boardWriterPopup.html";
@@ -109,33 +109,15 @@ $a.page(function() {
 	  function initGrid() {
 			$('#grid1').alopexGrid({
         defaultColumnMapping : {
-          align : 'center',
-					rowSingleSelect : true,
+          align : 'center'
         },
 				columnMapping : [
-					{
-						align : 'center',
-						numberingColumn : true,
-						title: 'No',
-						width : '20px',
-					},
-					{
-						key : 'boardTitle',
-						title: '제목',
-						width : '100px',
-					}, {
-						key : 'regEmpNm',
-						title : '작성자',
-						width : '40px',
-					}, {
-						key : 'registDate',
-						title : '작성일',
-						width : '40px'
-					}, {
-						key : 'regEmpId',
-						title : '작성자ID',
-						hidden : true
-					}
+					{ align : 'center', numberingColumn : true, title: 'No', width : '20px' },
+					{ key : 'boardTitle', title: '제목', width : '100px' },
+					{ key : 'regEmpNm', title : '작성자', width : '40px', },
+					{ key : 'registDate', title : '작성일', width : '40px' },
+					{ key : 'regEmpId', title : '작성자ID', hidden : true },
+					{ key : 'seqBoard', title : 'seqBoard', hidden : true }
 				]
 			});
 	  }
