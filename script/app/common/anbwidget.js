@@ -138,6 +138,10 @@ $(function(){
           keyword = "COD_2017051911095827";
           selectedCd = "workCd";
           break;
+          case "team" :
+            keyword = "COD_2017051917305250";
+            selectedCd = "teamCd";
+            break;
         default:
 
       }
@@ -146,7 +150,7 @@ $(function(){
 
 
       ANBTX.R('/codeCommon', function(res){
-      //  console.log("[project is] ", res);
+        //console.log("[commonSel is] ", res);
       var vals = res.filter(function(val){
 
         return val.codeType === keyword;

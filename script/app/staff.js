@@ -23,6 +23,7 @@ $a.page(function() {
 			$("#codetypesel").selectCodeType();
 			$("#stafftypesel").selectCommon({type : 'staffType'});
 			$("#workareasel").selectCommon({type : 'workArea'});
+			$("#teamsel").selectCommon({type : 'team'});
 //workareasel
 		}
 
