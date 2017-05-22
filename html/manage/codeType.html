@@ -18,23 +18,20 @@ body{
 </head>
 <body>
 
-<div id="codeTypeWrap">
+
+  <div>
+  	<button class="Button" id="btnSearch">조회</button>
+    <button class="Button" id="btnUpdate">수정</button>
+  	<button class="Button" id="btnRegiste">등록</button>
+  	<button class="Button" id="btnDelete">선택삭제</button>
+  </div>
+
+
+<div id="codeTypeWrap" style="margin-top:15px;">
 
 <label>코드타입명</label>
 <input id="codeTypeNm" class="Textinput" data-bind="value:codeTypeName"/>
 <br/>
-
-<label>코드타입설명</label>
-<textarea class="Textarea" rows="6" cols="40"
-  data-bind="value:reason"></textarea>
-<br/>
-
-<label>등록일자</label>
-<div class="Dateinput" data-format="yyyy-MM-dd">
-    <input data-bind="value:registDate">
-</div>
-<br/>
-
 
 <label>사용여부</label>
 <label class="ImageRadio">
@@ -53,11 +50,6 @@ body{
 </div>
 
 
-<div>
-	<button class="Button" id="btnSearch">조회</button>
-	<button class="Button" id="btnRegiste">등록</button>
-	<button class="Button" id="btnDelete">선택삭제</button>
-</div>
 
 
 	<div>

@@ -6,7 +6,8 @@
 $a.page(function() {
 
 	var gridId = "#grid",
-		wrapId = "#codeTypeWrap";
+		wrapId = "#codeTypeWrap",
+		popupUrl = "/html/manage/popup/codeTypePopup.html";
 
 
 	  this.init = function(id, param) {
@@ -59,11 +60,11 @@ $a.page(function() {
 		this.btnDelete = function(){
 			var check = confirm("삭제하시겠습니까?");
 			var selData = selectedGridData();
-			console.log("seldata ", selData);
+	//		console.log("seldata ", selData);
 			if(check){
 
 				var userId = selData.codeType;
-console.log(">> ", userId);
+//console.log(">> ", userId);
 				ANBTX.D('/codeType/'+userId, function(res){
 					readCodeType();
 				});
@@ -81,13 +82,16 @@ console.log(">> ", userId);
 		* 코드타입 등록
 		*/
 		this.btnRegiste = function(){
-			 $a.popup({
-				 url : "/html/manage/popup/codeTypePopup.html",
+			var pops =  $a.popup({
+				 url : popupUrl,
 				 title : '코드타입 등록',
+				 data : {'type' : 'C'},
 				 callback : function(res){
 					 console.log("res " , res);
 					 if(res=="success"){
 						 readCodeType();
+						 //console.log("[pops] " , pops);
+						 $(pops).close();
 					 }
 
 				 }
@@ -99,15 +103,31 @@ console.log(">> ", userId);
 		* 코드타입 수정
 		*/
 		this.btnUpdate = function(){
-			var data = $(wrapId).getData();
+			var seldata = selectedGridData();
 
-			console.log("", data);
+		//	console.log("[seldata] ", seldata);
+			if(seldata === undefined){
+				alert("수정하고자 하는 데이터를 먼저 선택하십시오!");
+				return false;
+			}else{
+				var sdata = seldata.type = "U";
+				var pops =  $a.popup({
+					 url : popupUrl,
+					 title : '코드타입 수정',
+					 data : seldata,
+					 callback : function(res){
+						 //console.log("res " , res);
+						 if(res=="success"){
+							 readCodeType();
+							 //console.log("[pops] " , pops);
+							 $(pops).close();
+						 }
 
-			ANBTX.U("/codeType",
-			data
-			, function(){
-				readCodeType();
-			});
+					 }
+				 });
+			}
+
+
 		};
 
 		/**
@@ -134,8 +154,7 @@ console.log(">> ", userId);
 				 		$('#grid').alopexGrid("dataSet", gridData);
 
 						$("#codeTypeWrap").setData({
-								codeTypeName : '',
-								reason : ''
+								codeTypeName : ''
 						});
 						$("#codeTypeNm").focus();
 

@@ -6,26 +6,41 @@
 $a.page(function() {
 
 	var gridId = "#grid",
-		wrapId = "#codeTypeWrap";
-
+		wrapId = "#codeTypeWrap",
+		callType = 'C',
+		btnCId = "#btnRegiste",
+		btnUId = "#btnUpdate";
 
 	  this.init = function(id, param) {
 
+			callType = param.type;
+
+	//		console.log("call Type ", callType, param);
+
 			this.defineEvent();
 
-			setData();
+			setData(param);
 
 	  };
 
 
-		function setData(){
+		function setData(param){
 
-			//
-			var today = moment().format("YYYY-MM-DD");
-			//console.log(today);
-			$(wrapId).setData({
-				registDate : today
-			});
+			if(callType=='C'){
+				// 등록인 경우
+				var today = moment().format("YYYY-MM-DD");
+				param.registDate = today;
+
+
+
+			}else{
+				// 수정인 경우 넘겨온 데이터 받기
+
+				// C인경우 hide
+				$(btnCId).hide();
+			}
+
+			$(wrapId).setData(param);
 
 		}
 
@@ -34,7 +49,8 @@ $a.page(function() {
 		*/
 		this.defineEvent = function(){
 			$("#btnClose").on("click", this.btnClose);
-			$("#btnRegiste").on("click", this.btnRegiste);
+			$(btnCId).on("click", this.btnRegiste);
+			$(btnUId).on("click", this.btnUpdate);
 
 		};
 
@@ -51,13 +67,22 @@ $a.page(function() {
 		* 코드타입 등록
 		*/
 		this.btnRegiste = function(){
-				var data = $("#codeTypeWrap").getData();
+				var data = $(wrapId).getData();
 
 				ANBTX.C("/codeType", data, function(res){
 					$a.close('success');
 				});
 		};
 
+		/*
+		* 코드타입 수정
+		*/
+		this.btnUpdate = function(){
+			var data = $(wrapId).getData();
+			ANBTX.U("/codeType", data, function(){
+				$a.close('success');
+			});
+		};
 
 
 
