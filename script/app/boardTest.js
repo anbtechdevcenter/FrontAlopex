@@ -16,7 +16,6 @@ $a.page(function() {
 
 
 		function setData(){
-			readRank();
 			readBoard();
 		}
 
@@ -40,28 +39,20 @@ $a.page(function() {
     * 직원조회
     */
 		function readBoard(){
-			console.log('nm ::' + $('#nm').val());
-			///var apiId = 'board'
-			var apiId = (($('#nm').val().length == 0) ? '/board' : '/board/'+$('#nm').val());
-			console.log('apiId :: ' + apiId);
+
+			var apiId = '/board';
 			ANBTX.R(apiId,
 			 	function(res){
-			 		$('#grid_board').alopexGrid("dataSet", res);
+			 		if($('#nm').val().length != 0){
+						var result = res.filter(function(item){
+							return item.regEmpNm === $('#nm').val();
+						});
+						$('#grid_board').alopexGrid("dataSet", result);
+					}else{
+						$('#grid_board').alopexGrid("dataSet", res);
+					}
 			 	}
 		  );
-		}
-
-    /**
-		* 직급 조회
-		*/
-		function readRank(){
-			ANBTX.R('/rank', function(res){
-				console.log("[rank is] ", res);
-				$("#staffWrap").setData({
-					rankList: res
-				});
-
-			});
 		}
 
 
