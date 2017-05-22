@@ -4,13 +4,21 @@ $a.page(function() {
 		  //a.request.setup은 모든 reqeust에 공통으로 사용되므로 통신을 여러 번 사용하는 프로젝트에서는 각 페이지에서 정의하지 않고 common.js 같은 파일에 따로 작성하여 사용하시면 됩니다.
 		 $a.request.setup({
 				url : function(id, param) {
+<<<<<<< HEAD
 		           return  'https://restnfeel.cloud.tyk.io'+ id+"/";
+=======
+		           // return  'http://restnfeel.com:8080/api'+ id+'.json'; // $a.request ANP API CAll 1  https://restnfeel.cloud.tyk.io/
+							  return  'https://restnfeel.cloud.tyk.io'+ id+"/";
+								// return  'http://localhost:8080/api'+ id+'.json';
+>>>>>>> 72d6212cccc55b7e0efddf2724d46308b6588fca
 			    }, //서버 URL
-				contentType: 'application/json; charset=utf-8',
-				dataType : 'json',
+				requestHeaders: {
+					'Content-Type' : 'application/json; charset=UTF-8'
+				},
 				method : 'GET',
 				before : function(id, option) {
-          //this.requestHeaders["Content-Type"] ="application/json; charset=UTF-8"; // 위와 같이 컨텐츠타입 지정하도록 변경
+          //this.requestHeaders["Content-Type"] ="application/json; charset=UTF-8";
+
 					$('body').progress(); //progress bar 시작
 				},
 
