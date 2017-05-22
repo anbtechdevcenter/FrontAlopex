@@ -2,21 +2,30 @@
 <html>
 <head>
   <!-- html5 방식 -->
-  <link rel="import" href="../header/header.html">
+  <link rel="import" href="/html/header/header.html">
 
   <!-- 업무화면 소스 -->
-<script type="text/javascript" src="../../script/app/manage/commonCode.js"></script>
+<script type="text/javascript" src="/script/app/manage/commonCode.js"></script>
 
 <title>공통코드관리 [작업중]</title>
 
-<style>
-body{
-  margin : 10px;
-}
-</style>
-
 </head>
 <body>
+
+  <div id="wrapper">
+
+    <div w3-include-html="/html/header/navi.html"></div>
+
+      <div id="page-wrapper">
+          <div class="row">
+              <div class="col-lg-12">
+                  <h1 class="page-header">공통코드 관리</h1>
+              </div>
+              <!-- /.col-lg-12 -->
+          </div>
+          <!-- /.row -->
+          <div class="row">
+              <div class="col-lg-12">
 
 <div id="codeTypeWrap">
 
@@ -63,5 +72,10 @@ body{
 	<div>
 		<div id="grid"></div>
 	</div>
+
+</div>
+</div>
+</div>
+
 </body>
 </html>
