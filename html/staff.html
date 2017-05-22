@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<!-- html5 방식 -->
+<link rel="import" href="header/header.html">
 
-<link rel="stylesheet" type="text/css" href="../css/lib/alopex/alopex-ui-default.css" />
-<link rel="stylesheet" href="http://grid.alopex.io/dist/css/alopex-grid.css" />
-<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
-
-<script type="text/javascript" src="../script/lib/jquery/jquery-1.10.1.js"></script>
-<script type="text/javascript" src="../script/lib/alopex/alopex-ui.min.js"></script>
-<script type="text/javascript" src="../script/lib/alopex/alopex-grid-trial.min.js"></script>
-
-<script type="text/javascript" src="../script/app/common/component-setup.js"></script>
-<script type="text/javascript" src="../script/app/common/common.js"></script>
+<!-- 업무화면 소스 -->
 <script type="text/javascript" src="../script/app/staff.js"></script>
 
 <title>직원관리 [작업중]</title>
@@ -26,9 +17,45 @@
 <input data-bind="value:empNm"/>
 <br/>
 
-<label>직급</label>
-<select data-bind-option="rankCode:rankName"
-	data-bind="options: rankList, selectedOptions : rankCode"></select>
+<br/>
+<ul>
+	<li>
+		<label>직급</label>
+		<div id="ranksel" ></div>
+	</li>
+
+	<li>
+		<label>Project</label>
+		<div id="projectsel" ></div>
+	</li>
+
+	<li>
+		<label>CodeType</label>
+		<div id="codetypesel" ></div>
+	</li>
+
+	<li>
+		<label>직원유형</label>
+		<div id="stafftypesel" ></div>
+	</li>
+
+	<li>
+		<label>근무지역</label>
+		<div id="workareasel" ></div>
+	</li>
+
+	<li>
+		<label>팀</label>
+		<div id="teamsel" ></div>
+	</li>
+
+</ul>
+</br>
+
+<p>
+
+</p>
+<hr/>
 
 </div>
 
@@ -36,11 +63,15 @@
 <div>
 	<button class="Button" id="btnTest">바인딩</button>
 	<button class="Button" id="btnSearch">직원조회</button>
+	<button class="Button" id="btnStaffRegister">직원등록</button>
+	<button class="Button" id="btnStaffDelete">선택삭제</button>
 </div>
 
 
 	<div>
 		<div id="grid_staff"></div>
 	</div>
+
+
 </body>
 </html>

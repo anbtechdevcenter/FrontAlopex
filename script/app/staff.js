@@ -1,32 +1,60 @@
 /*********************************
 * 직원관리
+* @author : anbtechdevcenter
+* @create : 2017-05-18
 *************************************/
 $a.page(function() {
 	  this.init = function(id, param) {
-		//ctrl+c 서버 멈춤, npm start
-		//그리드 초기화
-		  /* 김수한 과장 작업 */
-		initGrid();
+			initGrid();
 
-		this.defineEvent();
+			this.defineEvent();
 
-		setData();
+			setData();
 
 	  };
 
 
 		function setData(){
-			readRank();
 			readStaff();
+
+			// anbwidget
+			$("#ranksel").selectRank();
+			$("#projectsel").selectProject();
+			$("#codetypesel").selectCodeType();
+			$("#stafftypesel").selectCommon({type : 'staffType'});
+			$("#workareasel").selectCommon({type : 'workArea'});
+			$("#teamsel").selectCommon({type : 'team'});
+//workareasel
 		}
 
 /**
 * 이벤트 처리 1234
 */
 		this.defineEvent = function(){
-			$("#btnSearch").on("click", this.btnSearch);
 			$("#btnTest").on("click", this.btnTest);
+
+			$("#btnSearch").on("click", this.btnSearch);
+			$("#btnStaffRegister").on("click", this.btnStaffRegister);
+			$("#btnStaffDelete").on("click", this.btnStaffDelete);
 		};
+
+		/*
+		* 직원삭제
+		*/
+		this.btnStaffDelete = function(){
+			var check = confirm("삭제하시겠습니까?");
+			var selData = $("#grid_staff").alopexGrid("dataGet", {_state :{selected:true}});
+			console.log("seldata ", selData);
+			if(check && selData.length>0){
+
+				var userId = AlopexGrid.trimData(selData[0]).empId;
+
+				ANBTX.D('/employee/'+userId, function(res){
+					readStaff();
+				});
+			}
+		}
+
 
 		/*
 		* 테스트
@@ -43,6 +71,13 @@ $a.page(function() {
 			readStaff();
 		};
 
+		this.btnStaffRegister = function(){
+			$a.popup({
+				title : '직원등록',
+				url : 'staffRegist.html'
+			});
+		};
+
 
     /*
     * 직원조회
@@ -50,24 +85,36 @@ $a.page(function() {
 		function readStaff(){
 			ANBTX.R('/employee',
 			 	function(res){
+					console.log("[직원] ", res);
+					var gridData = [];
 
-			 		$('#grid_staff').alopexGrid("dataSet", res);
+					res.sort(function(a,b) {
+						var aCd = a.rank.rankCode.substr(4,2);
+						var bCd = b.rank.rankCode.substr(4,2);
+						return aCd < bCd ? -1 : aCd > bCd ? 1 :0 ;
+					});
+
+					var selData = $("#staffWrap").getData();
+					//console.log("selData is ", selData);
+					if(selData){
+						if(selData.rankCode!=""){
+						//	console.log("[1] ", selData.rankCode);
+							gridData = res.filter(function(val){
+								//console.log("[val us ] ", val);
+								return val.rank.rankCode === selData.rankCode;
+							});
+						}else{
+							gridData = res;
+						}
+
+
+					}
+
+			 		$('#grid_staff').alopexGrid("dataSet", gridData);
 			 	}
 		  );
 		}
 
-    /**
-		* 직급 조회
-		*/
-		function readRank(){
-			ANBTX.R('/rank', function(res){
-				console.log("[rank is] ", res);
-				$("#staffWrap").setData({
-					rankList: res
-				});
-
-			});
-		}
 
 
 	  //그리드 초기화
@@ -98,7 +145,11 @@ $a.page(function() {
 						title : '직급',
 						width : '30px',
             render : function(value, data, render, mapping, grid){
-              return value.rankName;
+							var rankName = "";
+							if(value){
+								rankName = value.rankName;
+							}
+              return rankName;
             }
 					}, {
 						key : 'team',
