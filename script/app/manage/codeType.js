@@ -11,6 +11,10 @@ $a.page(function() {
 
 
 	  this.init = function(id, param) {
+
+			// 인클루드 처리를 위한 내용
+			w3.includeHTML();
+
 			initGrid();
 
 			this.defineEvent();
@@ -41,18 +45,9 @@ $a.page(function() {
 			$("#btnDelete").on("click", this.btnDelete);
 			$("#btnUpdate").on("click", this.btnUpdate);
 
-			$(gridId).on("dataSelect", this.gridSelect);
 		};
 
-		/**
-		* 그리드 선택시 해당 값들을 세터 처리
-		*/
-		this.gridSelect = function(event){
-			var selObj = AlopexGrid.parseEvent(event);
-			var data = selObj.datalist[0];
-			//console.log("[select is ] ", data);
-			$(wrapId).setData(data);
-		}
+
 
 		/*
 		* 직원삭제
@@ -115,6 +110,8 @@ $a.page(function() {
 					 url : popupUrl,
 					 title : '코드타입 수정',
 					 data : seldata,
+					 width : 350,
+					 height : 400,
 					 callback : function(res){
 						 //console.log("res " , res);
 						 if(res=="success"){

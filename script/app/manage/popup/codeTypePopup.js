@@ -12,11 +12,12 @@ $a.page(function() {
 		btnUId = "#btnUpdate";
 
 	  this.init = function(id, param) {
+<<<<<<< HEAD
 console.log('111');
+=======
+>>>>>>> 42348b03407c4f6df4c50b30bb3e00708001a831
 			callType = param.type;
-
 	//		console.log("call Type ", callType, param);
-
 			this.defineEvent();
 
 			setData(param);
@@ -79,6 +80,9 @@ console.log('111');
 		*/
 		this.btnUpdate = function(){
 			var data = $(wrapId).getData();
+			// 수정일자 넣어주기
+			var today = moment().format("YYYY-MM-DD");
+			data.updateDate = today;
 			ANBTX.U("/codeType", data, function(){
 				$a.close('success');
 			});

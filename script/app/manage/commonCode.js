@@ -8,6 +8,9 @@ $a.page(function() {
 var codeTypeArr = [];
 
 	  this.init = function(id, param) {
+			// 인클루드 처리를 위한 내용
+			w3.includeHTML();
+
       codeTypeGet();
 			initGrid();
 
@@ -38,7 +41,7 @@ var codeTypeArr = [];
     function codeTypeGet(){
       ANBTX.R('/codeType', function(res){
         codeTypeArr = res;
-      });
+      }, false);
     }
 
 		/**

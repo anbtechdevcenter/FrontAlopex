@@ -1,77 +1,88 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<!-- html5 방식 -->
-<link rel="import" href="header/header.html">
+		<!-- html5 방식 -->
+		<link rel="import" href="/html/header/header.html">
 
-<!-- 업무화면 소스 -->
-<script type="text/javascript" src="../script/app/staff.js"></script>
+		<!-- 업무소스 -->
+		<script type="text/javascript" src="/script/app/staff.js"></script>
 
-<title>직원관리 [작업중]</title>
+
+		<title>FrontAlopex by ANBTECH</title>
 </head>
+
 <body>
 
-<div id="staffWrap">
+<div w3-include-html="/html/layout/top.html"></div>
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">직원현황</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-user fa-fw"></i> 직원현황
+                    </div>
+                    <!-- /.panel-heading -->
 
-<label>이름</label>
-<input data-bind="value:empNm"/>
-<br/>
+        <!-- /.row -->
 
-<br/>
-<ul>
-	<li>
-		<label>직급</label>
-		<div id="ranksel" ></div>
-	</li>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+<!-- /.panel-heading -->
 
-	<li>
-		<label>Project</label>
-		<div id="projectsel" ></div>
-	</li>
+													<div id="staffWrap">
 
-	<li>
-		<label>CodeType</label>
-		<div id="codetypesel" ></div>
-	</li>
+													<label>이름</label>
+													<input data-bind="value:empNm"/>
+													<label>직급</label>
+													<div id="ranksel" ></div>
 
-	<li>
-		<label>직원유형</label>
-		<div id="stafftypesel" ></div>
-	</li>
+													<label>Project</label>
+													<div id="projectsel" ></div>
 
-	<li>
-		<label>근무지역</label>
-		<div id="workareasel" ></div>
-	</li>
+													<label>CodeType</label>
+													<div id="codetypesel" ></div>
 
-	<li>
-		<label>팀</label>
-		<div id="teamsel" ></div>
-	</li>
+													<label>직원유형</label>
+													<div id="stafftypesel" ></div>
 
-</ul>
-</br>
+													<label>근무지역</label>
+													<div id="workareasel" ></div>
+													<label>팀</label>
+													<div id="teamsel" ></div>
+													<p>
 
-<p>
-
-</p>
-<hr/>
-
-</div>
-
-
-<div>
-	<button class="Button" id="btnTest">바인딩</button>
-	<button class="Button" id="btnSearch">직원조회</button>
-	<button class="Button" id="btnStaffRegister">직원등록</button>
-	<button class="Button" id="btnStaffDelete">선택삭제</button>
-</div>
+													</p>
+													</div>
+													<div>
+														<button class="Button" id="btnTest">바인딩</button>
+														<button class="Button" id="btnSearch">직원조회</button>
+														<button class="Button" id="btnStaffRegister">직원등록</button>
+														<button class="Button" id="btnStaffDelete">선택삭제</button>
+													</div>
 
 
-	<div>
-		<div id="grid_staff"></div>
-	</div>
+														<div>
+															<div id="grid_staff"></div>
+														</div>
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+<div w3-include-html="/html/layout/bottom.html"></div>
 
 
 </body>
+
 </html>
