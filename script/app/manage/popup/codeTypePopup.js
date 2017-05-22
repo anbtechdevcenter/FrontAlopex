@@ -12,11 +12,8 @@ $a.page(function() {
 		btnUId = "#btnUpdate";
 
 	  this.init = function(id, param) {
-
 			callType = param.type;
-
 	//		console.log("call Type ", callType, param);
-
 			this.defineEvent();
 
 			setData(param);
