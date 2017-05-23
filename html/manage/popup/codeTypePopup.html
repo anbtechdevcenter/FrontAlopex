@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-
   <!-- 업무화면 소스 -->
 <script type="text/javascript" src="/script/app/manage/popup/codeTypePopup.js"></script>
-
-
 <title>직원등록 [작업중]</title>
 </head>
 <body>
 
+<div id="codeTypePopWrap">
 
-<div id="codeTypeWrap" class="padding_tb5p_lr10p">
-  <div>
-    <label class="margin_r10">코드타입명 </label>
-    <input id="codeType" type="hidden" class="Textinput" data-bind="value:codeType"/>
-    <input id="codeTypeNm" type="text" class="Textinput" data-bind="value:codeTypeName" style="width:192px;"/>
+  <label>코드타입명</label>
+  <input id="codeType" type="hidden" class="Textinput" data-bind="value:codeType"/>
+  <input id="codeTypeNm" type="text" class="Textinput" data-bind="value:codeTypeName"/>
+ <br/>
+
+  <label>코드타입설명</label>
+  <textarea class="Textarea" rows="6" cols="40"
+    data-bind="value:reason"></textarea>
+<br/>
+
+  <label>등록일자</label>
+  <div class="Dateinput" data-format="yyyy-MM-dd">
+      <input data-bind="value:registDate">
   </div>
-  <div class="margin_tb10">
-    <label>코드타입설명</label>
-      <textarea class="Textarea" rows="6" cols="40" data-bind="value:reason"></textarea>
-  </div>
-  <div class="margin_tb10 line_h25px">
-    <label>등록일자</label>
-    <div class="Dateinput" data-format="yyyy-MM-dd">
-        <input data-bind="value:registDate">
-    </div>
-    <div>
-    <label>사용여부</label>
-    <label class="ImageRadio">
-        <input class="Radio" name="useYnNm" value="Y" data-bind="checked:useYn"/><span class="margin_l5"> 사용</span>
-    </label>
-    <label class="ImageRadio">
-        <input class="Radio" name="useYnNm" value="N" data-bind="checked:useYn"/> <span class="margin_l5">미사용</span>
-    </label>
-  </div>
+<br/>
+
+
+  <label>사용여부</label>
+  <label class="ImageRadio">
+      <input class="Radio" name="useYnNm" value="Y" data-bind="checked:useYn"/> 사용
+  </label>
+  <label class="ImageRadio">
+      <input class="Radio" name="useYnNm" value="N" data-bind="checked:useYn"/> 미사용
+  </label>
+<br/>
+
+<div>
+  <button class="Button" id="btnCodeTypeUpdate">수정</button>
+  <button class="Button" id="btnCodeTypeRegiste">등록</button>
+  <button class="Button" id="btnCodeTypeClose">닫기</button>
 </div>
-</div>
-<div class="t_center">
-  <button class="Button" id="btnUpdate">수정</button>
-  <button class="Button" id="btnRegiste">등록</button>
-  <button class="Button" id="btnClose">닫기</button>
-</div>
+
 </div>
 
 
