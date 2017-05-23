@@ -6,21 +6,16 @@
 $a.page(function() {
 	  this.init = function(id, param) {
 
+			this.defineEvent();
 
-  		this.defineEvent();
-
-  		setData();
+  		setData(param[0]);
 
 	  };
 
 
-		function setData(){
-      $("#staffWrap").validator();
-			readStaff();
-
-			// anbwidget
-			$("#userRank").selectRank();
-			$("#userProject").selectProject();
+		function setData(data){
+			console.log(data);
+			$('#bindarea').setData(data);
 
 		}
 
