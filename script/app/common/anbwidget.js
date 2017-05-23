@@ -79,7 +79,7 @@ $(function(){
 
 
   /**
-  * 프로젝트 셀렉트
+  * 코드타입 셀렉트
   */
   $.widget("ui.selectCodeType", {
     options : {
@@ -112,7 +112,7 @@ $(function(){
 
 
   /**
-  * 직원유형 셀렉트
+  * 공통 셀렉트
   */
   $.widget("ui.selectCommon", {
     options : {
