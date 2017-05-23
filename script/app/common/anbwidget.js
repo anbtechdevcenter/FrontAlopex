@@ -30,7 +30,7 @@ $(function(){
           var bRcd = b.rankCode.substr(4,2);
         //	console.log(aRcd+ "" + bRcd , aRcd > bRcd);
           return aRcd < bRcd ? -1 : aRcd > bRcd ? 1 : 0;
-        });
+        }, true);
 
         res.unshift({"rankCode":"", "rankName": "==선택=="});
 
@@ -70,7 +70,7 @@ $(function(){
           $(comp).setData({
             projectList: res
           });
-        });
+        }, true);
 
       return $(this.element).replaceWith(comp);
     }
@@ -103,7 +103,7 @@ $(function(){
           $(comp).setData({
             codeTypeList: res
           });
-        });
+        }, true);
 
       return $(this.element).replaceWith(comp);
     }
@@ -161,7 +161,7 @@ $(function(){
           $(comp).setData({
             codeTypeList: vals
           });
-        });
+        }, true);
 
       return $(this.element).replaceWith(comp);
     }
