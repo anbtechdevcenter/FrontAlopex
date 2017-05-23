@@ -47,7 +47,7 @@ $a.page(function() {
 		* 이벤트 처리
 		*/
 		this.defineEvent = function(){
-			$("#btnClose").on("click", this.btnClose);
+			$("#btnCodeTypeClose").on("click", this.btnClose);
 			$(btnCId).on("click", this.btnRegiste);
 			$(btnUId).on("click", this.btnUpdate);
 
