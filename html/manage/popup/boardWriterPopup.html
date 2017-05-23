@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- html5 방식 -->
+  <link rel="import" href="/html/header/header.html">
+
+  <!-- 업무화면 소스 -->
+<script type="text/javascript" src="/script/app/manage/popup/boardWriterPopup.js"></script>
+
+<style>
+  div#codeTypeWrap {
+    margin : 10px;
+  }
+</style>
+
+
+<title>직원등록 [작업중]</title>
+</head>
+<body>
+
+
+<div id="codeTypeWrap">
+
+  <label>제목</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value:boardTitle"/>
+ <br/>
+
+  <label>내용</label>
+  <textarea class="Textarea" rows="6" cols="40"
+    data-bind="value:boardContents"></textarea>
+<br/>
+
+  <label>등록일자</label>
+  <div class="Dateinput" data-format="yyyy-MM-dd" id="txtDate">
+      <input data-bind="value:registDate">
+  </div>
+<br/>
+
+
+<div>
+  <button class="Button" id="btnUpdate">수정</button>
+  <button class="Button" id="btnRegiste">등록</button>
+  <button class="Button" id="btnDelete">삭제</button>
+  <button class="Button" id="btnClose">닫기</button>
+</div>
+
+</div>
+
+
+
+
+</body>
+</html>
