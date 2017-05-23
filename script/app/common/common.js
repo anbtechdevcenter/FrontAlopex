@@ -15,12 +15,21 @@ var ANBTX = ANBTX || {};
  */
 
 // 조회 (Retrieve)
-ANBTX.R = function(id, callback) {
+ANBTX.R = function(id, callback, isAsync) {
   if (!id) {
     alert('파라미터 ID가 존재하지 않습니다');
     return false;
   }else {
+
+//console.log("[isAsync] ", isAsync);
+
+    if(isAsync!=undefined){
+      isAsync  =  false;
+    }else{
+      isAsync = true;
+    }
      $a.request(id, {
+        'async' : isAsync,
           'success': callback
      });
   }
