@@ -81,6 +81,8 @@ $a.page(function() {
 				 url : popupUrl,
 				 title : '코드타입 등록',
 				 data : {'type' : 'C'},
+				 width : 350,
+				 height : 400,
 				 callback : function(res){
 					 console.log("res " , res);
 					 if(res=="success"){
