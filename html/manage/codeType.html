@@ -28,64 +28,41 @@
               <div class="col-lg-12">
                   <div class="panel panel-default">
                       <div class="panel-heading">
-                          <i class="fa fa-user fa-fw"></i> 코드타입 현황
+                          <i class="fa fa-codepen fa-fw"></i> 코드타입 현황
                       </div>
                       <!-- /.panel-heading -->
 
           <!-- /.row -->
 
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-<!-- /.panel-heading -->
 
-                      <div>
-                      <button class="Button" id="btnSearch">조회</button>
-                      <button class="Button" id="btnUpdate">수정</button>
-                      <button class="Button" id="btnRegiste">등록</button>
-                      <button class="Button" id="btnDelete">선택삭제</button>
-                      </div>
-                      <div id="codeTypeWrap" style="margin-top:15px;">
-                      <label>코드타입명</label>
-                      <input id="codeTypeNm" class="Textinput" data-bind="value:codeTypeName"/>
-                      <br/>
+                      <!-- /.panel-heading -->
+                      <div class="panel-body">
 
-                      <label>사용여부</label>
-                      <label class="ImageRadio">
-                          <input class="Radio" name="useYnNm" value="Y" data-bind="value:useYn"/> 사용
-                      </label>
-                      <label class="ImageRadio">
-                          <input class="Radio" name="useYnNm" value="N" data-bind="value:useYn"/> 미사용
-                      </label>
-                      <br/>
 
-                      <p>
-
-                      </p>
-                      <hr/>
-
-                      </div>
-                      <div>
-
-		<div id="grid"></div>
-	</div>
-													</div>
+												<div id="codeTypeWrap">
+													<label for="codeTypeNm">코드타입명</label>
+													<input id="codeTypeNm" class="Textinput" data-bind="value:codeTypeName"/>
+													<label class="margin_l10">사용여부</label>
+													<label class="ImageRadio">
+														<input class="Radio" name="useYnNm" value="Y" data-bind="value:useYn"/> 사용
+													</label>
+													<label class="ImageRadio">
+														<input class="Radio" name="useYnNm" value="N" data-bind="value:useYn"/> 미사용
+													</label>
+													<button class="Button" id="btnSearch">조회</button>
+													<button class="Button" id="btnUpdate">수정</button>
+													<button class="Button" id="btnRegiste">등록</button>
+													<button class="Button" id="btnDelete">선택삭제</button>
+												</div>
+												<div class="margin_t10">
+													<div id="grid"></div>
 												</div>
 											</div>
 										</div>
 									</div>
-
-</div>
-
-</div>
-</div>
-</div>
-</div>
-</div>
+								</div>
+							</div>
 
 <div w3-include-html="/html/layout/bottom.html"></div>
-
-
-
 </body>
-
 </html>

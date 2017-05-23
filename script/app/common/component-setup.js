@@ -46,12 +46,10 @@ $a.page(function() {
       });
 
 
-			$a.popup.setup({
-				iframe : false,
-				title : '타이틀',
-				width : '500',
-				height : '400'
-			});
+      $a.setup('popup', {
+        iframe: false
+      });
+
 
 
     };

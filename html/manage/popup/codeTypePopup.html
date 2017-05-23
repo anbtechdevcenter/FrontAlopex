@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- html5 방식 -->
+  <link rel="import" href="/html/header/header.html">
 
   <!-- 업무화면 소스 -->
 <script type="text/javascript" src="/script/app/manage/popup/codeTypePopup.js"></script>
-
 <title>직원등록 [작업중]</title>
 </head>
 <body>
 
+<div w3-include-html="/html/layout/top.html"></div>
 
-
-<div id="popCodeTypeWrap">
+<div id="codeTypeWrap">
 
   <label>코드타입명</label>
-  <input id="popCodeType" type="hidden" class="Textinput" data-bind="value:codeType"/>
-  <input id="popCodeTypeNm" type="text" class="Textinput" data-bind="value:codeTypeName"/>
+  <input id="codeType" type="hidden" class="Textinput" data-bind="value:codeType"/>
+  <input id="codeTypeNm" type="text" class="Textinput" data-bind="value:codeTypeName"/>
  <br/>
 
   <label>코드타입설명</label>
@@ -40,13 +41,15 @@
 <br/>
 
 <div>
-  <button class="Button" type="button" id="btnPopUpdate">수정</button>
-  <button class="Button" type="button" id="btnPopRegiste">등록</button>
-  <button class="Button" type="button" id="btnPopClose">닫기</button>
+  <button class="Button" id="btnUpdate">수정</button>
+  <button class="Button" id="btnRegiste">등록</button>
+  <button class="Button" id="btnClose">닫기</button>
 </div>
 
 </div>
 
+
+<div w3-include-html="/html/layout/bottom.html"></div>
 
 </body>
 </html>
