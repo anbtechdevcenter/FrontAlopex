@@ -7,6 +7,8 @@ $a.page(function() {
 
 var codeTypeArr = [];
 
+var popupUrl = "/html/manage/popup/commonCodePopup.html";
+
 	  this.init = function(id, param) {
 			// 인클루드 처리를 위한 내용
 			w3.includeHTML();
@@ -82,6 +84,26 @@ var codeTypeArr = [];
 		* 코드타입 등록
 		*/
 		this.btnRegiste = function(){
+			var seldata = $("#codeTypeWrap").getData();
+			var sdata = seldata.type = "U";
+			var pops =  $a.popup({
+				 url : popupUrl,
+				 title : '공통코드 수정',
+				 data : seldata,
+				 width : 350,
+				 height : 400,
+				 callback : function(res){
+					 //console.log("res " , res);
+					 if(res=="success"){
+						 readCodeType();
+						 //console.log("[pops] " , pops);
+						 $(pops).close();
+					 }
+
+				 }
+			 });
+
+/*
 				var data = $("#codeTypeWrap").getData();
       //  data.codeType = "COD_2017051911001926";
 
@@ -91,6 +113,8 @@ var codeTypeArr = [];
 				ANBTX.C("/codeCommon", data, function(res){
 					readCodeType();
 				});
+*/
+
 		};
 
 
@@ -101,7 +125,7 @@ var codeTypeArr = [];
 
 				ANBTX.R('/codeCommon',
 				 	function(res){
-						console.log("[codeType] ", res);
+			//			console.log("[codeType] ", res);
 						var gridData = res;
 
 				 		$('#grid').alopexGrid("dataSet", gridData);
