@@ -135,8 +135,13 @@ var codeTypeArr = [];
                return val.codeType === value;
               });
 
-            // console.log(" >> " , rtnVal);
-							return rtnVal[0].codeTypeName;
+            //  /console.log(" >> " , rtnVal);
+						 if('codeTypeName' in rtnVal[0]){
+							 return rtnVal[0].codeTypeName;
+						 }else{
+							 return codeType;
+						 }
+
 						}
 					}
 				},
