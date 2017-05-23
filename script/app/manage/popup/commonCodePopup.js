@@ -10,15 +10,24 @@ $a.page(function() {
  * 타입별로 정의 (strin, boolean, number, array, object)
  * 아래는 string 타입에 대해서만 정의함.
  */
+<<<<<<< HEAD
 	var wrapId = "#wrapId",
     gridId = "#grid";
+=======
+	var wrapId = "#commonCodeTypeWrap",
+    commSelCodeType ="#selcodetypePop";
+>>>>>>> 3a678e0b9cc0ca3b7b924bf250dc676b48b2b914
 
 
 
 	  this.init = function(id, param) {
       console.log("확인용");
       // 그리드 존재시 그리스 선언부 함수 (구현코드는 제일 하단에 위치함)
+<<<<<<< HEAD
 			initGrid();
+=======
+
+>>>>>>> 3a678e0b9cc0ca3b7b924bf250dc676b48b2b914
 
       // 이벤트 정의 함수부분
 			this.defineEvent();
@@ -33,7 +42,17 @@ $a.page(function() {
     * 데이터 세팅 및 UI Draw 코드 처리
     ****************************************/
 		function setData(){
+<<<<<<< HEAD
 
+=======
+      $(commSelCodeType).selectCodeType();
+      var today = moment().format("YYYY-MM-DD");
+			//console.log(today);
+			$(wrapId).setData({
+				registDate : today,
+        useYn : 'Y'
+			});
+>>>>>>> 3a678e0b9cc0ca3b7b924bf250dc676b48b2b914
 		}
 
 		/**
@@ -84,6 +103,7 @@ $a.page(function() {
 
 
 
+<<<<<<< HEAD
     /***************************************
     * @constructor : 그리드 초기화
     *
@@ -113,5 +133,7 @@ $a.page(function() {
 				]
 			});
 	  }
+=======
+>>>>>>> 3a678e0b9cc0ca3b7b924bf250dc676b48b2b914
 
 });

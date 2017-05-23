@@ -84,6 +84,7 @@ var popupUrl = "/html/manage/popup/commonCodePopup.html";
 		* 코드타입 등록
 		*/
 		this.btnRegiste = function(){
+<<<<<<< HEAD
 
 
 			var pops =  $a.popup({
@@ -94,6 +95,18 @@ var popupUrl = "/html/manage/popup/commonCodePopup.html";
 				 height : 400,
 				 callback : function(res){
 					// console.log("res " , res);
+=======
+			var seldata = $("#codeTypeWrap").getData();
+			var sdata = seldata.type = "U";
+			var pops =  $a.popup({
+				 url : popupUrl,
+				 title : '공통코드 수정',
+				 data : seldata,
+				 width : 350,
+				 height : 400,
+				 callback : function(res){
+					 //console.log("res " , res);
+>>>>>>> 3a678e0b9cc0ca3b7b924bf250dc676b48b2b914
 					 if(res=="success"){
 						 readCodeType();
 						 //console.log("[pops] " , pops);
@@ -103,7 +116,11 @@ var popupUrl = "/html/manage/popup/commonCodePopup.html";
 				 }
 			 });
 
+<<<<<<< HEAD
 			 /*
+=======
+/*
+>>>>>>> 3a678e0b9cc0ca3b7b924bf250dc676b48b2b914
 				var data = $("#codeTypeWrap").getData();
       //  data.codeType = "COD_2017051911001926";
 
@@ -113,7 +130,12 @@ var popupUrl = "/html/manage/popup/commonCodePopup.html";
 				ANBTX.C("/codeCommon", data, function(res){
 					readCodeType();
 				});
+<<<<<<< HEAD
 				*/
+=======
+*/
+
+>>>>>>> 3a678e0b9cc0ca3b7b924bf250dc676b48b2b914
 		};
 
 
