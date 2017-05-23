@@ -48,17 +48,10 @@ $a.page(function() {
 
 			$a.popup.setup({
 				iframe : false,
-<<<<<<< HEAD
-				title : '타이틀',
-				width : '500',
-				height : '400'
-			});
-=======
 				width : '500',
 				height : '400',
 				title : '제목'
 			})
->>>>>>> 3a678e0b9cc0ca3b7b924bf250dc676b48b2b914
 
 
     };
