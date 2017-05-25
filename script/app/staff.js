@@ -107,23 +107,52 @@ $a.page(function() {
 					console.log("[직원] ", res);
 					var gridData = [];
 
-					res.sort(function(a,b) {
-						var aCd = a.rank.rankCode.substr(4,2);
-						var bCd = b.rank.rankCode.substr(4,2);
-						return aCd < bCd ? -1 : aCd > bCd ? 1 :0 ;
-					});
+					// res.sort(function(a,b) {
+					// 	var aCd = a.rank.rankCode.substr(4,2);
+					// 	var bCd = b.rank.rankCode.substr(4,2);
+					// 	return aCd < bCd ? -1 : aCd > bCd ? 1 :0 ;
+					// });
 
 					var selData = $("#staffWrap").getData();
+					var newGridData = {};
 					//console.log("selData is ", selData);
 					if(selData){
-						if(selData.rankCode!=""){
+						//이름
+						if(selData.empNm != ""){
 						//	console.log("[1] ", selData.rankCode);
 							gridData = res.filter(function(val){
 								//console.log("[val us ] ", val);
-								return val.rank.rankCode === selData.rankCode;
+								return val.empNm === selData.empNm;
 							});
 						}else{
 							gridData = res;
+						}
+
+						//직급
+						if(selData.rankCode != ""){
+						//	console.log("[1] ", selData.rankCode);
+							gridData = gridData.filter(function(val){
+								//console.log("[val us ] ", val);
+								if(val.rank != null){
+									return val.rank.rankCode === selData.rankCode;
+								}
+							});
+						}else{
+							gridData = gridData;
+						}
+
+						//프로젝트
+						if(selData.prjId != ""){
+						//	console.log("[1] ", selData.rankCode);
+							gridData = gridData.filter(function(val){
+								console.log("[val us ] ", val);
+								if(val.project != null){
+									return val.project.prjId === selData.prjId;
+								}
+
+								});
+						}else{
+							gridData = gridData;
 						}
 
 
