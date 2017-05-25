@@ -1,17 +1,17 @@
 /*********************************
-* 게시글 팝업
+* 프로젝트 관리 팝업
 * @author : 김영우
 * @create : 2017-05-22
 *************************************/
 $a.page(function() {
 
 	var gridId = "#grid",
-		wrapId = "#codeTypeWrap",
+		wrapId = "#divWrap",
 		callType = 'C',
 		btnCId = "#btnCreate",
 		btnUId = "#btnUpdate",
 		btnDId = "#btnDelete",
-		seqId = '';
+		prjId = '';
 
 	  this.init = function(id, param) {
 			callType = param.type;
@@ -23,16 +23,20 @@ $a.page(function() {
 		function setData(param){
 			if(callType=='C'){
 				// 등록인 경우
-				var today = moment().format("YYYY-MM-DD");
-				param.registDate = today;
 				$(btnUId).hide();
 				$(btnDId).hide();
 			}else{
 				// 수정인 경우 넘겨온 데이터 받기
 				$(btnCId).hide();
-				seqId = param.seqBoard;
+				prjId = param.prjId;
+				if(param.prjStatus == 'Active'){
+					$("#chkActive").setChecked(true);
+				}else{
+					$("#chkActive").setChecked(false);
+				}
 			}
 			$(wrapId).setData(param);
+
 		}
 
 		/**
@@ -55,21 +59,21 @@ $a.page(function() {
 		};
 
 		/*
-		* 게시글 등록
+		* 프로젝트 등록
 		*/
 		this.btnRegiste = function(){
 			transactionAction('C');
 		};
 
 		/*
-		* 게시글 수정
+		* 프로젝트 수정
 		*/
 		this.btnUpdate = function(){
 			transactionAction('U');
 		};
 
 		/*
-		* 게시글 삭제
+		* 프로젝트 삭제
 		*/
 		this.btnDelete = function(){
 			transactionAction('D');
@@ -86,30 +90,29 @@ $a.page(function() {
 				, pId = ''
 				, data = $(wrapId).getData()
 				, pdata = {};
-			data.regEmpId = 'testid';
-			data.regEmpNm = 'test유저';
-
+			if($("#chkActive").prop("checked") == true){
+				data.prjStatus = 'Active';
+			}else{
+				data.prjStatus = 'Terminated';
+			}
 			if(action == 'C'){
 				msg = '등록완료되었습니다.';
-				pid = '/board';
+				pid = '/project';
 				ANBTX.C(pid, data, function(res){
 					alert(msg);
 					$a.close('success');
 				});
 			}	else if(action == 'U'){
 				msg = '수정완료되었습니다.';
-				data.seqBoard = seqId;
-				data.registDate = moment().format("YYYY-MM-DD");
-				pid = '/board';
-				// pdata.registDate = moment().format("YYYY-MM-DD")
-				// $("#txtDate").setData(pdata)
+				data.prjId = prjId;
+				pid = '/project';
 				ANBTX.U(pid, data, function(){
 					alert(msg);
 					$a.close('success');
 				});
 			} else if(action == 'D'){
 				msg = '삭제완료되었습니다.';
-				pid = '/board/'+seqId;
+				pid = '/project/'+prjId;
 				ANBTX.D(pid, function(){
 					alert(msg);
 					$a.close('success');

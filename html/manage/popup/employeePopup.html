@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- html5 방식 -->
+  <!-- <link rel="import" href="/html/header/header.html"> -->
+
+  <!-- 업무화면 소스 -->
+<script type="text/javascript" src="/script/app/manage/popup/employeePopup.js"></script>
+
+<style>
+  div#codeTypeWrap {
+    margin : 10px;
+  }
+</style>
+
+
+<title>직원 관리</title>
+</head>
+<body>
+
+
+<div id="divWrap"  style="margin-left:10px;">
+
+  <label>이름</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value:empNm"/>
+  <label>직급</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value:rankDisp"/>
+  <br/>
+
+  <label>E-mail</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value:email"/>
+  <label>휴대번호</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value:empHp"/>
+  <br/>
+  <label>주소</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value:empAddr"/>
+  <label>상세주소</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value:empAddrDtl"/>
+  <br/>
+
+  <label>생일</label>
+  <div class="Dateinput" data-format="yyyy-MM-dd" id="date_birthDate">
+  <input data-bind="value:birthDate">
+  </div>
+  <label>입사일</label>
+  <div class="Dateinput" data-format="yyyy-MM-dd" id="date_enteringDate">
+  <input data-bind="value:enteringDate">
+  </div>
+  <br/>
+
+
+<div>
+  <button class="Button" id="btnUpdate">수정</button>
+  <button class="Button" id="btnCreate">등록</button>
+  <button class="Button" id="btnDelete">삭제</button>
+  <button class="Button" id="btnClose">닫기</button>
+</div>
+
+</div>
+
+
+
+
+</body>
+</html>
