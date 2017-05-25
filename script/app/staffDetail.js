@@ -15,8 +15,17 @@ $a.page(function() {
 
 		function setData(data){
 			console.log(data);
+			// anbwidget
+			$("#ranksel").selectRank({para:data.rank.rankCode}); //랭크
+			$("#projectsel").selectProject({para:data.project.prjId}); //프로젝트
+			$("#stafftypesel").selectCommon({type : 'staffType'}); //직원타입
+			$("#workareasel").selectCommon({type : 'workArea'}); //업무지역
+			$("#teamsel").selectCommon({type : 'team'}); //팀
+
 			$('#bindarea').setData(data);
 
+			//selectbox bind
+			$('#ranksel').setSelected("RANK30");
 		}
 
     /**

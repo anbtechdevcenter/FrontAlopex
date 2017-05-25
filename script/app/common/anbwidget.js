@@ -11,7 +11,7 @@ $(function(){
   */
   $.widget("ui.selectRank", {
     options : {
-
+      para : ''
     },
     _create : function(){
 
@@ -19,6 +19,7 @@ $(function(){
 
       comp.className = "Select";
 
+      var vPara = this.options.para;
     //  comp.className = "Divselect";
       comp.setAttribute("data-bind-option", "rankCode:rankName");
       comp.setAttribute("data-bind","options: rankList, selectedOptions : rankCode");
@@ -36,6 +37,7 @@ $(function(){
 
           $(comp).setData({
             rankList: res
+            , rankCode : vPara
           });
         });
 
@@ -50,11 +52,13 @@ $(function(){
   */
   $.widget("ui.selectProject", {
     options : {
-
+      para : ''
     },
     _create : function(){
 
       var comp = document.createElement('select');
+
+      var vPara = this.options.para;
 
       comp.className = "Select";
 
@@ -69,6 +73,7 @@ $(function(){
 
           $(comp).setData({
             projectList: res
+            ,prjId: vPara
           });
         }, true);
 
@@ -79,11 +84,11 @@ $(function(){
 
 
   /**
-  * 프로젝트 셀렉트
+  * 코드타입 셀렉트
   */
   $.widget("ui.selectCodeType", {
     options : {
-
+      para : ''
     },
     _create : function(){
 
