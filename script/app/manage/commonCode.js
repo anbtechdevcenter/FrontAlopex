@@ -7,6 +7,9 @@ $a.page(function() {
 
 var codeTypeArr = [];
 
+var popupUrl = "/html/manage/popup/commonCodePopup.html",
+	wrapId = "#codeTypeWrap";
+
 	  this.init = function(id, param) {
 			// 인클루드 처리를 위한 내용
 			w3.includeHTML();
@@ -29,7 +32,7 @@ var codeTypeArr = [];
 			//
 			var today = moment().format("YYYY-MM-DD");
 			//console.log(today);
-			$("#codeTypeWrap").setData({
+			$(wrapId).setData({
 				registDate : today
 			});
 
@@ -82,15 +85,26 @@ var codeTypeArr = [];
 		* 코드타입 등록
 		*/
 		this.btnRegiste = function(){
-				var data = $("#codeTypeWrap").getData();
-      //  data.codeType = "COD_2017051911001926";
+			var seldata = {};
+			var sdata = seldata.type = "C";
+			var pops =  $a.popup({
+				 url : popupUrl,
+				 title : '공통코드 수정',
+				 data : seldata,
+				 width : 350,
+				 height : 400,
+				 callback : function(res){
+					 //console.log("res " , res);
+					 if(res=="success"){
+						 readCodeType();
+						 //console.log("[pops] " , pops);
+						 $(pops).close();
+					 }
 
-        console.log("getData >> ", data);
+				 }
+			 });
 
 
-				ANBTX.C("/codeCommon", data, function(res){
-					readCodeType();
-				});
 		};
 
 
@@ -101,7 +115,7 @@ var codeTypeArr = [];
 
 				ANBTX.R('/codeCommon',
 				 	function(res){
-						console.log("[codeType] ", res);
+			//			console.log("[codeType] ", res);
 						var gridData = res;
 
 				 		$('#grid').alopexGrid("dataSet", gridData);
@@ -135,8 +149,13 @@ var codeTypeArr = [];
                return val.codeType === value;
               });
 
-            // console.log(" >> " , rtnVal);
-							return rtnVal[0].codeTypeName;
+            //  /console.log(" >> " , rtnVal);
+						 if('codeTypeName' in rtnVal[0]){
+							 return rtnVal[0].codeTypeName;
+						 }else{
+							 return codeType;
+						 }
+
 						}
 					}
 				},

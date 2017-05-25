@@ -5,19 +5,15 @@
 *************************************/
 $a.page(function() {
 
-	var gridId = "#grid",
-		wrapId = "#codeTypeWrap",
+	var wrapId = "#codeTypePopWrap",
 		callType = 'C',
-		btnCId = "#btnRegiste",
-		btnUId = "#btnUpdate";
+		btnCId = "#btnCodeTypeRegiste",
+		btnUId = "#btnCodeTypeUpdate";
 
 	  this.init = function(id, param) {
-<<<<<<< HEAD
-console.log('111');
-=======
->>>>>>> 42348b03407c4f6df4c50b30bb3e00708001a831
+
 			callType = param.type;
-	//		console.log("call Type ", callType, param);
+			console.log("call Type ", callType, param);
 			this.defineEvent();
 
 			setData(param);
@@ -31,17 +27,19 @@ console.log('111');
 				// 등록인 경우
 				var today = moment().format("YYYY-MM-DD");
 				param.registDate = today;
+				param.useYn = 'Y';
 
-
-
+				$(btnUId).hide();
+				$(wrapId).setData(param);
 			}else{
 				// 수정인 경우 넘겨온 데이터 받기
 
 				// C인경우 hide
 				$(btnCId).hide();
+				$(wrapId).setData(param);
 			}
 
-			$(wrapId).setData(param);
+
 
 		}
 
@@ -49,7 +47,7 @@ console.log('111');
 		* 이벤트 처리
 		*/
 		this.defineEvent = function(){
-			$("#btnClose").on("click", this.btnClose);
+			$("#btnCodeTypeClose").on("click", this.btnClose);
 			$(btnCId).on("click", this.btnRegiste);
 			$(btnUId).on("click", this.btnUpdate);
 

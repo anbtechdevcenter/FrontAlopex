@@ -41,6 +41,8 @@ $a.page(function() {
 			$("#btnSearch").on("click", this.btnSearch);
 			$("#btnStaffRegister").on("click", this.btnStaffRegister);
 			$("#btnStaffDelete").on("click", this.btnStaffDelete);
+
+			$("#grid_staff").on("dblclick", '.bodycell', this.grid_dblClick);
 		};
 
 		/*
@@ -83,6 +85,18 @@ $a.page(function() {
 			});
 		};
 
+		/*
+		* 직원 상세 페이지 이동
+		*/
+		this.grid_dblClick = function(){
+			console.log('1111');
+			//$a.navigate('staffDetail.html', {empId: 'EMP_2017032123252012'});
+
+			var sdata = $("#grid_staff").alopexGrid("dataGet", {_state :{focused:true}});
+			console.log("sdata", sdata);
+			$a.navigate('staffDetail.html', sdata);
+			//if(sdata.length > 0) openPopup('R');
+		};
 
     /*
     * 직원조회

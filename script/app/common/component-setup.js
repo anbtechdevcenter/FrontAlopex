@@ -46,10 +46,12 @@ $a.page(function() {
       });
 
 
-      $a.setup('popup', {
-        iframe: false
-      });
-
+			$a.popup.setup({
+				iframe : false,
+				width : '500',
+				height : '400',
+				title : '제목'
+			})
 
 
     };
