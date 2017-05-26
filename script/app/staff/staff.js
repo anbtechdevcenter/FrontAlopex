@@ -33,7 +33,7 @@ $a.page(function() {
 		}
 
 /**
-* 이벤트 처리 1234
+* 이벤트 처리
 */
 		this.defineEvent = function(){
 			$("#btnTest").on("click", this.btnTest);

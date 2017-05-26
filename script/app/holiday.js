@@ -1,5 +1,5 @@
 /*********************************
-* 직원관리
+* 근태관리
 * @author : anbtechdevcenter
 * @create : 2017-05-18
 *************************************/
@@ -7,8 +7,6 @@ $a.page(function() {
 	  this.init = function(id, param) {
 			// 인클루드 처리를 위한 내용
 			w3.includeHTML();
-
-			console.log("확인");
 
 			initGrid();
 
@@ -20,43 +18,39 @@ $a.page(function() {
 
 
 		function setData(){
-			readStaff();
+			readHoliday();
 
 			// anbwidget
 			$("#ranksel").selectRank();
 			$("#projectsel").selectProject();
-			$("#codetypesel").selectCodeType();
-			$("#stafftypesel").selectCommon({type : 'staffType'});
-			$("#workareasel").selectCommon({type : 'workArea'});
-			$("#teamsel").selectCommon({type : 'team'});
-//workareasel
+
+			//workareasel
+
 		}
 
 /**
-* 이벤트 처리 1234
+* 이벤트 처리
 */
 		this.defineEvent = function(){
-			$("#btnTest").on("click", this.btnTest);
-
 			$("#btnSearch").on("click", this.btnSearch);
-			$("#btnStaffRegister").on("click", this.btnStaffRegister);
-			$("#btnStaffDelete").on("click", this.btnStaffDelete);
+			$("#btnHolidayRegister").on("click", this.btnHolidayRegister);
+			$("#btnHolidayDelete").on("click", this.btnHolidayDelete);
 
-			$("#grid_staff").on("dblclick", '.bodycell', this.grid_dblClick);
+			$("#grid_holiday").on("dblclick", '.bodycell', this.grid_dblClick);
 		};
 
 		/*
-		* 직원삭제
+		* 근태삭제
 		*/
 		this.btnStaffDelete = function(){
 			var check = confirm("삭제하시겠습니까?");
-			var selData = $("#grid_staff").alopexGrid("dataGet", {_state :{selected:true}});
+			var selData = $("#grid_holiday").alopexGrid("dataGet", {_state :{selected:true}});
 			console.log("seldata ", selData);
 			if(check && selData.length>0){
 
 				var userId = AlopexGrid.trimData(selData[0]).empId;
 
-				ANBTX.D('/employee/'+userId, function(res){
+				ANBTX.D('/holiday/'+userId, function(res){
 					readStaff();
 				});
 			}
@@ -75,7 +69,7 @@ $a.page(function() {
     * 조회 버튼 액션
     */
 		this.btnSearch = function(){
-			readStaff();
+			readHoliday();
 		};
 
 		this.btnStaffRegister = function(){
@@ -86,59 +80,27 @@ $a.page(function() {
 		};
 
 		/*
-		* 직원 상세 페이지 이동
+		* 근태 상세 페이지 이동
 		*/
 		this.grid_dblClick = function(){
-			console.log('1111');
-			//$a.navigate('staffDetail.html', {empId: 'EMP_2017032123252012'});
 
-			var sdata = $("#grid_staff").alopexGrid("dataGet", {_state :{focused:true}});
+			var sdata = $("#grid_holiday").alopexGrid("dataGet", {_state :{focused:true}});
 			console.log("sdata", sdata);
-			$a.navigate('staffDetail.html', sdata);
+			$a.navigate('holidayDetail.html', sdata);
 			//if(sdata.length > 0) openPopup('R');
 		};
 
     /*
-    * 직원조회
+    * 근태조회
     */
-		function readStaff(){
-			ANBTX.R('/employee',
+		function readHoliday(){
+			ANBTX.R('/holiday',
 			 	function(res){
-					console.log("[직원] ", res);
-					var gridData = [];
+					console.log("[근태] ", res);
 
-					// res.sort(function(a,b) {
-					// 	var aCd = a.rank.rankCode.substr(4,2);
-					// 	var bCd = b.rank.rankCode.substr(4,2);
-					// 	return aCd < bCd ? -1 : aCd > bCd ? 1 :0 ;
-					// });
+					//var selData = $("#holidayWrap").getData();
 
-					var selData = $("#staffWrap").getData();
-					var newGridData = {};
-					if(selData){
-						//이름
-						if(selData.empNm != ""){
-							gridData = res.filter(function(val){
-								return val.empNm === selData.empNm;
-							});
-						}else{
-							gridData = res;
-						}
-
-						//직급
-						if(selData.rankCode != ""){
-							gridData = gridData.filter(function(val){
-								if(val.rank != null){
-									return val.rank.rankCode === selData.rankCode;
-								}
-							});
-						}else{
-							gridData = gridData;
-            }
-
-					}
-
-			 		$('#grid_staff').alopexGrid("dataSet", gridData);
+			 		$('#grid_holiday').alopexGrid("dataSet", res);
 			 	}
 		  );
 		}
@@ -166,7 +128,7 @@ $a.page(function() {
 					},
 					{
 						key : 'empId',
-						title: '아이디',
+						title: '사번',
 						width : '100px',
 					},
 					{
@@ -176,27 +138,27 @@ $a.page(function() {
 					},
 					{
 						key : 'holidayDay',
-						title: 'holidayDay',
+						title: '휴일일수',
 						width : '100px',
 					},
 					{
 						key : 'holidayEdate',
-						title: 'holidayEdate',
+						title: '종료일자',
 						width : '100px',
 					},
 					{
 						key : 'holidayReason',
-						title: 'holidayReason',
+						title: '사유',
 						width : '100px',
 					},
 					{
 						key : 'holidaySdate',
-						title: 'holidaySdate',
+						title: '시작일자',
 						width : '100px',
 					},
 					{
 						key : 'holidayType',
-						title: 'holidayType',
+						title: '휴일특근코드',
 						width : '100px',
 					},
 					{
@@ -216,37 +178,37 @@ $a.page(function() {
 					},
 					{
 						key : 'seqHoliday',
-						title: 'seqHoliday',
+						title: '휴일순번',
 						width : '100px',
 					},
 					{
 						key : 'app1Date',
-						title: 'app1Date',
+						title: '결재1_일자',
 						width : '100px',
 					},
 					{
 						key : 'app1EmpId',
-						title: 'app1EmpId',
+						title: '결재1_ID',
 						width : '100px',
 					},
 					{
 						key : 'app1EmpNm',
-						title: 'app1EmpNm',
+						title: '결재1_명',
 						width : '100px',
 					},
 					{
 						key : 'app2Date',
-						title: 'app2Date',
+						title: '결재2_일자',
 						width : '100px',
 					},
 					{
 						key : 'app2EmpId',
-						title: 'app2EmpId',
+						title: '결재2_ID',
 						width : '100px',
 					},
 					{
 						key : 'app2EmpNm',
-						title: 'app2EmpNm',
+						title: '결재2_명',
 						width : '100px',
 					}
 				]
