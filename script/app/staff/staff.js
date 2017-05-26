@@ -33,7 +33,7 @@ $a.page(function() {
 		}
 
 /**
-* 이벤트 처리 1234
+* 이벤트 처리
 */
 		this.defineEvent = function(){
 			$("#btnTest").on("click", this.btnTest);
@@ -81,7 +81,7 @@ $a.page(function() {
 		this.btnStaffRegister = function(){
 			$a.popup({
 				title : '직원등록',
-				url : 'staffRegist.html'
+				url : 'popup/staffRegist.html'
 			});
 		};
 
@@ -107,21 +107,12 @@ $a.page(function() {
 					console.log("[직원] ", res);
 					var gridData = [];
 
-					// res.sort(function(a,b) {
-					// 	var aCd = a.rank.rankCode.substr(4,2);
-					// 	var bCd = b.rank.rankCode.substr(4,2);
-					// 	return aCd < bCd ? -1 : aCd > bCd ? 1 :0 ;
-					// });
-
 					var selData = $("#staffWrap").getData();
 					var newGridData = {};
-					//console.log("selData is ", selData);
 					if(selData){
 						//이름
 						if(selData.empNm != ""){
-						//	console.log("[1] ", selData.rankCode);
 							gridData = res.filter(function(val){
-								//console.log("[val us ] ", val);
 								return val.empNm === selData.empNm;
 							});
 						}else{
@@ -130,9 +121,7 @@ $a.page(function() {
 
 						//직급
 						if(selData.rankCode != ""){
-						//	console.log("[1] ", selData.rankCode);
 							gridData = gridData.filter(function(val){
-								//console.log("[val us ] ", val);
 								if(val.rank != null){
 									return val.rank.rankCode === selData.rankCode;
 								}
@@ -143,19 +132,38 @@ $a.page(function() {
 
 						//프로젝트
 						if(selData.prjId != ""){
-						//	console.log("[1] ", selData.rankCode);
 							gridData = gridData.filter(function(val){
-								console.log("[val us ] ", val);
 								if(val.project != null){
 									return val.project.prjId === selData.prjId;
 								}
-
-								});
+							});
 						}else{
 							gridData = gridData;
 						}
 
+						//코드타입
+						//직원유형
+						//근무지역
+						if(selData.workCd != ""){
+							gridData = gridData.filter(function(val){
+									if(val.workPosition != ""){
+										return val.workPosition === selData.workCd;
+									}
+							});
+						}else{
+							gridData = gridData;
+						}
 
+						//팀(아직 소속팀 코드화 안되어 있음)
+						if(selData.teamCd != ""){
+							gridData = gridData.filter(function(val){
+									if(val.team != ""){
+										return val.team === selData.teamCd;
+									}
+							});
+						}else{
+							gridData = gridData;
+						}
 					}
 
 			 		$('#grid_staff').alopexGrid("dataSet", gridData);
@@ -171,15 +179,18 @@ $a.page(function() {
         defaultColumnMapping : {
           align : 'center'
         },
+				defaultSorting:{
+					sortingColumn: 4,
+					sortingDirection: "asc" //"desc"
+				},
+				sortingNullStringPosition : "bottom",
 				columnMapping : [
 					{
-						align : 'center',
 						selectorColumn : true,
 						title: '선택',
 						width : '20px',
 					},
 					{
-						align : 'center',
 						numberingColumn : true,
 						title: 'No',
 						width : '20px',
@@ -187,12 +198,12 @@ $a.page(function() {
 					{
 						key : 'empNm',
 						title: '이름',
-						width : '100px',
+						width : '60px',
 					}, {
 						key : 'rank',
 						title : '직급',
 						width : '30px',
-            render : function(value, data, render, mapping, grid){
+						render : function(value, data, render, mapping, grid){
 							var rankName = "";
 							if(value){
 								rankName = value.rankName;
@@ -202,7 +213,23 @@ $a.page(function() {
 					}, {
 						key : 'team',
 						title : '소속팀',
-						width : '50px'
+						width : '50px',
+						sorting: true,
+            render : function(value, data, render, mapping, grid){
+							var rankName = "";
+							if(value == "TEAM_SI"){
+								rankName = "SI팀";
+							} else if(value == "TEAM_SM"){
+								rankName = "SM팀";
+							} else if(value == "TEAM_DESIGN"){
+								rankName = "디자인팀";
+							} else if(value == "TEAM_SKILL"){
+								rankName = "기술지원팀";
+							} else if(value == "TEAM_HEADQUARTERS"){
+								rankName = "본부";
+							}
+              return rankName;
+            }
 					}, {
 						key : 'email',
 						title : 'E-mail',
@@ -222,7 +249,26 @@ $a.page(function() {
 						key : 'enteringDate',
 						title : '입사일',
 						width : '50px'
+					}, {
+						key : 'workPosition',
+						title : '근무지역',
+						width : '50px',
+            render : function(value, data, render, mapping, grid){
+							var vWorkPosition = "";
+							if(value == "SITE_IC"){
+								vWorkPosition = "이천";
+							} else if(value == "SITE_CJ"){
+								vWorkPosition = "청주";
+							} else if(value == "SITE_WC"){
+								vWorkPosition = "우시";
+							} else if(value == "SITE_BD"){
+								vWorkPosition = "분당";
+							}
+              return vWorkPosition;
+            }
 					}
+
+
 				]
 			});
 	  }

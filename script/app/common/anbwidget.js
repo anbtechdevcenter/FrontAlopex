@@ -121,17 +121,18 @@ $(function(){
   */
   $.widget("ui.selectCommon", {
     options : {
-      type : ''
+      type : '',
+      para : ''
     },
     _create : function(){
       var comp = document.createElement('select');
 
-        comp.className = "Select";
+      comp.className = "Select";
       //  comp.className = "Divselect";
-
 
       var keyword = "";
       var intype = this.options.type;
+      var vPara = this.options.para;
       var selectedCd  = "codeId";
       // 하드코딩 코드 값이 아닌, codeType로 부터 받아온 텍스트명의 값을 넣어주는것으로 변경 피
       switch (intype) {
@@ -162,10 +163,28 @@ $(function(){
       });
 
         vals.unshift({"codeId":"", "codeNm": "==선택=="});
+          switch (intype) {
+            case "staffType":
+              $(comp).setData({
+                codeTypeList: vals
+              });
+              break;
+            case "workArea" :
+              $(comp).setData({
+                codeTypeList: vals
+              });
+              break;
+            case "team" :
+              $(comp).setData({
+                codeTypeList: vals
+                ,teamCd: vPara
+              });
+              break;
+            default:
 
-          $(comp).setData({
-            codeTypeList: vals
-          });
+          }
+
+
         }, true);
 
       return $(this.element).replaceWith(comp);

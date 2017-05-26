@@ -5,43 +5,54 @@
 <script type="text/javascript" src="/script/app/manage/popup/commonCodePopup.js"></script>
 <title>공통코드등록</title>
 </head>
-<body>
-
-
-<div id="commonCodeTypeWrap">
-
-  <label>코드타입명</label>
-  <div id="selcodetypePop"></div>
- <br/>
-
- <label>코드명</label>
- <input id="codeTypeNm" class="Textinput" data-bind="value:codeNm"/>
- <br/>
-
- <label>등록일자</label>
- <div class="Dateinput" data-format="yyyy-MM-dd">
-     <input data-bind="value:registDate">
- </div>
- <br/>
-
-
- <label>사용여부</label>
- <label class="ImageRadio">
-     <input class="Radio" name="useYnNm" value="Y" data-bind="checked:useYn"/> 사용
- </label>
- <label class="ImageRadio">
-     <input class="Radio" name="useYnNm" value="N" data-bind="checked:useYn"/> 미사용
- </label>
- <br/>
-
-<div>
-  <button class="Button" id="btnCommonCodeU">수정</button>
-  <button class="Button" id="btnCommonCodeC">등록</button>
-  <button class="Button" id="btnCommonCodeClose">닫기</button>
-</div>
-
-</div>
-
-
-</body>
+  <body>
+  <!-- contents  -->
+  <div class="padding_5p">
+    <table class="Ptable">
+      <colgroup>
+        <col width="75px;">
+        <col width="">
+      </colgroup>
+      <tbody>
+        <tr>
+          <td>코드타입명</td>
+          <td><div id="selcodetypePop"></div></td>
+        </tr>
+        <tr>
+          <td>코드명</td>
+          <td><input id="codeTypeNm" class="Textinput" data-bind="value:codeNm"/></td>
+        </tr>
+        <tr>
+          <td>등록일자</td>
+          <td>
+            <div class="Dateinput" data-format="yyyy-MM-dd">
+              <input data-bind="value:registDate">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>사용여부</td>
+          <td>
+            <label class="ImageRadio">
+              <input class="Radio" name="useYnNm" value="Y" data-bind="checked:useYn"/><span class="margin_l5"> 사용</span>
+            </label>
+            <label class="ImageRadio">
+                <input class="Radio" name="useYnNm" value="N" data-bind="checked:useYn"/> <span class="margin_l5">미사용</span>
+            </label>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- // contents  -->
+  <!-- popup Bottom  -->
+  <div class="t_center Popup_Bottom" >
+    <div class="margin_t5">
+      <button class="Button Pbutton" id="btnCommonCodeU">수정</button>
+      <button class="Button Pbutton" id="btnCommonCodeC">등록</button>
+      <button class="Button Pbutton" id="btnCommonCodeClose">닫기</button>
+    </div>
+  </div>
+  <!--// popup Bottom  -->
+  </body>
 </html>
