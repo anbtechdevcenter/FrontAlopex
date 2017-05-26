@@ -81,6 +81,8 @@ $a.page(function() {
 				 url : popupUrl,
 				 title : '코드타입 등록',
 				 data : {'type' : 'C'},
+				 width : 400,
+				 height : 'auto',
 				 callback : function(res){
 					 console.log("res " , res);
 					 if(res=="success"){
@@ -111,7 +113,7 @@ $a.page(function() {
 					 title : '코드타입 수정',
 					 data : seldata,
 					 width : 350,
-					 height : 410,
+					 height : 400,
 					 callback : function(res){
 						 //console.log("res " , res);
 						 if(res=="success"){
