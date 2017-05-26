@@ -62,7 +62,7 @@ $a.page(function() {
 				vData['rank'] = {};
 				vData.rank.rankCode = data.rankCode;
 				//var vData = {empNm: data.empNm, email: data.email, project :{prjId : data.prjId}, rank: {rankCode : data.rankCode}};
-
+ 
 				vData.team = data.teamCd;
 
 				console.log("[get vData is] " , vData);
