@@ -107,12 +107,6 @@ $a.page(function() {
 					console.log("[직원] ", res);
 					var gridData = [];
 
-					// res.sort(function(a,b) {
-					// 	var aCd = a.rank.rankCode.substr(4,2);
-					// 	var bCd = b.rank.rankCode.substr(4,2);
-					// 	return aCd < bCd ? -1 : aCd > bCd ? 1 :0 ;
-					// });
-
 					var selData = $("#staffWrap").getData();
 					var newGridData = {};
 					if(selData){
@@ -185,15 +179,18 @@ $a.page(function() {
         defaultColumnMapping : {
           align : 'center'
         },
+				defaultSorting:{
+					sortingColumn: 4,
+					sortingDirection: "asc" //"desc"
+				},
+				sortingNullStringPosition : "bottom",
 				columnMapping : [
 					{
-						align : 'center',
 						selectorColumn : true,
 						title: '선택',
 						width : '20px',
 					},
 					{
-						align : 'center',
 						numberingColumn : true,
 						title: 'No',
 						width : '20px',
@@ -201,12 +198,12 @@ $a.page(function() {
 					{
 						key : 'empNm',
 						title: '이름',
-						width : '100px',
+						width : '60px',
 					}, {
 						key : 'rank',
 						title : '직급',
 						width : '30px',
-            render : function(value, data, render, mapping, grid){
+						render : function(value, data, render, mapping, grid){
 							var rankName = "";
 							if(value){
 								rankName = value.rankName;
@@ -217,6 +214,7 @@ $a.page(function() {
 						key : 'team',
 						title : '소속팀',
 						width : '50px',
+						sorting: true,
             render : function(value, data, render, mapping, grid){
 							var rankName = "";
 							if(value == "TEAM_SI"){
