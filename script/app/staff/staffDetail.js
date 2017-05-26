@@ -16,9 +16,10 @@ $a.page(function() {
 		function setData(data){
 			console.log(data);
 			// anbwidget
+			//$("#ranksel").selectRank();
+			//$("#projectsel").selectProject(); //프로젝트
 			$("#ranksel").selectRank({para:data.rank.rankCode}); //랭크
-			//$("#projectsel").selectProject({para:data.project.prjId}); //프로젝트
-			$("#projectsel").selectProject(); //프로젝트
+			$("#projectsel").selectProject({para:data.project.prjId}); //프로젝트
 			$("#stafftypesel").selectCommon({type : 'staffType'}); //직원타입
 			$("#workareasel").selectCommon({type : 'workArea'}); //업무지역
 			$("#teamsel").selectCommon({type : 'team', para:data.team}); //팀
@@ -62,8 +63,9 @@ $a.page(function() {
 				vData['rank'] = {};
 				vData.rank.rankCode = data.rankCode;
 				//var vData = {empNm: data.empNm, email: data.email, project :{prjId : data.prjId}, rank: {rankCode : data.rankCode}};
- 
+
 				vData.team = data.teamCd;
+				vData.workPosition = data.workCd;
 
 				console.log("[get vData is] " , vData);
 	      ANBTX.C('/employee' , vData, function(res){

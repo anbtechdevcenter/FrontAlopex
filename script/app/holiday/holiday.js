@@ -108,6 +108,10 @@ $a.page(function() {
           align : 'center'
         },
 				headerGroup: [{fromIndex:5, toIndex:6, title:"휴가"}],
+				defaultSorting:{
+					sortingColumn: 2,
+					sortingDirection: 'asc'
+				},
 				columnMapping : [
 					{
 						align : 'center',
@@ -125,6 +129,7 @@ $a.page(function() {
 						key : 'empId',
 						title: '사번',
 						width : '100px',
+						sorting: true,
 					},
 					{
 						key : 'empNm',
