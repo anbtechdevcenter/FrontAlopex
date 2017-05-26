@@ -115,13 +115,10 @@ $a.page(function() {
 
 					var selData = $("#staffWrap").getData();
 					var newGridData = {};
-					//console.log("selData is ", selData);
 					if(selData){
 						//이름
 						if(selData.empNm != ""){
-						//	console.log("[1] ", selData.rankCode);
 							gridData = res.filter(function(val){
-								//console.log("[val us ] ", val);
 								return val.empNm === selData.empNm;
 							});
 						}else{
@@ -130,9 +127,7 @@ $a.page(function() {
 
 						//직급
 						if(selData.rankCode != ""){
-						//	console.log("[1] ", selData.rankCode);
 							gridData = gridData.filter(function(val){
-								//console.log("[val us ] ", val);
 								if(val.rank != null){
 									return val.rank.rankCode === selData.rankCode;
 								}
@@ -143,19 +138,38 @@ $a.page(function() {
 
 						//프로젝트
 						if(selData.prjId != ""){
-						//	console.log("[1] ", selData.rankCode);
 							gridData = gridData.filter(function(val){
-								console.log("[val us ] ", val);
 								if(val.project != null){
 									return val.project.prjId === selData.prjId;
 								}
-
-								});
+							});
 						}else{
 							gridData = gridData;
 						}
 
+						//코드타입
+						//직원유형
+						//근무지역
+						if(selData.workCd != ""){
+							gridData = gridData.filter(function(val){
+									if(val.workPosition != ""){
+										return val.workPosition === selData.workCd;
+									}
+							});
+						}else{
+							gridData = gridData;
+						}
 
+						//팀(아직 소속팀 코드화 안되어 있음)
+						if(selData.teamCd != ""){
+							gridData = gridData.filter(function(val){
+									if(val.team != ""){
+										return val.team === selData.teamCd;
+									}
+							});
+						}else{
+							gridData = gridData;
+						}
 					}
 
 			 		$('#grid_staff').alopexGrid("dataSet", gridData);
@@ -202,7 +216,22 @@ $a.page(function() {
 					}, {
 						key : 'team',
 						title : '소속팀',
-						width : '50px'
+						width : '50px',
+            render : function(value, data, render, mapping, grid){
+							var rankName = "";
+							if(value == "TEAM_SI"){
+								rankName = "SI팀";
+							} else if(value == "TEAM_SM"){
+								rankName = "SM팀";
+							} else if(value == "TEAM_DESIGN"){
+								rankName = "디자인팀";
+							} else if(value == "TEAM_SKILL"){
+								rankName = "기술지원팀";
+							} else if(value == "TEAM_HEADQUARTERS"){
+								rankName = "본부";
+							}
+              return rankName;
+            }
 					}, {
 						key : 'email',
 						title : 'E-mail',
@@ -222,7 +251,13 @@ $a.page(function() {
 						key : 'enteringDate',
 						title : '입사일',
 						width : '50px'
+					}, {
+						key : 'workCd',
+						title : 'workPosition',
+						width : '50px'
 					}
+
+
 				]
 			});
 	  }
