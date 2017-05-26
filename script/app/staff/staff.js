@@ -250,9 +250,22 @@ $a.page(function() {
 						title : '입사일',
 						width : '50px'
 					}, {
-						key : 'workCd',
-						title : 'workPosition',
-						width : '50px'
+						key : 'workPosition',
+						title : '근무지역',
+						width : '50px',
+            render : function(value, data, render, mapping, grid){
+							var vWorkPosition = "";
+							if(value == "SITE_IC"){
+								vWorkPosition = "이천";
+							} else if(value == "SITE_CJ"){
+								vWorkPosition = "청주";
+							} else if(value == "SITE_WC"){
+								vWorkPosition = "우시";
+							} else if(value == "SITE_BD"){
+								vWorkPosition = "분당";
+							}
+              return vWorkPosition;
+            }
 					}
 
 
