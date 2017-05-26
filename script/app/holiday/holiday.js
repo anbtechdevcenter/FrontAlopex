@@ -1,7 +1,7 @@
 /*********************************
 * 근태관리
-* @author : anbtechdevcenter
-* @create : 2017-05-18
+* @author : ksh
+* @create : 2017-05-26
 *************************************/
 $a.page(function() {
 	  this.init = function(id, param) {
@@ -56,15 +56,6 @@ $a.page(function() {
 			}
 		}
 
-
-		/*
-		* 테스트
-		*/
-		this.btnTest = function() {
-			var data = $("#staffWrap").getData();
-			console.log("[get data is] " , data);
-		}
-
     /*
     * 조회 버튼 액션
     */
@@ -110,21 +101,23 @@ $a.page(function() {
 	  //그리드 초기화
 	  function initGrid() {
 			$('#grid_holiday').alopexGrid({
+				autoColumnIndex: true,
         defaultColumnMapping : {
           align : 'center'
         },
+				headerGroup: [{fromIndex:5, toIndex:6, title:"휴가"}],
 				columnMapping : [
 					{
 						align : 'center',
 						selectorColumn : true,
 						title: '선택',
-						width : '20px',
+						width : '40px',
 					},
 					{
 						align : 'center',
 						numberingColumn : true,
 						title: 'No',
-						width : '20px',
+						width : '40px',
 					},
 					{
 						key : 'empId',
@@ -142,6 +135,11 @@ $a.page(function() {
 						width : '100px',
 					},
 					{
+						key : 'holidaySdate',
+						title: '시작일자',
+						width : '100px',
+					},
+					{
 						key : 'holidayEdate',
 						title: '종료일자',
 						width : '100px',
@@ -149,11 +147,6 @@ $a.page(function() {
 					{
 						key : 'holidayReason',
 						title: '사유',
-						width : '100px',
-					},
-					{
-						key : 'holidaySdate',
-						title: '시작일자',
 						width : '100px',
 					},
 					{
