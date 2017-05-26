@@ -8,8 +8,6 @@ $a.page(function() {
 			// 인클루드 처리를 위한 내용
 			w3.includeHTML();
 
-			console.log("확인");
-
 			initGrid();
 
 			this.defineEvent();

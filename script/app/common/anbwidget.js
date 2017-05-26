@@ -172,12 +172,14 @@ $(function(){
             case "workArea" :
               $(comp).setData({
                 codeTypeList: vals
+                ,workCd: vPara
               });
               break;
             case "team" :
               $(comp).setData({
                 codeTypeList: vals
-                ,teamCd: vPara
+
+                ,workCd: vPara
               });
               break;
             default:

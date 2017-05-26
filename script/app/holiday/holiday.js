@@ -110,6 +110,22 @@ $a.page(function() {
 					sortingColumn: 2,
 					sortingDirection: 'asc'
 				},
+				footer : {
+						//position : "top", //헤더 아래에 footer를 표시합니다.
+						footerMapping : [
+								{columnIndex:3, title:"총원", align:"center"},//셀에 표현하는 텍스트의 정렬방향을 정할 수 있습니다.
+								{columnIndex:4, render:"count(4)"},//통계함수의 결과값만 셀에 표현합니다.
+						]
+				},
+				//셀의 rowspan 기능은 grouping 된 범위를 따라갑니다.
+				grouping : {
+						useGrouping : true,
+						useGroupRowspan : true,
+						useGroupRearrange:true,
+						useDragDropBetweenGroups: true,
+						by : ['empId','empNm'],
+						useGroupFooter : ['empId'],
+				},
 				columnMapping : [
 					{
 						align : 'center',
@@ -128,16 +144,20 @@ $a.page(function() {
 						title: '사번',
 						width : '100px',
 						sorting: true,
+						rowspan : true
 					},
 					{
 						key : 'empNm',
 						title: '이름',
 						width : '100px',
+						rowspan : true
 					},
 					{
 						key : 'holidayDay',
 						title: '휴일일수',
 						width : '100px',
+						groupFooter:['휴일 합계 ','sum(holidayDay)','일'],
+						groupFooterAlign:'center',
 					},
 					{
 						key : 'holidaySdate',
