@@ -85,7 +85,9 @@ $a.page(function() {
     * 근태조회
     */
 		function readHoliday(){
-			ANBTX.R('/holiday',
+			var pid = '/holiday/';
+			console.log('pid :: ' + pid);
+			ANBTX.R(pid,
 			 	function(res){
 					console.log("[근태] ", res);
 
