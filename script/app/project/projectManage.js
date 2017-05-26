@@ -1,27 +1,46 @@
 /*********************************
-* 프로젝트 관리
+* 설명 작성
+* @author : 김영우 대리
+* @create : 2017-05-26
 *************************************/
 $a.page(function() {
+
+ /**
+ * 업무소스내(page내부) 전역역활 변수
+ * 타입별로 정의 (strin, boolean, number, array, object)
+ * 아래는 string 타입에 대해서만 정의함.
+ */
+	var wrapId = "#wrapId",
+    gridId = "#grid1",
+		popupUrl = "/html/project/popup/projectPopup.html";
+
+
+
 	  this.init = function(id, param) {
-		//ctrl+c 서버 멈춤, npm start
-		//그리드 초기화
-		  /* 김영우 대리 작업 */
-		initGrid();
+			// 인클루드 처리를 위한 내용
+			w3.includeHTML();
+      // 그리드 존재시 그리스 선언부 함수 (구현코드는 제일 하단에 위치함)
+			initGrid();
 
-		this.defineEvent();
+      // 이벤트 정의 함수부분
+			this.defineEvent();
 
-		setData();
+      // 화면 초기 데이터 및 초기 화면 그리는 부분 함수
+			setData();
 
 	  };
 
-
+    /***************************************
+    * @constructor : 초기 화면 로딩시 필요한
+    * 데이터 세팅 및 UI Draw 코드 처리
+    ****************************************/
 		function setData(){
 			readProjectList();
 		}
 
-/**
-* 이벤트 처리
-*/
+		/**
+		* 이벤트 처리
+		*/
 		this.defineEvent = function(){
 			$("#btnSearch").on("click", this.btnSearch);
 			$("#btnRegiste").on("click", this.btnRegiste);
@@ -29,7 +48,12 @@ $a.page(function() {
 		};
 
 
-    /*
+
+		/**
+		* 아래부터는 구현을 위한 함수 작성
+		* 기명함수 권장
+		*/
+		/*
     * 조회 버튼 액션
     */
 		this.btnSearch = function(){
@@ -80,7 +104,7 @@ $a.page(function() {
 				data.type = type;
 				title = '프로젝트 관리';
 			}
-			var popupUrl = "/html/manage/popup/projectPopup.html";
+			var popupUrl = "/html/project/popup/projectPopup.html";
 			var pops =  $a.popup({
 				 url : popupUrl,
 				 title : title,
@@ -98,8 +122,10 @@ $a.page(function() {
 		}
 
 
-
-	  //그리드 초기화
+    /***************************************
+    * @constructor : 그리드 초기화
+    *
+    ****************************************/
 	  function initGrid() {
 			$('#grid1').alopexGrid({
         defaultColumnMapping : {
