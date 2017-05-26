@@ -16,7 +16,8 @@ $a.page(function() {
 		function setData(data){
 			console.log(data);
 			// anbwidget
-			$("#ranksel").selectRank({para:data.rank.rankCode}); //랭크
+			$("#ranksel").selectRank();
+			//$("#ranksel").selectRank({para:data.rank.rankCode}); //랭크
 			//$("#projectsel").selectProject({para:data.project.prjId}); //프로젝트
 			$("#projectsel").selectProject(); //프로젝트
 			$("#stafftypesel").selectCommon({type : 'staffType'}); //직원타입
