@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- 업무소스 -->
+    <script type="text/javascript" src="/script/app/manage/popup/platformMenuPopup.js"></script>
+
+
+    <title>메뉴관리</title>
+</head>
+
+<body>
+
+  <div id="platPopWrap" class="padding_tb5p_lr10p">
+    <div>
+      <label class="margin_r10" style="width:150px;">메뉴명 </label>
+      <input type="text" id="pmenuNm" class="Textinput" data-bind="value:mnName" style="width:192px;"/>
+     </div>
+
+     <div class="margin_tb10" >
+       <label class="margin_r10" style="width:150px;">메뉴경로 </label>
+       <input type="text" class="Textinput" data-bind="value:mnUrl" style="width:192px;"/>
+     </div>
+
+     <div class="margin_tb10">
+       <label class="margin_r10" style="width:150px;">메뉴상태 </label>
+       <input type="text" class="Textinput" data-bind="value:mnState" style="width:192px;"/>
+     </div>
+
+     <div class="margin_tb10">
+       <label class="margin_r10" style="width:150px;">메뉴템플릿 경로 </label>
+       <input type="text" class="Textinput" data-bind="value:mnTemplateUrl" style="width:192px;"/>
+     </div>
+
+     <div class="margin_tb10">
+       <label class="margin_r10" style="width:150px;">메뉴 컨트롤러 </label>
+       <input type="text" class="Textinput" data-bind="value:mnController" style="width:192px;"/>
+     </div>
+
+
+     <div class="margin_tb10 line_h25px">
+      <div>
+       <label>사용여부</label>
+       <label class="ImageRadio">
+           <input class="Radio" name="useYnNm" value="true" data-bind="checked:isDefault"/><span class="margin_l5"> 사용</span>
+       </label>
+       <label class="ImageRadio">
+           <input class="Radio" name="useYnNm" value="false" data-bind="checked:isDefault"/> <span class="margin_l5">미사용</span>
+       </label>
+     </div>
+   </div>
+   </div>
+
+   <div class="t_center">
+    <button class="Button Pbutton" id="btnPlatMenuPopU">수정</button>
+    <button class="Button Pbutton" id="btnPlatMenuPopC">등록</button>
+    <button class="Button Pbutton" id="btnPlatMenuPopClose">닫기</button>
+  </div>
+
+</body>
+</html>
