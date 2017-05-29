@@ -67,7 +67,7 @@ $a.page(function() {
 		*/
 		this.btnRegiste = function(){
 				var data = $(wrapId).getData();
-
+console.log("btnRegiste:::",wrapId);
 				ANBTX.C("/codeType", data, function(res){
 					$a.close('success');
 				});

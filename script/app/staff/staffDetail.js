@@ -43,7 +43,12 @@ $a.page(function() {
 				$("#teamsel").selectCommon({type : 'team'});
 			}
 
-
+			//직원구분
+			if(data.workPosition != ""){
+				$("#empFlagsel").selectCommon({type : 'staffType', para:data.empFlag}); //직원구분
+			}else{
+				$("#empFlagsel").selectCommon({type : 'staffType'});
+			}
 			//데이터 바인딩
 			$('#bindarea').setData(data);
 
