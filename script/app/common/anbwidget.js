@@ -167,6 +167,7 @@ $(function(){
             case "staffType":
               $(comp).setData({
                 codeTypeList: vals
+                ,empFlag: vPara
               });
               break;
             case "workArea" :
