@@ -2,7 +2,7 @@
 <html>
 <head>
   <!-- html5 방식 -->
-  <!-- <link rel="import" href="../header/header.html"> -->
+  <!-- <link rel="import" href="/header/header.html"> -->
 
   <!-- 업무화면 소스 -->
 <script type="text/javascript" src="/script/app/staff/popup/staffRegist.js"></script>
@@ -39,48 +39,57 @@ div {
     padding: 20px;
 }*/
 </style>
-
-
 <title>직원등록 [작업중]</title>
 </head>
 <body>
+	<!-- contents  -->
+  <div class="padding_5p" id="commonCodeTypeWrap">
+		<form id="staffWrap" data-validation-option="{onsubmit:true}" action="#">
+    <table class="Ptable">
+      <colgroup>
+        <col width="75px;">
+        <col width="">
+      </colgroup>
+      <tbody>
+        <tr>
+          <td for="userName">이름</td>
+          <td><span data-for="userName" style="color: red;"></span>
+					<input data-bind="value:empNm" id="userName"type="text" placeholder="이름 입력"	data-validation-rule="{required:true, minlength:2}"/></td>
+        </tr>
+        <tr>
+          <td for="userEmail">이메일</td>
+          <td><span data-for="userEmail" style="color: red;"></span>
+						<input data-bind="value:email" id="userEmail"	type="email" placeholder="이메일 입력"	data-validation-rule="{required:true, minlength:2}"/>
+				  </td>
+        </tr>
+        <tr>
+          <td for="userRank">직급</td>
+          <td>
+						<span data-for="userRank" style="color: red;"></span><div id="userRank"></div>
+          </td>
+        </tr>
+        <tr>
+          <td for="userProject">프로젝트</td>
+          <td>
+						<span data-for="userProject" style="color: red;"></span>
+ 						<div id="userProject"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+	</form>
 
+  </div>
+	<!-- popup Bottom  -->
+	<div class="t_center Popup_Bottom" >
+		<div class="margin_t5">
+			<button class="Button Pbutton" id="btnStaffRegister">등록</button>
+			<button class="Button Pbutton" id="">닫기</button>
+		</div>
+	</div>
+	<!--// popup Bottom  -->
+  <!-- // contents  -->
 
-
-<div>
-	<form id="staffWrap" data-validation-option="{onsubmit:true}" action="#">
-		<label for="userName">이름</label>
-		<span data-for="userName" style="color: red;"></span>
-		<input data-bind="value:empNm" id="userName"
-			type="text" placeholder="이름 입력"
-			data-validation-rule="{required:true, minlength:2}"/>
-
-
-		<label for="userEmail">이메일</label>
-		<span data-for="userEmail" style="color: red;"></span>
-		<input data-bind="value:email" id="userEmail"
-				type="email" placeholder="이메일 입력"
-				data-validation-rule="{required:true, minlength:2}"/>
-
-		<label for="userRank">직급</label>
-		<span data-for="userRank" style="color: red;"></span>
-    <div id="userRank"></div>
-
-
-    <label for="userProject">프로젝트</label>
-		<span data-for="userProject" style="color: red;"></span>
-    <div id="userProject"></div>
-<!--
-    <select id="userRank"
-		  data-bind-option="rankCode:rankName"
-			data-bind="options: rankList, selectedOptions : rankCode"
-			data-validation-rule="{required:true, minlength:2}"></select>
--->
-
-		<input type="submit" value="등록" id="btnStaffRegister">
-</form>
-	<h5>필수 정보만 등록합니다. 세부설정은 개인이 마이페이지에서 처리합니다.</h5>
-</div>
 
 
 </body>

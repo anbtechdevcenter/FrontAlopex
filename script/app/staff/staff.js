@@ -80,7 +80,8 @@ $a.page(function() {
 		this.btnStaffRegister = function(){
 			$a.popup({
 				title : '직원등록',
-				url : 'popup/staffRegist.html'
+				url : 'popup/staffRegist.html',
+				height:265,
 			});
 		};
 
