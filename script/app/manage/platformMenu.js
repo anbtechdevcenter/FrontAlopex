@@ -136,9 +136,14 @@ $a.page(function() {
     */
     function readMenu(){
       ANBTX.R('/menu', function(res){
+        res.sort(function(a,b){
+          return a.mnOrder < b.mnOrder ? -1 :  a.mnOrder > b.mnOrder ? 1 : 0;
+        });
         $(gridId).alopexGrid('dataSet', res);
         parentArr = res;
       }, true);
+
+      $(gridId).alopexGrid("expandTreeNode");
     }
 
     /**
@@ -203,7 +208,12 @@ $a.page(function() {
             treeColumn : true,
 			      treeColumnHeader : true,
             "NODE_EXPANDED" : "true"
-					},  {
+					}, {
+						key : 'mnDepth',
+						title : '메뉴 Depth',
+						width : '80px',
+            align : 'center'
+					}, {
 						key : 'mnOrder',
 						title : '메뉴순서',
 						width : '80px',
@@ -236,6 +246,13 @@ $a.page(function() {
 						key : 'mnState',
 						title : '사용여부',
 						width : '80px',
+            render : function(value, data){
+              if(value==='Y'){
+                return "사용"
+              }else if(value==='N'){
+                return "미사용"
+              }
+            },
             'align' : 'center'
 					}, {
 						key : 'mnTemplateUrl',

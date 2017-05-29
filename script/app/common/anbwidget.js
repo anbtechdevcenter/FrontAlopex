@@ -81,6 +81,37 @@ $(function(){
     }
   }); // select end
 
+  /**
+  * 프로젝트 셀렉트
+  */
+  $.widget("ui.selectMenu", {
+    options : {
+    },
+    _create : function(){
+
+      var comp = document.createElement('select');
+
+      comp.className = "Select";
+
+    //  comp.className = "Divselect";
+      comp.setAttribute("data-bind-option", "mnId:mnName");
+      comp.setAttribute("data-bind","options: attachList, selectedOptions : parentId");
+
+      ANBTX.R('/menu', function(res){
+      //  console.log("[project is] ", res);
+        var filterData = res.filter(function(val){
+            return val.mnDepth <= 1;
+        });
+        filterData.unshift({"mnId":"", "mnName": "==선택=="});
+      //    console.log("[menu sel is] ", filterData);
+          $(comp).setData({
+            attachList: filterData
+          });
+        }, true);
+
+      return $(this.element).replaceWith(comp);
+    }
+  }); // select end
 
 
   /**

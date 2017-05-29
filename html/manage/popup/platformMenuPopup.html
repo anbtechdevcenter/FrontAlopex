@@ -20,40 +20,42 @@
 
      <div class="margin_tb10" >
        <label class="margin_r10" style="width:150px;">메뉴경로 </label>
-       <input type="text" class="Textinput" data-bind="value:mnUrl" style="width:192px;"/>
+       <input type="text" class="Textinput" data-bind="value:mnUrl" style="width:192px;" placeholder="/html/"/>
+     </div>
+
+     <div class="margin_tb10" >
+       <label class="margin_r10" style="width:150px;">상위메뉴 </label>
+       <div id="menuSel"></div>
      </div>
 
      <div class="margin_tb10">
        <label class="margin_r10" style="width:150px;">메뉴상태 </label>
-       <input type="text" class="Textinput" data-bind="value:mnState" style="width:192px;"/>
+       <input type="text" class="Textinput" data-bind="value:mnState" style="width:192px;" value="Y" readonly="readonly"/>
      </div>
 
      <div class="margin_tb10">
-       <label class="margin_r10" style="width:150px;">메뉴템플릿 경로 </label>
-       <input type="text" class="Textinput" data-bind="value:mnTemplateUrl" style="width:192px;"/>
+       <label class="margin_r10" style="width:150px;">메뉴모둘 경로 </label>
+       <input type="text" class="Textinput" data-bind="value:mnTemplateUrl" style="width:192px;" placeholder="/staff 와 같이 호출시 모듈명"/>
      </div>
 
      <div class="margin_tb10">
-       <label class="margin_r10" style="width:150px;">메뉴 컨트롤러 </label>
-       <input type="text" class="Textinput" data-bind="value:mnController" style="width:192px;"/>
+       <label class="margin_r10" style="width:150px;">API 호출경로 </label>
+       <input type="text" class="Textinput" data-bind="value:mnController" style="width:192px;" placeholder="/rank 와 같이 대표 API만 적음."/>
      </div>
 
 
      <div class="margin_tb10 line_h25px">
       <div>
-       <label>사용여부</label>
+       <label>디폴트 메뉴</label>
        <label class="ImageRadio">
-           <input class="Radio" name="useYnNm" value="true" data-bind="checked:isDefault"/><span class="margin_l5"> 사용</span>
-       </label>
-       <label class="ImageRadio">
-           <input class="Radio" name="useYnNm" value="false" data-bind="checked:isDefault"/> <span class="margin_l5">미사용</span>
+           <input class="Radio" name="useYnNm" value="false" data-bind="checked:isDefault" readonly="readonly"/> <span class="margin_l5">false</span>
        </label>
      </div>
    </div>
    </div>
 
    <div class="t_center">
-    <button class="Button Pbutton" id="btnPlatMenuPopU">수정</button>
+    <!-- <button class="Button Pbutton" id="btnPlatMenuPopU">수정</button> -->
     <button class="Button Pbutton" id="btnPlatMenuPopC">등록</button>
     <button class="Button Pbutton" id="btnPlatMenuPopClose">닫기</button>
   </div>

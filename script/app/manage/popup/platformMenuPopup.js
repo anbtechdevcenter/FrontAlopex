@@ -11,7 +11,7 @@ $a.page(function() {
  * 아래는 string 타입에 대해서만 정의함.
  */
 	var wrapId = "#platPopWrap";
-
+  var menuArr = [];
 
 
 	  this.init = function(id, param) {
@@ -34,23 +34,35 @@ $a.page(function() {
       if(callType==='C'){
         // 등록일 경우
         initData.isDefault = 'false'
+        initData.mnDepthList = [{
+          mnDepth : '1',
+        },{
+          mnDepth : '2',
+        }];
+
         $("#btnPlatMenuPopU").hide();
       }else if(callType==='U'){
         // 수정일 경우
         initData = param;
-        if(param.isDefault){
-          initData.isDefault = 'true';
-        }else{
-          initData.isDefault = 'false';
+        if('isDefault' in param){
+          var isDef = param.isDefault;
+          initData.isDefault = JSON.stringify(isDef);
         }
+
         $("#btnPlatMenuPopC").hide();
       }
     //  console.log("[로딩시 데이터] ", initData);
       // 기본 세팅
       $(wrapId).setData(initData);
 
+      $("#menuSel").selectMenu();
+
       // 포커스 처리
       $("#pmenuNm").focus();
+
+      ANBTX.R('/menu', function(res){
+          menuArr = res;
+      },true);
 
 		}
 
@@ -64,7 +76,10 @@ $a.page(function() {
       $("#btnPlatMenuPopU").on("click", this.btnPlatMenuPopU);
 
       // 기타 이벤트 정의
+
 		};
+
+
 
 
     /**
@@ -72,7 +87,66 @@ $a.page(function() {
 		*/
 		this.btnPlatMenuPopC = function(){
       var seldata = getWrapData();
-      console.log("[선택데이터] ", seldata);
+      //seldata.isDefault=false;
+
+      if('isDefault' in seldata){
+        var ck = seldata.isDefault;
+        seldata.isDefault = JSON.parse(ck);
+      }
+
+    //  console.log("[선택데이터] ", seldata);
+
+
+      var orderMap = menuArr.filter(function(val){
+        return val.mnId === seldata.parentId;
+      });
+
+    //  console.log("[orderMap] ", orderMap);
+
+      if(orderMap.length>0){
+        seldata.mnDepth = parseInt(orderMap[0].mnDepth)+1;
+      }else{
+        // 초기 데이터 없는경우
+        seldata.mnDepth = 1;
+      }
+
+
+      var containsMap = menuArr.filter(function(val){
+        return val.parentId === seldata.parentId;
+      });
+
+      var orderArrs = [];
+
+      $.each(containsMap, function(idx, val){
+          orderArrs.push(val.mnOrder);
+      });
+
+      orderArrs.sort();
+      var orderIdx = orderArrs.length;
+
+      seldata.mnOrder = orderArrs[orderIdx-1] + 1;
+
+      // validataion
+    //  console.log("[최종 데이터] ", seldata);
+
+      if(seldata.mnName==""){
+        alert("메뉴명을 필히 입력하십시오!");
+        return false;
+      }else if(seldata.mnUrl==""){
+        alert("메뉴경로를 필히 입력하십시오!");
+        return false;
+      }else if(seldata.parentId==""){
+        alert("상위메뉴를 필히 입력하십시오!");
+        return false;
+      }if(seldata.mnTemplateUrl==""){
+        alert("메뉴모듈 경로를 필히 입력하십시오!");
+        return false;
+      }if(seldata.mnController==""){
+        alert("API 호출경로를 필히 입력하십시오!");
+        return false;
+      }
+
+
       ANBTX.C('/menu', seldata, function(res){
         $a.close('success');
       });

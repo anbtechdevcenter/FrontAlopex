@@ -36,8 +36,8 @@ $a.page(function() {
     * 조회 버튼 액션
     */
 		this.btnStaffRegister = function(e){
-
-			var data = $("#staffWrap").getData();
+			console.log("click");
+			var data = $("#staffRegistWrap").getData();
 			console.log("[data is] ", data);
 
 			//return false;
@@ -45,6 +45,7 @@ $a.page(function() {
       var check = $("#staffWrap").validate();
 
 			console.log(" >> ", check);
+			return false;
       if(check){
         var data = $("#staffWrap").getData();
         console.log("[get data is] " , data);
@@ -52,9 +53,9 @@ $a.page(function() {
 				//형태에 맞게 넣어줘야 함.
 				var vData = {empNm: data.empNm, email: data.email, project :{prjId : data.prjId}, rank: {rankCode : data.rankCode}};
 				console.log("[get vData is] " , vData);
-      ANBTX.C('/employee' , vData, function(res){
-          console.log("[직원등록] ", res);
-      });
+	      ANBTX.C('/employee' , vData, function(res){
+	          console.log("[직원등록] ", res);
+	      });
       }else{
         console.log("stop");
 
