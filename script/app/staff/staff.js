@@ -8,8 +8,6 @@ $a.page(function() {
 			// 인클루드 처리를 위한 내용
 			//w3.includeHTML();
 
-			console.log("확인");
-
 			initGrid();
 
 			this.defineEvent();
@@ -43,13 +41,14 @@ $a.page(function() {
 			$("#btnStaffDelete").on("click", this.btnStaffDelete);
 
 			$("#grid_staff").on("dblclick", '.bodycell', this.grid_dblClick);
+
 		};
 
 		/*
 		* 직원삭제
 		*/
 		this.btnStaffDelete = function(){
-			var check = confirm("삭제하시겠습니까?");
+			var check = confirm("정말 삭제하시겠습니까? 복구가 안됩니다.");
 			var selData = $("#grid_staff").alopexGrid("dataGet", {_state :{selected:true}});
 			console.log("seldata ", selData);
 			if(check && selData.length>0){
@@ -263,6 +262,25 @@ $a.page(function() {
 								vWorkPosition = "우시";
 							} else if(value == "SITE_BD"){
 								vWorkPosition = "분당";
+							}else{
+								vWorkPosition = "선택안됨";
+							}
+              return vWorkPosition;
+            }
+					}, {
+						key : 'empFlag',
+						title : '직원구분',
+						width : '50px',
+            render : function(value, data, render, mapping, grid){
+							var vWorkPosition = "";
+							if(value == "STFCD1"){
+								vWorkPosition = "정직원";
+							} else if(value == "STFCD2"){
+								vWorkPosition = "계약직";
+							} else if(value == "STFCD3"){
+								vWorkPosition = "프리랜서";
+							}else{
+								vWorkPosition = "선택안됨";
 							}
               return vWorkPosition;
             }

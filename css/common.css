@@ -8,11 +8,18 @@
 .margin_r10{margin-right:10px;}
 .margin_r20{margin-right:20px;}
 .margin_tb10{margin: 10px 0 10px 0;}
+.margin_lr10{margin:0 10px 0 10px;}
 .padding_5p{padding:5%;}
 .padding_tb5p_lr10p{padding:5% 10%;}
 .padding_tb5p_lr5p{padding:5% 5%;}
 .line_h25px{line-height:25px;}
 .t_center{text-align: center;}
+/*width*/
+.width_100p{width: 100%;}
+
+#page-wrapper{
+  /*width: 100%;*/
+}
 /*팝업창 상단*/
 .Dialog .Header {
   box-shadow:inset 0px 1px 0px 0px #ffffff;

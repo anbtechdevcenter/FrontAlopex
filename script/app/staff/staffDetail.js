@@ -5,6 +5,8 @@
 *************************************/
 $a.page(function() {
 	  this.init = function(id, param) {
+			// 인클루드 처리를 위한 내용
+			w3.includeHTML();
 
 			this.defineEvent();
 
@@ -18,16 +20,38 @@ $a.page(function() {
 			// anbwidget
 			//$("#ranksel").selectRank();
 			//$("#projectsel").selectProject(); //프로젝트
-			$("#ranksel").selectRank({para:data.rank.rankCode}); //랭크
-			$("#projectsel").selectProject({para:data.project.prjId}); //프로젝트
-			$("#stafftypesel").selectCommon({type : 'staffType'}); //직원타입
-			$("#workareasel").selectCommon({type : 'workArea'}); //업무지역
-			$("#teamsel").selectCommon({type : 'team', para:data.team}); //팀
+			//랭크
+			$("#ranksel").selectRank({para:data.rank.rankCode});
 
+			//프로젝트
+			$("#projectsel").selectProject({para:data.project.prjId});
+
+			//직원타입
+			$("#stafftypesel").selectCommon({type : 'staffType'});
+
+			//업무지역
+			if(data.workPosition != ""){
+				$("#workareasel").selectCommon({type : 'workArea', para:data.workPosition}); //업무지역
+			}else{
+				$("#workareasel").selectCommon({type : 'workArea'}); //업무지역
+			}
+
+			//팀
+			if(data.workPosition != ""){
+				$("#teamsel").selectCommon({type : 'team', para:data.team}); //팀
+			}else{
+				$("#teamsel").selectCommon({type : 'team'});
+			}
+
+			//직원구분
+			if(data.workPosition != ""){
+				$("#empFlagsel").selectCommon({type : 'staffType', para:data.empFlag}); //직원구분
+			}else{
+				$("#empFlagsel").selectCommon({type : 'staffType'});
+			}
+			//데이터 바인딩
 			$('#bindarea').setData(data);
 
-			//selectbox bind
-			$('#ranksel').setSelected("RANK30");
 		}
 
     /**

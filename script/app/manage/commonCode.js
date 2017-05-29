@@ -91,8 +91,8 @@ var popupUrl = "/html/manage/popup/commonCodePopup.html",
 				 url : popupUrl,
 				 title : '공통코드 수정',
 				 data : seldata,
-				 width : 350,
-				 height : 400,
+				 width : 300,
+				 height : 250,
 				 callback : function(res){
 					 //console.log("res " , res);
 					 if(res=="success"){
