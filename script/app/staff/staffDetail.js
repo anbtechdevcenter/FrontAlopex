@@ -36,6 +36,14 @@ $a.page(function() {
 				$("#workareasel").selectCommon({type : 'workArea'}); //업무지역
 			}
 
+			//팀
+			if(data.workPosition != ""){
+				$("#teamsel").selectCommon({type : 'team', para:data.team}); //팀
+			}else{
+				$("#teamsel").selectCommon({type : 'team'});
+			}
+
+
 			//데이터 바인딩
 			$('#bindarea').setData(data);
 

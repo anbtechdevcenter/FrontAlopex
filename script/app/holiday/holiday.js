@@ -156,7 +156,7 @@ $a.page(function() {
 					},
 					{
 						key : 'holidayDay',
-						title: '휴일일수',
+						title: '일수',
 						width : '100px',
 						groupFooter:['휴일 합계 ','sum(holidayDay)','일'],
 						groupFooterAlign:'center',
