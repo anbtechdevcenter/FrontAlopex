@@ -178,8 +178,7 @@ $(function(){
             case "team" :
               $(comp).setData({
                 codeTypeList: vals
-
-                ,workCd: vPara
+                ,teamCd: vPara
               });
               break;
             default:
