@@ -100,6 +100,7 @@ $a.page(function() {
 				var sdata = $("#grid1").alopexGrid("dataGet", {_state :{selected:true}});
 				data = sdata[0];
 				data.type = type;
+        console.log(data);
 				title = '글 수정(추후 글 조회 및 버튼을 이용하여 수정기능 반영필요)';
 			}
 			var popupUrl = "/html/board/popup/boardPopup_free.html";
