@@ -32,29 +32,26 @@
                       <!-- /.panel-heading -->
                       <!-- /.panel-heading -->
                         <div class="panel-body">
-
-                      <div id="platmenuWrap">
-
-                        <label for="codeTypeNm">코드타입명</label>
-                        <input id="codeTypeNm" class="Textinput" data-bind="value:codeTypeName"/>
-                        <label class="margin_l10">사용여부</label>
-                        <label class="ImageRadio">
-                          <input class="Radio" name="useYnNm" value="Y" data-bind="value:useYn"/> 사용
-                        </label>
-                        <label class="ImageRadio">
-                          <input class="Radio" name="useYnNm" value="N" data-bind="value:useYn"/> 미사용
-                        </label>
-                        <button class="Button" id="btnSearch">조회</button>
-                        <button class="Button" id="btnPlatMenuU">수정</button>
-                        <button class="Button" id="btnPlatMenuC">등록</button>
-                        <button class="Button" id="btnPlatMenuD">선택삭제</button>
-
-                      </div>
-                      <!-- 여기에 업무화면 마크업 작성 -->
-
-                        <div id="platmenuGrid"></div>
-
-
+                          <div id="platmenuWrap">
+                            <label for="codeTypeNm">코드타입명</label>
+                            <input id="codeTypeNm" class="Textinput" data-bind="value:codeTypeName"/>
+                            <label class="margin_l10">사용여부</label>
+                            <label class="ImageRadio">
+                              <input class="Radio" name="useYnNm" value="Y" data-bind="value:useYn"/> 사용
+                            </label>
+                            <label class="ImageRadio">
+                              <input class="Radio" name="useYnNm" value="N" data-bind="value:useYn"/> 미사용
+                            </label>
+                            <div class="f_Right">
+                              <button class="Button" id="btnSearch">조회</button>
+                              <button class="Button" id="btnPlatMenuU">수정</button>
+                              <button class="Button" id="btnPlatMenuC">등록</button>
+                              <button class="Button" id="btnPlatMenuD">선택삭제</button>
+                            </div>
+                            <div class="margin_t10">
+                              <div id="platmenuGrid"></div>
+                            </div>
+                          </div>
                       </div> <!-- panel body end -->
                     </div> <!-- div end -->
                   </div> <!-- col div end -->

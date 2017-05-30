@@ -13,8 +13,11 @@
 .padding_tb5p_lr10p{padding:5% 10%;}
 .padding_tb5p_lr5p{padding:5% 5%;}
 .line_h25px{line-height:25px;}
+.t_left{text-align: left;}
 .t_center{text-align: center;}
 .t_Right{text-align: right;}
+.f_left{float:left;}
+.f_Right{float:right;}
 /*width*/
 .width_100p{width: 100%;}
 
