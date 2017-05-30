@@ -6,7 +6,6 @@
 $a.page(function() {
 	  this.init = function(id, param) {
 
-
   		this.defineEvent();
 
   		setData();
