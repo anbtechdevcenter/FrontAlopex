@@ -18,7 +18,7 @@ $a.page(function() {
 
 	  this.init = function(id, param) {
 			// 인클루드 처리를 위한 내용
-			w3.includeHTML();
+			//w3.includeHTML();
       // 그리드 존재시 그리스 선언부 함수 (구현코드는 제일 하단에 위치함)
 			initGrid();
 

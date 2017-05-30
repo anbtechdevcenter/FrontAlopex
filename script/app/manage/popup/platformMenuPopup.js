@@ -30,6 +30,7 @@ $a.page(function() {
     ****************************************/
 		function setData(param){
       var   callType = param.type;
+
       var initData = {};
       if(callType==='C'){
         // 등록일 경우
@@ -42,6 +43,7 @@ $a.page(function() {
 
         $("#btnPlatMenuPopU").hide();
       }else if(callType==='U'){
+
         // 수정일 경우
         initData = param;
         if('isDefault' in param){
@@ -151,6 +153,79 @@ $a.page(function() {
         $a.close('success');
       });
 		};
+
+
+    /**
+    * U
+    */
+    this.btnPlatMenuPopU = function(){
+      var seldata = getWrapData();
+      //seldata.isDefault=false;
+
+      if('isDefault' in seldata){
+        var ck = seldata.isDefault;
+        seldata.isDefault = JSON.parse(ck);
+      }
+
+    //  console.log("[선택데이터] ", seldata);
+
+
+      var orderMap = menuArr.filter(function(val){
+        return val.mnId === seldata.parentId;
+      });
+
+    //  console.log("[orderMap] ", orderMap);
+
+      if(orderMap.length>0){
+        seldata.mnDepth = parseInt(orderMap[0].mnDepth)+1;
+      }else{
+        // 초기 데이터 없는경우
+        seldata.mnDepth = 1;
+      }
+
+
+      var containsMap = menuArr.filter(function(val){
+        return val.parentId === seldata.parentId;
+      });
+
+      var orderArrs = [];
+
+      $.each(containsMap, function(idx, val){
+          orderArrs.push(val.mnOrder);
+      });
+
+      orderArrs.sort();
+      var orderIdx = orderArrs.length;
+
+      seldata.mnOrder = orderArrs[orderIdx-1] + 1;
+
+      // validataion
+    //  console.log("[최종 데이터] ", seldata);
+
+      if(seldata.mnName==""){
+        alert("메뉴명을 필히 입력하십시오!");
+        return false;
+      }else if(seldata.mnUrl==""){
+        alert("메뉴경로를 필히 입력하십시오!");
+        return false;
+      }else if(seldata.parentId==""){
+        alert("상위메뉴를 필히 입력하십시오!");
+        return false;
+      }if(seldata.mnTemplateUrl==""){
+        alert("메뉴모듈 경로를 필히 입력하십시오!");
+        return false;
+      }if(seldata.mnController==""){
+        alert("API 호출경로를 필히 입력하십시오!");
+        return false;
+      }
+
+
+      ANBTX.C('/menu', seldata, function(res){
+        console.log('res::',res);
+        $a.close('success');
+      });
+    };
+
 
 		/**
 		* 팝업닫기
