@@ -11,10 +11,11 @@ $a.page(function() {
 		btnCId = "#btnCreate",
 		btnUId = "#btnUpdate",
 		btnDId = "#btnDelete",
-		prjId = '';
+		seqDevice = '';
 
 	  this.init = function(id, param) {
 			callType = param.type;
+			seqDevice = param.seqDevice;
 			this.defineEvent();
 			setData(param);
 	  };
@@ -28,12 +29,6 @@ $a.page(function() {
 			}else{
 				// 수정인 경우 넘겨온 데이터 받기
 				$(btnCId).hide();
-				prjId = param.prjId;
-				if(param.prjStatus == 'Active'){
-					$("#chkActive").setChecked(true);
-				}else{
-					$("#chkActive").setChecked(false);
-				}
 			}
 			$(wrapId).setData(param);
 
@@ -90,29 +85,26 @@ $a.page(function() {
 				, pId = ''
 				, data = $(wrapId).getData()
 				, pdata = {};
-			if($("#chkActive").prop("checked") == true){
-				data.prjStatus = 'Active';
-			}else{
-				data.prjStatus = 'Terminated';
-			}
+
 			if(action == 'C'){
 				msg = '등록완료되었습니다.';
-				pid = '/project';
+				pid = '/device';
 				ANBTX.C(pid, data, function(res){
 					alert(msg);
 					$a.close('success');
 				});
 			}	else if(action == 'U'){
 				msg = '수정완료되었습니다.';
-				data.prjId = prjId;
-				pid = '/project';
+				data.seqDevice = seqDevice;
+				pid = '/device';
+				console.log(data);
 				ANBTX.U(pid, data, function(){
 					alert(msg);
 					$a.close('success');
 				});
 			} else if(action == 'D'){
 				msg = '삭제완료되었습니다.';
-				pid = '/project/'+prjId;
+				pid = '/device/'+seqDevice;
 				ANBTX.D(pid, function(){
 					alert(msg);
 					$a.close('success');

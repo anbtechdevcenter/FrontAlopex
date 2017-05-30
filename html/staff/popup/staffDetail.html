@@ -4,10 +4,10 @@
 
 <head>
 		<!-- html5 방식 -->
-		<link rel="import" href="/html/header/header.html">
+		<!-- <link rel="import" href="/html/header/header.html"> -->
 
 		<!-- 업무소스 -->
-		<script type="text/javascript" src="/script/app/staff/staffDetail.js"></script>
+		<script type="text/javascript" src="/script/app/staff/popup/staffDetail.js"></script>
 
 
 		<title>FrontAlopex by ANBTECH</title>
@@ -15,22 +15,14 @@
 
 <body>
 
-<div w3-include-html="/html/layout/top.html"></div>
-<div id="page-wrapper">
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">직원상세</h1>
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    <!-- /.row -->
+<!-- <div w3-include-html="/html/layout/top.html"></div> -->
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
 							<div class="panel-heading">
 									<i class="fa fa-user fa-fw"></i> 직원상세
 							</div>
-                <div class="panel-body">
+                <div class="panel-body" id="bindarea">
 									<div class="row">
 											<div class="col-lg-6">
 													<div class="panel panel-default">
@@ -62,10 +54,6 @@
 																				<label>결혼기념일</label> <input class="form-control Dateinput" data-bind="value: maritalDate" id="maritalDate">
 																			</div>
 																			<div class="form-group">
-																					<label>depart</label>
-																					<input class="form-control Textinput" data-bind="value: depart" id="depart">
-																			</div>
-																			<div class="form-group">
 														              <label>직원 전화번호</label>
 														              <input class="form-control Textinput" data-bind="value: empTel" id="empTel">
 														          </div>
@@ -77,16 +65,16 @@
 																				<input class="form-control Textinput" data-bind="value: email" id="email">
 																			</div>
 																			<div class="form-group">
+																				<label>직원 우편번호</label>
+																				<input class="form-control Textinput" data-bind="value: empZip" id="empZip">
+																			</div>
+																			<div class="form-group">
 																				<lable>직원주소</label>
 																				<input class="form-control Textinput" data-bind="value: empAddr" id="empAddr">
 																			</div>
 																			<div class="form-group">
 																				<lable>직원주소상세</label>
 																				<input class="form-control Textinput" data-bind="value: empAddrDtl" id="empAddrDtl">
-																			</div>
-																			<div class="form-group">
-																				<label>직원 우편번호</label>
-																				<input class="form-control Textinput" data-bind="value: empZip" id="empZip">
 																			</div>
 
 																		</form>
@@ -109,8 +97,9 @@
 																		<div class="form-control" id="empFlagsel" ></div>
 																	</div>
 																	<div class="form-group">
-											              <lable>직원상태</label> <input class="form-control Textinput" data-bind="value: empFlag" id="empFlag">
-											            </div>
+																		<label>직급</label>
+																		<div class="form-control" id="ranksel" ></div>
+																	</div>
 																	<div class="form-group">
 																		<label>직원ID </label> <input class="form-control Textinput" data-bind="value: empId" id="empId">
 																	</div>
@@ -124,9 +113,7 @@
 																	<div class="form-group">
 											                <label>프로젝트</label> <select class="form-control" id="projectsel" ></select>
 											            </div>
-																	<div class="form-group">
-												          <label>position</label> <input class="form-control Textinput" data-bind="value: position" id="position">
-												          </div>
+
 												          <div class="form-group">
 												          <label>팀 </label> <div class="form-control" id="teamsel" ></div>
 												          </div>
@@ -160,11 +147,16 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
+		<!-- popup Bottom  -->
+		<div class="t_center Popup_Bottom" >
+			<div class="margin_t5">
+				<button class="Button Pbutton" id="btnStaffUpdate">수정</button>
+				<button class="Button Pbutton" id="btnClose">닫기</button>
+			</div>
+		</div>
+		<!--// popup Bottom  -->
 </div>
-<!-- /#page-wrapper -->
-
-</div>
-<div w3-include-html="/html/layout/bottom.html"></div>
+<!-- <div w3-include-html="/html/layout/bottom.html"></div> -->
 
 
 </body>

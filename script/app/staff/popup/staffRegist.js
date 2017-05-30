@@ -28,6 +28,8 @@ $a.page(function() {
     */
 		this.defineEvent = function(){
 			$("#btnStaffRegister").on("click", this.btnStaffRegister);
+			$("#btnClose").on("click", this.btnClose);
+
 		};
 
 
@@ -64,6 +66,12 @@ $a.page(function() {
 
 		};
 
+		/*
+    * 닫기 버튼 액션
+    */
+		this.btnClose = function(e){
+			$a.close();
+		};
 
     /*
     * 직원조회

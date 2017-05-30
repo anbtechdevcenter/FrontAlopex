@@ -89,13 +89,23 @@ $a.page(function() {
 		* 직원 상세 페이지 이동
 		*/
 		this.grid_dblClick = function(){
-			console.log('1111');
 			//$a.navigate('staffDetail.html', {empId: 'EMP_2017032123252012'});
 
-			var sdata = $("#grid_staff").alopexGrid("dataGet", {_state :{focused:true}});
-			console.log("sdata", sdata);
-			$a.navigate('staffDetail.html', sdata);
+			// var sdata = $("#grid_staff").alopexGrid("dataGet", {_state :{focused:true}});
+			// console.log("sdata", sdata);
+			// $a.navigate('staffDetail.html', sdata);
 			//if(sdata.length > 0) openPopup('R');
+
+			var sdata = $("#grid_staff").alopexGrid("dataGet", {_state :{selected:true}});
+			data = sdata[0];
+
+			$a.popup({
+				title : '직원수정',
+				data : data,
+				url : 'popup/staffDetail.html',
+				width:1100,
+				height:800,
+			});
 		};
 
     /*

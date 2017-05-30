@@ -5,18 +5,19 @@
 *************************************/
 $a.page(function() {
 	  this.init = function(id, param) {
+			//console.log('param::::',param);
 			// 인클루드 처리를 위한 내용
 			//w3.includeHTML();
 
 			this.defineEvent();
 
-  		setData(param[0]);
+  		setData(param);
 
 	  };
 
 
 		function setData(data){
-			console.log(data);
+			console.log('setData:::',data);
 			// anbwidget
 			//$("#ranksel").selectRank();
 			//$("#projectsel").selectProject(); //프로젝트
@@ -76,26 +77,26 @@ $a.page(function() {
     * 이벤트 처리
     */
 		this.defineEvent = function(){
-			$("#btnStaffRegister").on("click", this.btnStaffRegister);
+			$("#btnStaffUpdate").on("click", this.btnStaffUpdate);
 		};
 
 
     /*
     * 저장 버튼 액션
     */
-		this.btnStaffRegister = function(e){
+		this.btnStaffUpdate = function(e){
 
-			// var data = $("#bindarea").getData();
-			// console.log("[data is] ", data);
+			 var data = $("#bindarea").getData();
+			 //console.log("[data is] ", data);
 
 			//return false;
 
       var check = $("#bindarea").validate();
 
-			console.log(" >> ", check);
+			//console.log(" >> ", check);
       if(check){
         var data = $("#bindarea").getData();
-        console.log("[get data is] " , data);
+        //console.log("[get data is] " , data);
 
 				//형태에 맞게 넣어줘야 함.
 				var vData = data;
@@ -108,11 +109,14 @@ $a.page(function() {
 
 				vData.team = data.teamCd;
 				vData.workPosition = data.workCd;
+			 	//vData = JSON.stringify(vData);
+			 	delete vData.teamCd;
+			 	delete vData.workCd;
 
-				console.log("[get vData is] " , vData);
-	      ANBTX.C('/employee' , vData, function(res){
+				console.log("[get vData is] " , JSON.stringify(vData));
+	      ANBTX.U('/employee' , vData, function(res){
 	          console.log("[직원등록] ", res);
-						$a.navigate('staff.html');
+						//$a.navigate('staff.html');
 	      });
       }else{
         console.log("stop");

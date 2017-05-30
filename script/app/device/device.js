@@ -101,6 +101,11 @@ $a.page(function() {
 				data = sdata[0];
 				data.type = type;
 				title = '장비 관리';
+			}else if(type == 'U'){
+				var sdata = $(gridId).alopexGrid("dataGet", {_state :{selected:true}});
+				data = sdata[0];
+				data.type = type;
+				title = '장비 수정';
 			}
 			//var popupUrl = "/html/Device/popup/DevicePopup.html";
 			var pops =  $a.popup({
@@ -145,7 +150,7 @@ $a.page(function() {
           { key : 'rentalSdate', title : '지급일자', width : '40px' },
           { key : 'seqDevice', title : '장비순번', width : '40px' },
           { key : 'startDate', title : 'startDate', width : '40px' },
-          { key : 'bringProof', title : 'bringProof', width : '40px'},
+          { key : 'bringProof', title : '반입증여부', width : '40px'},
           { key : 'desc01', title : 'CPU', width : '40px' },
           { key : 'desc02', title : 'Memory', width : '40px' },
           { key : 'desc03', title : 'HDD', width : '40px' },
