@@ -40,7 +40,7 @@ $a.page(function() {
 			$("#btnStaffRegister").on("click", this.btnStaffRegister);
 			$("#btnStaffDelete").on("click", this.btnStaffDelete);
 
-			$("#grid_staff").on("dblclick", '.bodycell', this.grid_dblClick);
+			$("#grid_staff").on("click", '.bodycell', this.grid_dblClick);
 
 		};
 
