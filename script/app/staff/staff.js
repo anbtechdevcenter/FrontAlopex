@@ -98,9 +98,9 @@ $a.page(function() {
 			//if(sdata.length > 0) openPopup('R');
 
 
-			var sdata = $("#grid_staff").alopexGrid("dataGet", {_state :{selected:true}});
+			var sdata = $("#grid_staff").alopexGrid("dataGet", {_state :{focused:true}});
 			data = sdata[0];
-
+			//console.log('staff dblClick:::',data);
 			$a.popup({
 				title : '직원수정',
 				data : data,

@@ -1,10 +1,7 @@
 /*********************************
 * 직원등록
-<<<<<<< HEAD
 * @author : anbtechdevcenter
-=======
 * @author : 김수한
->>>>>>> b762266fe06c17994aa259dd000c65e7fd85cb2a
 * @create : 2017-05-18
 *************************************/
 $a.page(function() {
@@ -21,7 +18,7 @@ $a.page(function() {
 
 
 		function setData(data){
-			console.log('setData:::',data);
+			//console.log('setData:::',data);
 			// anbwidget
 			//$("#ranksel").selectRank();
 			//$("#projectsel").selectProject(); //프로젝트
