@@ -40,7 +40,7 @@ $a.page(function() {
 			$("#btnStaffRegister").on("click", this.btnStaffRegister);
 			$("#btnStaffDelete").on("click", this.btnStaffDelete);
 
-			$("#grid_staff").on("click", '.bodycell', this.grid_dblClick);
+			$("#grid_staff").on("dblclick", '.bodycell', this.grid_dblClick);
 
 		};
 
@@ -91,10 +91,11 @@ $a.page(function() {
 		this.grid_dblClick = function(){
 			//$a.navigate('staffDetail.html', {empId: 'EMP_2017032123252012'});
 
-			// var sdata = $("#grid_staff").alopexGrid("dataGet", {_state :{focused:true}});
-			// console.log("sdata", sdata);
+			 //var sdata = $("#grid_staff").alopexGrid("dataGet", {_state :{focused:true}});
+			 //console.log("sdata", sdata);
 			// $a.navigate('staffDetail.html', sdata);
 			//if(sdata.length > 0) openPopup('R');
+
 
 			var sdata = $("#grid_staff").alopexGrid("dataGet", {_state :{selected:true}});
 			data = sdata[0];
@@ -153,6 +154,17 @@ $a.page(function() {
 
 						//코드타입
 						//직원유형
+						if(selData.empFlag != ""){
+							gridData = gridData.filter(function(val){
+									if(val.empFlag != ""){
+										return val.empFlag === selData.empFlag;
+									}
+							});
+						}else{
+							gridData = gridData;
+						}
+
+
 						//근무지역
 						if(selData.workCd != ""){
 							gridData = gridData.filter(function(val){
@@ -174,6 +186,23 @@ $a.page(function() {
 						}else{
 							gridData = gridData;
 						}
+
+
+						//퇴사 levaveFlag
+						if(selData.levaveFlag == true){
+							console.log("levaveFlag:::",selData.levaveFlag); //true
+
+							 gridData = gridData.filter(function(val){
+							 		if(val.leaveDate != null){
+							 			return true;
+							 		}
+							 });
+						}else{
+							gridData = gridData;
+						}
+
+
+
 					}
 
 			 		$('#grid_staff').alopexGrid("dataSet", gridData);
