@@ -259,6 +259,7 @@ $a.page(function() {
 						title : '사용여부',
 						width : '80px',
             render : function(value, data){
+              value = $.trim(value);//공백제거
               if(value==='Y'){
                 return "사용"
               }else if(value==='N'){
