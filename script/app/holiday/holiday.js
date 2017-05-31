@@ -63,10 +63,15 @@ $a.page(function() {
 			readHoliday();
 		};
 
-		this.btnStaffRegister = function(){
+		/*
+    * 근태 등록 버튼 액션
+    */
+		this.btnHolidayRegister = function(){
 			$a.popup({
-				title : '직원등록',
-				url : 'popup/staffRegist.html'
+				title : '근태등록',
+				url : 'popup/holidayRegist.html',
+				width:1100,
+				height:800,
 			});
 		};
 

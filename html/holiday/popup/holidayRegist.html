@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- html5 방식 -->
+  <!-- <link rel="import" href="/html/header/header.html"> -->
+
+  <!-- 업무화면 소스 -->
+<script type="text/javascript" src="/script/app/holiday/popup/holidayRegist.js"></script>
+
+<style>
+  div#codeTypeWrap {
+    margin : 10px;
+  }
+</style>
+
+
+<title>근태 관리</title>
+</head>
+<body>
+
+
+<div id="divWrap"  style="margin-left:10px;">
+
+  <label>사번</label>
+  <input type="text" class="Textinput" data-bind="value: empId"/>
+
+  <label>이름</label>
+  <input type="text" class="Textinput" data-bind="value: empNm"/>
+
+  <label>일수</label>
+  <input type="text" class="Textinput" data-bind="value: holidayDay"/>
+
+  <label>시작일자</label>
+  <input type="text" class="Textinput" data-bind="value: holidaySdate"/>
+
+  <label>종료일자</label>
+  <input type="text" class="Textinput" data-bind="value: holidayEdate"/>
+
+  <label>사유</label>
+  <input type="text" class="Textinput" data-bind="value: holidayReason"/>
+
+  <label>휴일특근코드</label>
+  <input type="text" class="Textinput" data-bind="value: holidayType"/>
+
+  <label>등록자ID</label>
+  <input type="text" class="Textinput" data-bind="value: regEmpId"/>
+
+  <label>등록자명</label>
+  <input type="text" class="Textinput" data-bind="value: regEmpNm"/>
+
+  <label>등록일</label>
+  <input type="text" class="Textinput" data-bind="value: registDt"/>
+
+  <label>휴일순번</label>
+  <input type="text" class="Textinput" data-bind="value: seqHoliday"/>
+
+  <label>결재1_일자</label>
+  <input type="text" class="Textinput" data-bind="value: app1Date"/>
+
+  <label>결재1_ID</label>
+  <input type="text" class="Textinput" data-bind="value: app1EmpId"/>
+
+  <label>결재1_명</label>
+  <input type="text" class="Textinput" data-bind="value: app1EmpNm"/>
+
+  <label>결재2_일자</label>
+  <input type="text" class="Textinput" data-bind="value: app2Date"/>
+
+  <label>결재2_ID</label>
+  <input type="text" class="Textinput" data-bind="value: app2EmpId"/>
+
+  <label>결재2_명</label>
+  <input type="text" class="Textinput" data-bind="value: app2EmpNm"/>
+
+
+<div>
+  <button class="Button" id="btnUpdate">수정</button>
+  <button class="Button" id="btnCreate">등록</button>
+  <button class="Button" id="btnDelete">삭제</button>
+  <button class="Button" id="btnClose">닫기</button>
+</div>
+
+</div>
+
+
+
+
+</body>
+</html>

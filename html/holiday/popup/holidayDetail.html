@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- html5 방식 -->
+  <!-- <link rel="import" href="/html/header/header.html"> -->
+
+  <!-- 업무화면 소스 -->
+<script type="text/javascript" src="/script/app/holiday/popup/holidayDetail.js"></script>
+
+<style>
+  div#codeTypeWrap {
+    margin : 10px;
+  }
+</style>
+
+
+<title>근태 상세</title>
+</head>
+<body>
+
+
+<div id="divWrap"  style="margin-left:10px;">
+  <label>근태순번</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value: seqDevice"/>
+
+  <label>근태구분</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceType"/>
+
+  <label>근태상태</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceState"/>
+
+  <label>근태명</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceName"/>
+
+  <label>시리얼번호</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceSn"/>
+
+  <label>제조사코드</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value: makersId"/>
+
+  <label>제조사명</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value: makersName"/>
+
+  <label>모델명</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceModel"/>
+
+  <label>반입증여부</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value: bringProof"/>
+
+  <label>구입일자</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value: purchaseDate"/>
+
+  <label>사용자사번</label>
+  <input id="txtTitle" type="text" class="Textinput" data-bind="value: rentalEmpId"/>
+
+
+<div>
+  <button class="Button" id="btnUpdate">수정</button>
+  <button class="Button" id="btnCreate">등록</button>
+  <button class="Button" id="btnDelete">삭제</button>
+  <button class="Button" id="btnClose">닫기</button>
+</div>
+
+</div>
+
+
+
+
+</body>
+</html>
