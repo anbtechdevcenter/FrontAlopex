@@ -114,10 +114,11 @@ $a.page(function() {
 			 	delete vData.workCd;
 
 				console.log("[get vData is] " , JSON.stringify(vData));
-	      ANBTX.U('/employee' , vData, function(res){
-	          console.log("[직원등록] ", res);
-						//$a.navigate('staff.html');
-	      });
+				alert('현재 수정은 안됨(400에러(Bad Request 발생 - 주석처리))');
+	      // ANBTX.U('/employee' , vData, function(res){
+	      //     console.log("[직원등록] ", res);
+				// 		//$a.navigate('staff.html');
+	      // });
       }else{
         console.log("stop");
 
