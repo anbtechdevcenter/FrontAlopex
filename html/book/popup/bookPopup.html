@@ -7,51 +7,75 @@
   <!-- 업무화면 소스 -->
 <script type="text/javascript" src="/script/app/book/popup/bookPopup.js"></script>
 
-<style>
-  div#divWrap {
-    margin : 10px;
-  }
-</style>
-
-
 <title>직원 관리</title>
 </head>
 <body>
-
-
-<div id="divWrap"  style="margin-left:10px;">
-
-  <label>도서명</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value:bookName"/>
-  <label>출판사</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value:publisher"/>
-  <br/>
-
-  <label>저자</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value:author"/>
-  <label>출판년도</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value:bookYear"/>
-  <br/>
-  <label>구입자(추후 팝업으로 변경, Id추가)</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value:purchaseEmpNm"/>
-  <label>구입일</label>
-  <div class="Dateinput" data-format="yyyy-MM-dd" id="datePurchaseDate">
-    <input data-bind="value:purchaseDate">
+  <!-- contents  -->
+  <div class="padding_5p" id="divWrap">
+    <table class="Ptable">
+      <colgroup>
+        <col width="">
+        <col width="">
+      </colgroup>
+      <tbody>
+        <tr>
+          <td>도서명</td>
+          <td>
+            <input id="txtTitle" type="text" class="Textinput" data-bind="value:bookName"/>
+          </td>
+        </tr>
+        <tr>
+          <td>출판사</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value:publisher"/></td>
+        </tr>
+        <tr>
+          <td>등록일자</td>
+          <td>
+            <div class="Dateinput" data-format="yyyy-MM-dd">
+              <input data-bind="value:registDate">
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>저자</td>
+          <td>
+          <input id="txtTitle" type="text" class="Textinput" data-bind="value:author"/>
+          </td>
+        </tr>
+        <tr>
+          <td>출판년도</td>
+          <td>
+          <input id="txtTitle" type="text" class="Textinput" data-bind="value:bookYear"/>
+          </td>
+        </tr>
+        <tr>
+          <td>구입자(추후 팝업으로 변경, Id추가)</td>
+          <td>
+          <input id="txtTitle" type="text" class="Textinput" data-bind="value:purchaseEmpNm"/>
+          </td>
+        </tr>
+        <tr>
+          <td>구입일</td>
+          <td>
+            <div class="Dateinput" data-format="yyyy-MM-dd" id="datePurchaseDate">
+              <input data-bind="value:purchaseDate">
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <br/>
-
-
-
-<div>
-  <button class="Button" id="btnUpdate">수정</button>
-  <button class="Button" id="btnCreate">등록</button>
-  <button class="Button" id="btnDelete">삭제</button>
-  <button class="Button" id="btnClose">닫기</button>
+  <!-- // contents  -->
+<!-- popup Bottom  -->
+<div class="t_center Popup_Bottom" >
+  <div class="margin_t5">
+    <button class="Button Pbutton" id="btnUpdate">수정</button>
+    <button class="Button Pbutton" id="btnCreate">등록</button>
+    <button class="Button Pbutton" id="btnDelete">삭제</button>
+    <button class="Button Pbutton" id="btnClose">닫기</button>
+  </div>
 </div>
-
-</div>
-
-
+<!--// popup Bottom  -->
 
 
 </body>

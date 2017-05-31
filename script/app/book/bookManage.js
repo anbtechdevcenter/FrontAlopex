@@ -16,7 +16,6 @@ $a.page(function() {
 		popupUrl = "/html/book/popup/bookPopup.html";
 
 
-
 	  this.init = function(id, param) {
 
       // 그리드 존재시 그리스 선언부 함수 (구현코드는 제일 하단에 위치함)
@@ -121,6 +120,7 @@ $a.page(function() {
 			var pops =  $a.popup({
 				 url : popupUrl,
 				 title : title,
+         height : 380,
 				 data : data,
 				 callback : function(res){
 					 if(res=="success"){
