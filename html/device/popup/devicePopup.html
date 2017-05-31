@@ -7,110 +7,190 @@
   <!-- 업무화면 소스 -->
 <script type="text/javascript" src="/script/app/device/popup/devicePopup.js"></script>
 
-<style>
-  div#codeTypeWrap {
-    margin : 10px;
-  }
-</style>
-
-
 <title>장비 관리</title>
 </head>
 <body>
+  <!-- contents  -->
+  <div class="padding_5p" id="divWrap">
+    <table class="Ptable">
+      <colgroup>
+        <col width="">
+        <col width="">
+      </colgroup>
+      <tbody>
+        <tr>
+          <td>장비순번</td>
+          <td>
+            <input id="txtTitle" type="text" class="Textinput" data-bind="value: seqDevice"/>
+          </td>
+        </tr>
+        <tr>
+          <td>장비구분</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceType"/></td>
+        </tr>
+        <tr>
+          <td>장비상태</td>
+          <td>
+            <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceState"/>
+          </td>
+        </tr>
+        <tr>
+          <td>장비명</td>
+          <td>
+          <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceName"/>
+          </td>
+        </tr>
+        <tr>
+          <td>시리얼번호</td>
+          <td>
+          <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceSn"/>
+          </td>
+        </tr>
+        <tr>
+          <td>제조사코드</td>
+          <td>
+          <input id="txtTitle" type="text" class="Textinput" data-bind="value: makersId"/>
+          </td>
+        </tr>
+        <tr>
+          <td>제조사명</td>
+          <td>
+            <input id="txtTitle" type="text" class="Textinput" data-bind="value: makersName"/>
+          </td>
+        </tr>
+        <tr>
+          <td>모델명</td>
+          <td>
+            <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceModel"/>
+          </td>
+        </tr>
+        <tr>
+          <td>반입증여부</td>
+          <td>
+            <input id="txtTitle" type="text" class="Textinput" data-bind="value: bringProof"/>
+          </td>
+        </tr>
+        <tr>
+          <td>구입일자</td>
+          <td>
+            <input id="txtTitle" type="text" class="Textinput" data-bind="value: purchaseDate"/>
+          </td>
+        </tr>
+        <tr>
+          <td>사용자사번</td>
+          <td>
+            <input id="txtTitle" type="text" class="Textinput" data-bind="value: rentalEmpId"/>
+          </td>
+        </tr>
+        <tr>
+          <td>지급일자</td>
+          <td>
+            <input id="txtTitle" type="text" class="Textinput" data-bind="value: rentalSdate"/>
+          </td>
+        </tr>
+        <tr>
+          <td>반납일자</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: rentalEdate"/></td>
+        </tr>
+        <tr>
+          <td>폐기일자</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: bringProof"/></td>
+        </tr>
+        <tr>
+          <td>CPU</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc01"/></td>
+        </tr>
+        <tr>
+          <td>Memory</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc02"/></td>
+        </tr>
+        <tr>
+          <td>HDD</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc03"/></td>
+        </tr>
+        <tr>
+          <td>SSD</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc04"/></td>
+        </tr>
+        <tr>
+          <td>유선 MAX ADDRESS</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc05"/></td>
+        </tr>
+        <tr>
+          <td>무선 MAX ADDRESS</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc06"/></td>
+        </tr>
+        <tr>
+          <td>DESC_07</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc07"/></td>
+        </tr>
+        <tr>
+          <td>DESC_08</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc08"/></td>
+        </tr>
+        <tr>
+          <td>DESC_09</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc09"/></td>
+        </tr>
+        <tr>
+          <td>DESC_10</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc10"/></td>
+        </tr>
+        <tr>
+          <td>DESC_11</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc11"/></td>
+        </tr>
+        <tr>
+          <td>DESC_12</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc12"/></td>
+        </tr>
+        <tr>
+          <td>DESC_13</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc13"/></td>
+        </tr>
+        <tr>
+          <td>DESC_14</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc14"/></td>
+        </tr>
+        <tr>
+          <td>DESC_15</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc15"/></td>
+        </tr>
+        <tr>
+          <td>DESC_16</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc16"/></td>
+        </tr>
+        <tr>
+          <td>DESC_17</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc17"/></td>
+        </tr>
+        <tr>
+          <td>DESC_18</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc18"/></td>
+        </tr>
+        <tr>
+          <td>DESC_19</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc19"/></td>
+        </tr>
+        <tr>
+          <td>DESC_20</td>
+          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc20"/></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- // contents  -->
 
-
-<div id="divWrap"  style="margin-left:10px;">
-  <label>장비순번</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: seqDevice"/>
-
-  <label>장비구분</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceType"/>
-
-  <label>장비상태</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceState"/>
-
-  <label>장비명</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceName"/>
-
-  <label>시리얼번호</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceSn"/>
-
-  <label>제조사코드</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: makersId"/>
-
-  <label>제조사명</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: makersName"/>
-
-  <label>모델명</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceModel"/>
-
-  <label>반입증여부</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: bringProof"/>
-
-  <label>구입일자</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: purchaseDate"/>
-
-  <label>사용자사번</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: rentalEmpId"/>
-
-  <label>지급일자</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: rentalSdate"/>
-
-  <label>반납일자</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: rentalEdate"/>
-
-  <label>폐기일자</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: bringProof"/>
-
-  <label>CPU</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc01"/>
-
-  <label>Memory</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc02"/>
-
-  <label>HDD</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc03"/>
-
-  <label>SSD</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc04"/>
-
-  <label>유선 MAX ADDRESS</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc05"/>
-
-  <label>무선 MAX ADDRESS</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc06"/>
-
-  <label>DESC_07</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc07"/>
-
-  <label>DESC_08</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc08"/>
-
-  <label>DESC_09</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc09"/>
-
-  <label>DESC_10</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc10"/>
-
-  <label>DESC_11</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc11"/>
-
-  <label>DESC_12</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc12"/>
-
-  <label>DESC_13</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc13"/>
-
-  <label>DESC_14</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc14"/>
-
-  <label>DESC_15</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc15"/>
-
-  <label>DESC_16</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc16"/>
-
-  <label>DESC_17</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc17"/>
-
-  <label>DESC_18</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc18"/>
-
-  <label>DESC_19</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc19"/>
-
-  <label>DESC_20</label><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc20"/>
-
-
-<div>
-  <button class="Button" id="btnUpdate">수정</button>
-  <button class="Button" id="btnCreate">등록</button>
-  <button class="Button" id="btnDelete">삭제</button>
-  <button class="Button" id="btnClose">닫기</button>
+<!-- popup Bottom  -->
+<div class="t_center Popup_Bottom" >
+  <div class="margin_t5">
+    <button class="Button Pbutton" id="btnUpdate">수정</button>
+    <button class="Button Pbutton" id="btnCreate">등록</button>
+    <button class="Button Pbutton" id="btnDelete">삭제</button>
+    <button class="Button Pbutton" id="btnClose">닫기</button>
+  </div>
 </div>
-
-</div>
-
+<!--// popup Bottom  -->
 
 
 
