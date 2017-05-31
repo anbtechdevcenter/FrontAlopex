@@ -14,6 +14,8 @@ $a.page(function() {
 
 		function setData(){
 			readBoard();
+
+			$("#staffsel").selectStaff();
 		}
 
 /**
@@ -158,8 +160,7 @@ $a.page(function() {
 						key : 'employee.empHp',
 						title : 'empHp',
 						width : '50px', hidden : true
-					}
-					, {
+					}, {
 						align : 'center',
 						key : 'employee.empId',
 						title : 'empId',

@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+		<!-- html5 방식 -->
+		<!-- <link rel="import" href="/html/header/header.html"> -->
+
+		<!-- 업무소스 -->
+		<script type="text/javascript" src="/script/app/meal/popup/mealDetail.js"></script>
+
+
+		<title>FrontAlopex by ANBTECH</title>
+</head>
+
+<body>
+
+<!-- <div w3-include-html="/html/layout/top.html"></div> -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+							<div class="panel-heading">
+									<i class="fa fa-user fa-fw"></i> 직원상세
+							</div>
+                <div class="panel-body" id="bindarea">
+									<div class="row">
+											<div class="col-lg-6">
+													<div class="panel panel-default">
+															<div class="panel-heading">
+																	직원 개인정보
+															</div>
+															<!-- /.panel-heading -->
+															<div class="panel-body">
+																	  <form role="form">
+																			<div class="form-group">
+													              <label>직원명</label>
+																				<div id="staffsel"></div>
+
+													            </div>
+																			<div class="form-group">
+													              <lable>직원영문명</label>
+													              <input class="form-control Textinput" data-bind="value: empEngNm" id="empEngNm">
+													            </div>
+																			<div class="form-group">
+													                <label>출생국가</label>
+													                <input class="form-control Textinput" data-bind="value: birthState" id="birthState">
+													            </div>
+																			<div class="form-group">
+																					<label>생일</label>
+																					<input class="form-control Dateinput" data-bind="value: birthDate" id="birthDate">
+																			</div>
+																			<div class="form-group">
+														            <label>결혼상태</label> <input class="form-control Textinput" data-bind="value: maritalState" id="maritalState">
+														          </div>
+																			<div class="form-group">
+																				<label>결혼기념일</label> <input class="form-control Dateinput" data-bind="value: maritalDate" id="maritalDate">
+																			</div>
+																			<div class="form-group">
+														              <label>직원 전화번호</label>
+														              <input class="form-control Textinput" data-bind="value: empTel" id="empTel">
+														          </div>
+																			<div class="form-group">
+																				<label>직원핸드폰</label> <input class="form-control Textinput" data-bind="value: empHp" id="empHp">
+																			</div>
+																			<div class="form-group">
+																			<lable>이메일</label>
+																				<input class="form-control Textinput" data-bind="value: email" id="email">
+																			</div>
+																			<div class="form-group">
+																				<label>직원 우편번호</label>
+																				<input class="form-control Textinput" data-bind="value: empZip" id="empZip">
+																			</div>
+																			<div class="form-group">
+																				<lable>직원주소</label>
+																				<input class="form-control Textinput" data-bind="value: empAddr" id="empAddr">
+																			</div>
+																			<div class="form-group">
+																				<lable>직원주소상세</label>
+																				<input class="form-control Textinput" data-bind="value: empAddrDtl" id="empAddrDtl">
+																			</div>
+
+																		</form>
+															</div>
+															<!-- /.panel-body -->
+													</div>
+													<!-- /.panel -->
+											</div>
+											<!-- /.col-lg-6 -->
+											<div class="col-lg-6">
+													<div class="panel panel-default">
+															<div class="panel-heading">
+																	회사 개인 정보
+															</div>
+															<!-- /.panel-heading -->
+															<div class="panel-body">
+																<form role="form">
+																	<div class="form-group">
+																		<label>직원유형</label>
+																		<div class="form-control" id="empFlagsel" ></div>
+																	</div>
+																	<div class="form-group">
+																		<label>직급</label>
+																		<div class="form-control" id="ranksel" ></div>
+																	</div>
+																	<div class="form-group">
+																		<label>직원ID </label> <input class="form-control Textinput" data-bind="value: empId" id="empId">
+																	</div>
+																	<div class="form-group">
+																		<lable>직원 패스워드</label> <input class="form-control Textinput" data-bind="value: empPwd" id="empPwd">
+																	</div>
+																	<div class="form-group">
+												            <label>입사일</label>
+												            <input class="form-control Dateinput" data-bind="value: enteringDate" id="enteringDate">
+												          </div>
+																	<div class="form-group">
+											                <label>프로젝트</label> <select class="form-control" id="projectsel" ></select>
+											            </div>
+
+												          <div class="form-group">
+												          <label>팀 </label> <div class="form-control" id="teamsel" ></div>
+												          </div>
+												          <div class="form-group">
+												          <label>근무위치</label><div class="form-control" id="workareasel" ></div>
+																	<div class="form-group">
+																		<label>퇴사일</label> <input class="form-control Dateinput" data-bind="value: leaveDate" id="leaveDate">
+																	</div>
+																	<div class="form-group">
+																		<label>로그인일시</label> <input class="form-control Dateinput" data-bind="value: loginDate" id="loginDate">
+																	</div>
+																	<div class="form-group">
+																	<label>회사전화</label> <input class="form-control Textinput" data-bind="value: officeTel" id="officeTel">
+																	</div>
+																	<div class="form-group">
+																	<label>photo</label> <input class="form-control Textinput" data-bind="value: photo" id="photo">
+																	</div>
+																</form>
+															</div>
+															<!-- /.panel-body -->
+													</div>
+													<!-- /.panel -->
+											</div>
+											<!-- /.col-lg-6 -->
+									</div>
+									<!-- /.row -->
+							</div>
+							<!-- /#page-wrapper -->
+
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+		<!-- popup Bottom  -->
+		<div class="t_center Popup_Bottom" >
+			<div class="margin_t5">
+				<button class="Button Pbutton" id="btnStaffUpdate">수정</button>
+				<button class="Button Pbutton" id="btnClose">닫기</button>
+			</div>
+		</div>
+		<!--// popup Bottom  -->
+</div>
+<!-- <div w3-include-html="/html/layout/bottom.html"></div> -->
+
+
+</body>
+
+</html>
