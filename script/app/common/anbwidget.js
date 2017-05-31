@@ -82,7 +82,7 @@ $(function(){
   }); // select end
 
   /**
-  * 프로젝트 셀렉트
+  * 메뉴 셀렉트
   */
   $.widget("ui.selectMenu", {
     options : {

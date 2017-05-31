@@ -11,44 +11,26 @@ $a.page(function() {
 		btnCId = "#btnCreate",
 		btnUId = "#btnUpdate",
 		btnDId = "#btnDelete",
-		empId = '';
+		seqDevice = '';
 
 	  this.init = function(id, param) {
 			callType = param.type;
+			seqDevice = param.seqDevice;
 			this.defineEvent();
-
-						// $("#projectsel").selectProject();
 			setData(param);
 	  };
 
 
 		function setData(param){
-
 			if(callType=='C'){
 				// 등록인 경우
 				$(btnUId).hide();
 				$(btnDId).hide();
-				$("#projectsel").selectProject();
 			}else{
 				// 수정인 경우 넘겨온 데이터 받기
 				$(btnCId).hide();
-				empId = param.empId;
-				if(param.prjStatus == 'Active'){
-					$("#chkActive").setChecked(true);
-				}else{
-					$("#chkActive").setChecked(false);
-				}
-
-				console.log(param.project.prjId);
-				$(wrapId).setData(param);
-	console.log('1111' + param.project.prjId);
-				if(param.project != undefined){
-					$("#projectsel").selectProject({para:param.project.prjId});
-				}else{
-					$("#projectsel").selectProject();
-				}
 			}
-
+			$(wrapId).setData(param);
 
 		}
 
@@ -103,35 +85,26 @@ $a.page(function() {
 				, pId = ''
 				, data = $(wrapId).getData()
 				, pdata = {};
-			if($("#chkActive").prop("checked") == true){
-				data.prjStatus = 'Active';
-			}else{
-				data.prjStatus = 'Terminated';
-			}
-
-			var vData = data;
-
-			vData['project'] = {};
-			vData.project.prjId = data.prjId;
 
 			if(action == 'C'){
 				msg = '등록완료되었습니다.';
-				pid = '/employee';
+				pid = '/device';
 				ANBTX.C(pid, data, function(res){
 					alert(msg);
 					$a.close('success');
 				});
 			}	else if(action == 'U'){
 				msg = '수정완료되었습니다.';
-				data.empId = empId;
-				pid = '/employee';
+				data.seqDevice = seqDevice;
+				pid = '/device';
+				console.log(data);
 				ANBTX.U(pid, data, function(){
 					alert(msg);
 					$a.close('success');
 				});
 			} else if(action == 'D'){
 				msg = '삭제완료되었습니다.';
-				pid = '/employee/'+empId;
+				pid = '/device/'+seqDevice;
 				ANBTX.D(pid, function(){
 					alert(msg);
 					$a.close('success');

@@ -1,61 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-
-<link rel="stylesheet" type="text/css" href="./css/lib/alopex/alopex-ui-default.css" />
-<link rel="stylesheet" href="http://grid.alopex.io/dist/css/alopex-grid.css" />
-<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
-
-<script type="text/javascript" src="script/lib/jquery/jquery-1.10.1.js"></script>
-<script type="text/javascript" src="script/lib/alopex/alopex-ui.min.js"></script>
-<script type="text/javascript" src="script/lib/alopex/alopex-grid-trial.min.js"></script>
-
-<script type="text/javascript" src="script/app/common/component-setup.js"></script>
-<script type="text/javascript" src="script/app/common/common.js"></script>
-<script type="text/javascript" src="script/app/todoList.js"></script>
-
-<title>FrontAlopex by ANBTECH</title>
+	<!-- html5 방식 -->
+	<link rel="import" href="/html/header/header.html">
+    <title>ANB Tech Admin</title>
 </head>
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">ANB Tech Admin Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">ID 저장하기
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <a href="#" class="btn btn-lg btn-primary btn-block">Login</a>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div>
-	<button class="Button" id="btnSearch">조회</button>
-	<button class="Button">수정</button>
-	<button class="Button" id="btnDelete">삭제</button>
-	<button class="Button" id="btnSave">저장</button>
-	<button class="Button" id="btnTest">Test</button>
-	<button class="Button" id="btnMealTicketApply">식권신청</button>
-</div>
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
 
-<table style="margin:10px;" id='boardTb'>
-	<thead>
-			<tr>
-				<th></th>
-				<th></th>
-			</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>
-				<label>제목</label>
-				<input id="textId" class="Textinput" data-bind="value:boardTitle">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label>내용</label>
-				<textarea class="Textarea" rows="6" cols="40" data-bind="value:boardContents"></textarea>
-			</td>
-		</tr>
-	</tbody>
-</table>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
 
-	<div>
-		<div id="grid_todolist"></div>
-	</div>
 </body>
+
 </html>

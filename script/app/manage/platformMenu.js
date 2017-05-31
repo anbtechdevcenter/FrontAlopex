@@ -18,7 +18,7 @@ $a.page(function() {
 
 	  this.init = function(id, param) {
       // 인클루드 처리를 위한 내용
-			//w3.includeHTML();
+			// w3.includeHTML();
 
       readMenu();
 
@@ -51,7 +51,13 @@ $a.page(function() {
 			$("#btnPlatMenuU").on("click", this.btnPlatMenuU);
 			$("#btnPlatMenuD").on("click", this.btnPlatMenuD);
 
+      //이 편집모드로 들어간 이후에 편집모드에서 빠져나오게 되면 호출되는 이벤트
+      $(gridId).on( "cellEditEnd" , function(e){
+        var data = AlopexGrid.parseEvent(e).data;
 
+        console.log(data);
+        $("#platmenuGrid").alopexGrid('dataGet', {_state:{edited:true}});
+      });
       // 기타 이벤트 정의
 		};
 
@@ -141,6 +147,7 @@ $a.page(function() {
         });
         $(gridId).alopexGrid('dataSet', res);
         parentArr = res;
+        console.log(parentArr);
       }, true);
 
       $(gridId).alopexGrid("expandTreeNode");
@@ -163,39 +170,44 @@ $a.page(function() {
 	  function initGrid() {
 			$(gridId).alopexGrid({
         enableDefaultContextMenu:false,
-	      disableTextSelection : true,
+	      //disableTextSelection : true,
         tree : {
-    		useTree : true,
-    		idKey : "mnId", //노드를 지시하는 유일한 값이 저장된 키값
-    		parentIdKey : "parentId", //자신의 상위(parent) 노드를 지시하는 ID가 저장된 키값
-    		expandedKey : "isDefault" //데이터가 그리드에 입력되는 시점에 초기 펼쳐짐 여부를 저장하고 있는 키값
+      		useTree : true,
+      		idKey : "mnId", //노드를 지시하는 유일한 값이 저장된 키값
+      		parentIdKey : "parentId", //자신의 상위(parent) 노드를 지시하는 ID가 저장된 키값
+      		expandedKey : "isDefault" //데이터가 그리드에 입력되는 시점에 초기 펼쳐짐 여부를 저장하고 있는 키값
 
-    		//노드의 초기 펼쳐짐 여부를 인식하는 값의 형태는 expandedValue 옵션에 저장되어 있으며
-    		//다른 형태의 값을 사용해야 한다면 이 옵션값을 변경하십시오. 순서대로 펼쳐짐/닫힘 입니다.
-    		//expandedValue : ["true", "false"]
+      		//노드의 초기 펼쳐짐 여부를 인식하는 값의 형태는 expandedValue 옵션에 저장되어 있으며
+      		//다른 형태의 값을 사용해야 한다면 이 옵션값을 변경하십시오. 순서대로 펼쳐짐/닫힘 입니다.
+      		//expandedValue : ["true", "false"]
 
-    		//최 상위 노드들의 parentIdKey 에 지정되어야 하는 값.
-    		//rootNodeParentIdValue : ""
+      		//최 상위 노드들의 parentIdKey 에 지정되어야 하는 값.
+      		//rootNodeParentIdValue : ""
     	 },
         defaultColumnMapping : {
-          align : 'left'
+          align : 'left',
+          // editable: true
         },
+        // cellSelectable: true,
+        // cellInlineEdit: true,
+
         renderMapping : {
 					"parentName" : {
 						renderer : function(value, data, render, mapping){
             //  console.log("render " , codeTypeArr);
               var rtnVal = parentArr.filter(function(val){
-              //  console.log(val);
-               return val.parentId === value;
+              //console.log(val, '   value:::',value);
+               return val.mnId === value;
               });
 
-            //  /console.log(" >> " , rtnVal);
-						 if('mnName' in rtnVal[0]){
-							 return rtnVal[0].mnName;
-						 }else{
-							 return value;
-						 }
-
+              //console.log(" >> " , rtnVal, '   value:::',value);
+              if(rtnVal[0] != undefined){
+                if('mnName' in rtnVal[0]){
+                  return rtnVal[0].mnName;
+                }else{
+                  return value;
+                }
+              }
 						}
 					}
 				},
@@ -247,6 +259,7 @@ $a.page(function() {
 						title : '사용여부',
 						width : '80px',
             render : function(value, data){
+              value = $.trim(value);//공백제거
               if(value==='Y'){
                 return "사용"
               }else if(value==='N'){
