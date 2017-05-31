@@ -81,7 +81,8 @@ $a.page(function() {
 			$a.popup({
 				title : '직원등록',
 				url : 'popup/staffRegist.html',
-				height:265,
+				width:500,
+				height:440,
 			});
 		};
 

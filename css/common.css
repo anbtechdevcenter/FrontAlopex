@@ -20,7 +20,17 @@
 .f_Right{float:right;}
 /*width*/
 .width_100p{width: 100%;}
-
+.form-group Select{
+  padding: 7px !important;
+  width: 100%;
+}
+.form-group label{
+  color: #4c4a57;
+  font-weight: bold;
+}
+#Ptable .row{
+  margin: 0 !important;
+}
 #page-wrapper{
   /*width: 100%;*/
 }
@@ -80,7 +90,7 @@
 }
 .Popup_Bottom{
   border-top: 1px solid #cecece;
-  background-color: #f6f6f6;"
+  background-color: #f6f6f6;
 }
 /*popup_table*/
 Table .Ptable ,th, td{
