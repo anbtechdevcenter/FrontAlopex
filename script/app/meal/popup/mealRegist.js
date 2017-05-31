@@ -5,59 +5,66 @@
 *************************************/
 $a.page(function() {
 	  this.init = function(id, param) {
+			setData();
 
   		this.defineEvent();
-
-  		setData();
 
 	  };
 
 
 		function setData(){
-      $("#staffWrap").validator();
-			readStaff();
-
 			// anbwidget
-			$("#userRank").selectRank();
-			$("#userProject").selectProject();
 			$("#staffsel").selectStaff();
-
 		}
 
     /**
     * 이벤트 처리
     */
 		this.defineEvent = function(){
-			$("#btnStaffRegister").on("click", this.btnStaffRegister);
+			$("#btnRegistPopup").on("click", this.btnRegistPopup);
 			$("#btnClose").on("click", this.btnClose);
-
 		};
 
-
     /*
-    * 조회 버튼 액션
+    * 등록 버튼 액션
     */
-		this.btnStaffRegister = function(e){
-			console.log("click");
-			var data = $("#staffRegistWrap").getData();
-			console.log("[data is] ", data);
-
-			//return false;
-
-      var check = $("#staffWrap").validate();
-
-			console.log(" >> ", check);
-			return false;
+		this.btnRegistPopup = function(e){
+			var check = $("#divWrap").validate();
+			console.log(check);
       if(check){
-        var data = $("#staffWrap").getData();
+        var data = $("#divWrap").getData();
         console.log("[get data is] " , data);
 
 				//형태에 맞게 넣어줘야 함.
-				var vData = {empNm: data.empNm, email: data.email, project :{prjId : data.prjId}, rank: {rankCode : data.rankCode}};
+				var vData = {};
+				var time = new Date();
+				console.log(time);
+				vData['applyQty'] = data.applyQty;
+				if(data.applyQty == 5){
+					vData['buyPrice'] = 25500;
+				} else if(data.applyQty == 10){
+					vData['buyPrice'] = 51000;
+				} else if(data.applyQty == 20){
+					vData['buyPrice'] = 102000;
+				}
+
+				vData['applyDate'] = time;
+
+				vData['employee'] = {};
+				vData.employee.empId = data.empId;
+				vData.employee.regEmpNm = data.regEmpNm; //필수값?
+
+				vData.fixedQty  = data.fixedQty ;
+				vData.mealType  = data.mealType ;
+				vData.reason  = data.reason ;
+				vData.seqMeal  = data.seqMeal ;
+				vData.userInfo  = data.userInfo ;
+
 				console.log("[get vData is] " , vData);
-	      ANBTX.C('/employee' , vData, function(res){
-	          console.log("[직원등록] ", res);
-	      });
+	       ANBTX.C('/meal' , vData, function(res){
+	           $a.close('success');
+	       });
+
       }else{
         console.log("stop");
 
@@ -73,39 +80,5 @@ $a.page(function() {
 		this.btnClose = function(e){
 			$a.close();
 		};
-
-    /*
-    * 직원조회
-    */
-		function readStaff(){
-			ANBTX.R('/employee',
-			 	function(res){
-					console.log("[직원] ", res);
-					var gridData = [];
-
-					var selData = $("#staffWrap").getData();
-					//console.log("selData is ", selData);
-					if(selData){
-						if(selData.rankCode!=""){
-						//	console.log("[1] ", selData.rankCode);
-							gridData = res.filter(function(val){
-								//console.log("[val us ] ", val);
-								return val.rank.rankCode === selData.rankCode;
-							});
-						}else{
-							gridData = res;
-						}
-
-
-					}
-
-			 		$('#grid_staff').alopexGrid("dataSet", gridData);
-			 	}
-		  );
-		}
-
-
-
-
 
 });

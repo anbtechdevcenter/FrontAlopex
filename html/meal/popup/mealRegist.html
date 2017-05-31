@@ -39,12 +39,12 @@ div {
     padding: 20px;
 }*/
 </style>
-<title>직원등록 [작업중]</title>
+<title>식권등록 [작업중]</title>
 </head>
 <body>
 	<!-- contents  -->
-  <div class="padding_5p" id="commonCodeTypeWrap">
-		<form id="staffWrap" data-validation-option="{onsubmit:true}" action="#">
+  <div class="padding_5p" id="divTypeWrap">
+		<form id="divWrap" data-validation-option="{onsubmit:true}" action="#">
     <table class="Ptable">
       <colgroup>
         <col width="75px;">
@@ -52,27 +52,20 @@ div {
       </colgroup>
       <tbody>
         <tr>
-          <td for="userName">이름</td>
-          <td><span data-for="userName" style="color: red;"></span>
-					<input data-bind="value:empNm" id="userName"type="text" placeholder="이름 입력"	data-validation-rule="{required:true, minlength:2}"/></td>
-        </tr>
-        <tr>
-          <td for="userEmail">이메일</td>
-          <td><span data-for="userEmail" style="color: red;"></span>
-						<input data-bind="value:email" id="userEmail"	type="email" placeholder="이메일 입력"	data-validation-rule="{required:true, minlength:2}"/>
-				  </td>
-        </tr>
-        <tr>
-          <td for="userRank">직급</td>
           <td>
-						<span data-for="userRank" style="color: red;"></span><div id="userRank"></div>
+            <label>신청자</label>
+            <div id="staffsel"></div>
           </td>
         </tr>
         <tr>
-          <td for="userProject">프로젝트</td>
           <td>
-						<span data-for="userProject" style="color: red;"></span>
- 						<div id="userProject"></div>
+            <label>식권장수</label>
+            <select class="Select" data-bind-option="applyQty:applyQty" data-bind="selectedOptions : applyQty">
+            	<option value="">==선택==</option>
+            	<option value="5">5</option>
+            	<option value="10">10</option>
+            	<option value="20">20</option>
+            </select>
           </td>
         </tr>
       </tbody>
@@ -83,7 +76,7 @@ div {
 	<!-- popup Bottom  -->
 	<div class="t_center Popup_Bottom" >
 		<div class="margin_t5">
-			<button class="Button Pbutton" id="btnStaffRegister">등록</button>
+			<button class="Button Pbutton" id="btnRegistPopup">등록</button>
 			<button class="Button Pbutton" id="btnClose">닫기</button>
 		</div>
 	</div>

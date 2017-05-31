@@ -239,7 +239,7 @@ $(function(){
 
     //  comp.className = "Divselect";
       comp.setAttribute("data-bind-option", "empId:empNm");
-      comp.setAttribute("data-bind","options: attachList, selectedOptions : empNm");
+      comp.setAttribute("data-bind","options: attachList, selectedOptions : empId");
 
       ANBTX.R('/employee', function(res){
         res.unshift({"empId":"", "empNm": "==선택=="});

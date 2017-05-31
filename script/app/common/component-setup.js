@@ -53,8 +53,6 @@ $a.page(function() {
 				height : '400',
 				title : '제목'
 			})
-
-
     };
 
 });
