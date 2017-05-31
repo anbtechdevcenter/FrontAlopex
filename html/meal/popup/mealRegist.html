@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- html5 방식 -->
+  <!-- <link rel="import" href="/header/header.html"> -->
+
+  <!-- 업무화면 소스 -->
+<script type="text/javascript" src="/script/app/meal/popup/mealRegist.js"></script>
+
+<style>
+/*input[type=text],input[type=email], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}*/
+</style>
+<title>직원등록 [작업중]</title>
+</head>
+<body>
+	<!-- contents  -->
+  <div class="padding_5p" id="commonCodeTypeWrap">
+		<form id="staffWrap" data-validation-option="{onsubmit:true}" action="#">
+    <table class="Ptable">
+      <colgroup>
+        <col width="75px;">
+        <col width="">
+      </colgroup>
+      <tbody>
+        <tr>
+          <td for="userName">이름</td>
+          <td><span data-for="userName" style="color: red;"></span>
+					<input data-bind="value:empNm" id="userName"type="text" placeholder="이름 입력"	data-validation-rule="{required:true, minlength:2}"/></td>
+        </tr>
+        <tr>
+          <td for="userEmail">이메일</td>
+          <td><span data-for="userEmail" style="color: red;"></span>
+						<input data-bind="value:email" id="userEmail"	type="email" placeholder="이메일 입력"	data-validation-rule="{required:true, minlength:2}"/>
+				  </td>
+        </tr>
+        <tr>
+          <td for="userRank">직급</td>
+          <td>
+						<span data-for="userRank" style="color: red;"></span><div id="userRank"></div>
+          </td>
+        </tr>
+        <tr>
+          <td for="userProject">프로젝트</td>
+          <td>
+						<span data-for="userProject" style="color: red;"></span>
+ 						<div id="userProject"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+	</form>
+
+  </div>
+	<!-- popup Bottom  -->
+	<div class="t_center Popup_Bottom" >
+		<div class="margin_t5">
+			<button class="Button Pbutton" id="btnStaffRegister">등록</button>
+			<button class="Button Pbutton" id="btnClose">닫기</button>
+		</div>
+	</div>
+	<!--// popup Bottom  -->
+  <!-- // contents  -->
+
+
+
+</body>
+</html>

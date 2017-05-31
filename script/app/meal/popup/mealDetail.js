@@ -1,7 +1,7 @@
 /*********************************
-* 직원등록
+* 식권상세
 * @author : 김수한
-* @create : 2017-05-18
+* @create : 2017-05-31
 *************************************/
 $a.page(function() {
 	  this.init = function(id, param) {
@@ -59,6 +59,9 @@ $a.page(function() {
 				}else{
 					$("#empFlagsel").selectCommon({type : 'staffType'});
 				}
+
+				$("#staffsel").selectStaff();
+				
 				//데이터 바인딩
 				$('#bindarea').setData(data);
 
@@ -69,6 +72,8 @@ $a.page(function() {
 				$("#workareasel").selectCommon({type : 'workArea'});
 				$("#teamsel").selectCommon({type : 'team'});
 				$("#empFlagsel").selectCommon({type : 'staffType'});
+
+				$("#staffsel").selectStaff();
 			}
 
 		}

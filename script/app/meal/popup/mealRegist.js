@@ -1,7 +1,7 @@
 /*********************************
-* 직원등록
+* 식권등록
 * @author : 김수한
-* @create : 2017-05-18
+* @create : 2017-05-31
 *************************************/
 $a.page(function() {
 	  this.init = function(id, param) {
@@ -20,6 +20,7 @@ $a.page(function() {
 			// anbwidget
 			$("#userRank").selectRank();
 			$("#userProject").selectProject();
+			$("#staffsel").selectStaff();
 
 		}
 
