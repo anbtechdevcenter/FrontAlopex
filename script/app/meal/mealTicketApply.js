@@ -32,7 +32,7 @@ $a.page(function() {
 			$a.popup({
 				title : '식권등록',
 				url : 'popup/mealRegist.html',
-				height:265,
+				height:300,
 				callback: function (data) { // $a.close(data) API 사용 시 동작하는 콜백
             if(data == 'success'){
             	readBoard();
