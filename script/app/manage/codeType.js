@@ -12,8 +12,7 @@ $a.page(function() {
 
 	  this.init = function(id, param) {
 
-			// 인클루드 처리를 위한 내용
-			w3.includeHTML();
+
 
 			initGrid();
 
@@ -82,7 +81,7 @@ $a.page(function() {
 				 title : '코드타입 등록',
 				 data : {'type' : 'C'},
 				 width : 400,
-				 height : 'auto',
+				 height : 520,
 				 callback : function(res){
 					 console.log("res " , res);
 					 if(res=="success"){
@@ -112,8 +111,8 @@ $a.page(function() {
 					 url : popupUrl,
 					 title : '코드타입 수정',
 					 data : seldata,
-					 width : 350,
-					 height : 400,
+					 width : 400,
+					 height : 520,
 					 callback : function(res){
 						 //console.log("res " , res);
 						 if(res=="success"){

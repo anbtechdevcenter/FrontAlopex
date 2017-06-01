@@ -11,61 +11,56 @@
 </head>
 <body>
   <!-- contents  -->
-  <div class="padding_5p" id="divWrap">
-    <table class="Ptable">
-      <colgroup>
-        <col width="">
-        <col width="">
-      </colgroup>
-      <tbody>
-        <tr>
-          <td>도서명</td>
-          <td>
-            <input id="txtTitle" type="text" class="Textinput" data-bind="value:bookName"/>
-          </td>
-        </tr>
-        <tr>
-          <td>출판사</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value:publisher"/></td>
-        </tr>
-        <tr>
-          <td>등록일자</td>
-          <td>
-            <div class="Dateinput" data-format="yyyy-MM-dd">
-              <input data-bind="value:registDate">
+<div id="Ptable">
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="panel-default">
+              <div class="panel-body" id="divTypeWrap">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <form role="form">
+                                    <div class="form-group">
+                                      <label>도서명</label>
+                            					<input class="form-control Textinput" id="txtTitle" type="text" data-bind="value:bookName"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <label>출판사</label>
+                            					<input class="form-control Textinput" id="txtTitle" type="text" data-bind="value:publisher"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <label>등록일자</label>
+                                      <input class="form-control Dateinput" data-format="yyyy-MM-dd" id="txtDate" data-bind="value:registDate">
+                                    </div>
+                                    <div class="form-group">
+                                      <label>저자</label>
+                            					<input class="form-control Textinput" id="txtTitle" type="text" data-bind="value:author"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <label>출판년도</label>
+                            					<input class="form-control Textinput" id="txtTitle" type="text" data-bind="value:bookYear"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <label>구입자(추후 팝업으로 변경, Id추가)</label>
+                            					<input class="form-control Textinput" id="txtTitle" type="text" data-bind="value:purchaseEmpNm"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <label>구입일</label>
+                                      <input class="form-control Dateinput" data-format="yyyy-MM-dd" id="datePurchaseDate" data-bind="value:purchaseDate">
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                <!-- /.row -->
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>저자</td>
-          <td>
-          <input id="txtTitle" type="text" class="Textinput" data-bind="value:author"/>
-          </td>
-        </tr>
-        <tr>
-          <td>출판년도</td>
-          <td>
-          <input id="txtTitle" type="text" class="Textinput" data-bind="value:bookYear"/>
-          </td>
-        </tr>
-        <tr>
-          <td>구입자(추후 팝업으로 변경, Id추가)</td>
-          <td>
-          <input id="txtTitle" type="text" class="Textinput" data-bind="value:purchaseEmpNm"/>
-          </td>
-        </tr>
-        <tr>
-          <td>구입일</td>
-          <td>
-            <div class="Dateinput" data-format="yyyy-MM-dd" id="datePurchaseDate">
-              <input data-bind="value:purchaseDate">
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <!-- /#page-wrapper -->
+          </div>
+      </div>
+      <!-- /.col-lg-12 -->
   </div>
-  <!-- // contents  -->
+</div>
+
 <!-- popup Bottom  -->
 <div class="t_center Popup_Bottom" >
   <div class="margin_t5">

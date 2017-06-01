@@ -11,8 +11,6 @@ $a.page(function() {
 		popupUrl2 = "/html/staff/popup/staffDetail.html";
 
 	  this.init = function(id, param) {
-			// 인클루드 처리를 위한 내용
-			//w3.includeHTML();
 
 			initGrid();
 
