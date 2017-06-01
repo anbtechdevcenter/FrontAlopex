@@ -44,7 +44,7 @@ ANBTX.C = function(id, data, callback) {
      $a.request(id, {
           'method' : 'POST',
           'data' : data,
-          'success': callback
+          'error': callback
      });
   }
 }
@@ -59,7 +59,7 @@ ANBTX.U = function(id, data, callback) {
           'method' : 'PATCH',
           'processData' : false,
           'data' : data,
-          'success': callback
+          'error': callback
      });
   }
 }
@@ -72,7 +72,7 @@ ANBTX.D = function(id, callback) {
   }else {
      $a.request(id, {
           'method' : 'DELETE',
-          'success': callback
+          'error': callback
      });
   }
 }
