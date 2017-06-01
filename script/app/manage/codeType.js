@@ -82,7 +82,7 @@ $a.page(function() {
 				 title : '코드타입 등록',
 				 data : {'type' : 'C'},
 				 width : 400,
-				 height : 'auto',
+				 height : 520,
 				 callback : function(res){
 					 console.log("res " , res);
 					 if(res=="success"){
