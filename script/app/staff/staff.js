@@ -5,8 +5,6 @@
 *************************************/
 $a.page(function() {
 	  this.init = function(id, param) {
-			// 인클루드 처리를 위한 내용
-			//w3.includeHTML();
 
 			initGrid();
 
