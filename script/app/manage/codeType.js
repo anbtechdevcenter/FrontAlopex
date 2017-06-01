@@ -112,8 +112,8 @@ $a.page(function() {
 					 url : popupUrl,
 					 title : '코드타입 수정',
 					 data : seldata,
-					 width : 350,
-					 height : 400,
+					 width : 400,
+					 height : 520,
 					 callback : function(res){
 						 //console.log("res " , res);
 						 if(res=="success"){
