@@ -120,7 +120,7 @@ $a.page(function() {
 			var pops =  $a.popup({
 				 url : popupUrl,
 				 title : title,
-         height : 380,
+         height : 660,
 				 data : data,
 				 callback : function(res){
 					 if(res=="success"){
