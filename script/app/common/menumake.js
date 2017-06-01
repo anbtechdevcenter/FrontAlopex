@@ -1,12 +1,12 @@
 $a.page(function() {
 
   this.init = function(id, param) {
-    
+
    var access_token = $a.session('access_token');
 
 
    if(access_token!=='undefined'){
-console.log("[mkmenu token] ", access_token);
+//console.log("[mkmenu token] ", access_token);
 
      // 메뉴 처리해 주기
      ANBTX.R('/menu', function(res){
