@@ -23,7 +23,7 @@ $('body').progress().remove();  //progress 종료
 
           $.ajax({
             type : 'POST',
-            url : "http://localhost:8080/api/oauth/token",
+            url : "http://restnfeel.com:8080/api/oauth/token",
             data : data,
             beforeSend : function(xhr){
               xhr.setRequestHeader("Accept","application/json");
