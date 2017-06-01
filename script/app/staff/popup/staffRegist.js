@@ -1,6 +1,6 @@
 /*********************************
 * 직원등록
-* @author : anbtechdevcenter
+* @author : 김수한
 * @create : 2017-05-18
 *************************************/
 $a.page(function() {
@@ -34,7 +34,7 @@ $a.page(function() {
 
 
     /*
-    * 조회 버튼 액션
+    * 저장 버튼 액션
     */
 		this.btnStaffRegister = function(e){
 			console.log("click");
@@ -95,16 +95,11 @@ $a.page(function() {
 							gridData = res;
 						}
 
-
 					}
 
 			 		$('#grid_staff').alopexGrid("dataSet", gridData);
 			 	}
 		  );
 		}
-
-
-
-
 
 });

@@ -28,13 +28,10 @@ ANBTX.R = function(id, callback, isAsync) {
     }else{
       isAsync = true;
     }
-
      $a.request(id, {
         'async' : isAsync,
-        'method'  :'GET',
         'success': callback
      });
-
   }
 }
 

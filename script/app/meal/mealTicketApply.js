@@ -14,39 +14,32 @@ $a.page(function() {
 
 		function setData(){
 			readBoard();
+
+			$("#staffsel").selectStaff();
 		}
 
 /**
-* 이벤트 처리 1234
+* 이벤트 처리
 */
 		this.defineEvent = function(){
-			$("#btnSave").on("click", this.btnSave);
+			$("#btnRegist").on("click", this.btnRegist);
 			$('#btnDelete').on("click", this.btnDelete);
 			$("#btnSearch").on("click", this.btnSearch);
 			$("#btnTest").on("click", this.btnTest);
 		};
 
-		/**
-		* 게시판 저장
-		*/
-		this.btnTest = function() {
-			$a.navigate('html/todoList.html' , {pageInfo:document.URL}); // pageInfo : 현재 페이지 url
+		this.btnRegist = function(){
+			$a.popup({
+				title : '식권등록',
+				url : 'popup/mealRegist.html',
+				height:300,
+				callback: function (data) { // $a.close(data) API 사용 시 동작하는 콜백
+            if(data == 'success'){
+            	readBoard();
+        		}
+        }
+			});
 		};
-
-    	this.btnSave = function(){
-			var check = confirm("저장하시겠습니까?");
-			if(check){
-				//var data = $("#boardTb").getData();
-				//console.log("data ", data);
-				ANBTX.C('/meal', '#mealTb',
-				 	function(res){
-						$("#mealTb").setData({employee:'',applyQty:''});
-						readBoard();
-				 	}
-			  );
-			}
-		};
-
 
 		this.btnSearch = function(){
 			readBoard();
@@ -56,12 +49,12 @@ $a.page(function() {
 			var check = confirm("삭제하시겠습니까?");
 			if(check){
 
-				var selData = $("#grid_mealTicketApply").alopexGrid("dataGet", {_state : {selected:true}});
-
+				var selData = $("#grid_meal").alopexGrid("dataGet", {_state : {selected:true}});
+console.log(selData);
 				if(selData.length>0){
-					var id = selData[0].seqBoard;
+					var seqMeal = selData[0].seqMeal;
 
-					ANBTX.D('/meal/'+id,
+					ANBTX.D('/meal/'+seqMeal,
 						function(res){
 							readBoard();
 						}
@@ -76,7 +69,8 @@ $a.page(function() {
 		function readBoard(){
 			ANBTX.R('/meal',
 			 	function(res){
-			 		$('#grid_mealTicketApply').alopexGrid("dataSet", res);
+					//console.log(res);
+			 		$('#grid_meal').alopexGrid("dataSet", res);
 			 	}
 		  );
 		}
@@ -84,7 +78,7 @@ $a.page(function() {
 
 	  //그리드 초기화
 	  function initGrid() {
-			$('#grid_mealTicketApply').alopexGrid({
+			$('#grid_meal').alopexGrid({
 				columnMapping : [
 					{
 						align : 'center',
@@ -115,60 +109,28 @@ $a.page(function() {
 						width : '50px'
 					}, {
 						align : 'center',
-						key : 'employee.birthDate',
-						title : 'birthDate',
-						width : '50px'
-					}, {
-						align : 'center',
-						key : 'employee.birthState',
-						title : 'birthState',
-						width : '300px', hidden : true
-					}, {
-						align : 'center',
-						key : 'employee.birthDate',
-						title : 'birthDate',
-						width : '50px', hidden : true
-					}, {
-						align : 'center',
-						key : 'employee.birthDate',
-						title : 'birthDate',
-						width : '50px', hidden : true
-					}, {
-						align : 'center',
-						key : 'employee.depart',
-						title : 'depart',
-						width : '50px', hidden : true
-					}, {
-						align : 'center',
-						key : 'employee.email',
-						title : 'email',
-						width : '100px', hidden : true
-					}, {
-						align : 'center',
-						key : 'employee.empEngNm',
-						title : 'empEngNm',
-						width : '50px', hidden : true
-					}, {
-						align : 'center',
-						key : 'employee.empFlag',
-						title : 'empFlag',
-						width : '20px', hidden : true
-					}, {
-						align : 'center',
-						key : 'employee.empHp',
-						title : 'empHp',
-						width : '50px', hidden : true
-					}
-					, {
-						align : 'center',
-						key : 'employee.empId',
+						key : 'empId',
 						title : 'empId',
-						width : '50px'
+						width : '50px',
+						render : function(value, data, render, mapping, grid){
+							var empId = "";
+							if(data){
+								empId = data.employee.empId;
+							}
+              return empId;
+            }
 					}, {
 						align : 'center',
-						key : 'employee.empNm',
+						key : 'empNm',
 						title : 'empNm',
-						width : '50px'
+						width : '50px',
+						render : function(value, data, render, mapping, grid){
+							var empNm = "";
+							if(data){
+								empNm = data.employee.empNm;
+							}
+              return empNm;
+            }
 					}
 				]
 			});

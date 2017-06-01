@@ -82,7 +82,7 @@ $(function(){
   }); // select end
 
   /**
-  * 프로젝트 셀렉트
+  * 메뉴 셀렉트
   */
   $.widget("ui.selectMenu", {
     options : {
@@ -98,12 +98,12 @@ $(function(){
       comp.setAttribute("data-bind","options: attachList, selectedOptions : parentId");
 
       ANBTX.R('/menu', function(res){
-      //  console.log("[project is] ", res);
+        //console.log("[project is] ", res);
         var filterData = res.filter(function(val){
             return val.mnDepth <= 1;
         });
         filterData.unshift({"mnId":"", "mnName": "==선택=="});
-      //    console.log("[menu sel is] ", filterData);
+          //console.log("[menu sel is] ", filterData);
           $(comp).setData({
             attachList: filterData
           });
@@ -175,10 +175,10 @@ $(function(){
           keyword = "COD_2017051911095827";
           selectedCd = "workCd";
           break;
-          case "team" :
-            keyword = "COD_2017051917305250";
-            selectedCd = "teamCd";
-            break;
+        case "team" :
+          keyword = "COD_2017051917305250";
+          selectedCd = "teamCd";
+          break;
         default:
 
       }
@@ -224,5 +224,33 @@ $(function(){
     }
   }); // select end
 
+
+  /**
+  * 직원 셀렉트
+  */
+  $.widget("ui.selectStaff", {
+    options : {
+    },
+    _create : function(){
+
+      var comp = document.createElement('select');
+
+      comp.className = "Select";
+
+    //  comp.className = "Divselect";
+      comp.setAttribute("data-bind-option", "empId:empNm");
+      comp.setAttribute("data-bind","options: attachList, selectedOptions : empId");
+
+      ANBTX.R('/employee', function(res){
+        res.unshift({"empId":"", "empNm": "==선택=="});
+      //    console.log("[menu sel is] ", filterData);
+          $(comp).setData({
+            attachList: res
+          });
+        }, true);
+
+      return $(this.element).replaceWith(comp);
+    }
+  }); // select end
 
 });

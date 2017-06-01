@@ -147,6 +147,7 @@ $a.page(function() {
         });
         $(gridId).alopexGrid('dataSet', res);
         parentArr = res;
+        console.log(parentArr);
       }, true);
 
       $(gridId).alopexGrid("expandTreeNode");
@@ -195,17 +196,18 @@ $a.page(function() {
 						renderer : function(value, data, render, mapping){
             //  console.log("render " , codeTypeArr);
               var rtnVal = parentArr.filter(function(val){
-              //  console.log(val);
-               return val.parentId === value;
+              //console.log(val, '   value:::',value);
+               return val.mnId === value;
               });
 
-            //  /console.log(" >> " , rtnVal);
-						 if('mnName' in rtnVal[0]){
-							 return rtnVal[0].mnName;
-						 }else{
-							 return value;
-						 }
-
+              //console.log(" >> " , rtnVal, '   value:::',value);
+              if(rtnVal[0] != undefined){
+                if('mnName' in rtnVal[0]){
+                  return rtnVal[0].mnName;
+                }else{
+                  return value;
+                }
+              }
 						}
 					}
 				},
@@ -257,6 +259,7 @@ $a.page(function() {
 						title : '사용여부',
 						width : '80px',
             render : function(value, data){
+              value = $.trim(value);//공백제거
               if(value==='Y'){
                 return "사용"
               }else if(value==='N'){

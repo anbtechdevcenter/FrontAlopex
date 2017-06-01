@@ -1,5 +1,9 @@
 /*********************************
+<<<<<<< HEAD
 * 설명 작성
+=======
+* 장비 조회
+>>>>>>> b762266fe06c17994aa259dd000c65e7fd85cb2a
 * @author : 김수한 과장
 * @create : 2017-05-30
 *************************************/
@@ -113,8 +117,8 @@ $a.page(function() {
 				 title : title,
 				 data : data,
 				 iframe : false,
-				 width : 400,
-				 height : 300,
+				 width : 800,
+				 height : 800,
 				 callback : function(res){
 					 if(res=="success"){
 						 readDeviceList();

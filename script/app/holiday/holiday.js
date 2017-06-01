@@ -1,6 +1,6 @@
 /*********************************
 * 근태관리
-* @author : ksh
+* @author : 김수한
 * @create : 2017-05-26
 *************************************/
 $a.page(function() {
@@ -63,10 +63,15 @@ $a.page(function() {
 			readHoliday();
 		};
 
-		this.btnStaffRegister = function(){
+		/*
+    * 근태 등록 버튼 액션
+    */
+		this.btnHolidayRegister = function(){
 			$a.popup({
-				title : '직원등록',
-				url : 'popup/staffRegist.html'
+				title : '근태등록',
+				url : 'popup/holidayRegist.html',
+				width:1100,
+				height:800,
 			});
 		};
 
@@ -77,7 +82,16 @@ $a.page(function() {
 
 			var sdata = $("#grid_holiday").alopexGrid("dataGet", {_state :{focused:true}});
 			console.log("sdata", sdata);
-			$a.navigate('holidayDetail.html', sdata);
+			//$a.navigate('holidayDetail.html', sdata);
+
+			$a.popup({
+				title : '근태등록',
+				url : 'popup/holidayDetail.html',
+				data : sdata,
+				width:1100,
+				height:800,
+			});
+
 			//if(sdata.length > 0) openPopup('R');
 		};
 

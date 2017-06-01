@@ -75,13 +75,12 @@ $a.page(function() {
 				data.type = type;
 				title = '프로젝트 관리';
 			}
-			console.log(data);
 			var popupUrl = "/html/manage/popup/employeePopup.html";
 			var pops =  $a.popup({
 				 url : popupUrl,
 				 title : title,
 				 data : data,
-				 iframe : false,
+				//  iframe : false,
 				//  width : 400,
 				//  height : 300,
 				 callback : function(res){

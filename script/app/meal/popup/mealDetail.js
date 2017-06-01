@@ -1,8 +1,7 @@
 /*********************************
-* 직원등록
-* @author : anbtechdevcenter
+* 식권상세
 * @author : 김수한
-* @create : 2017-05-18
+* @create : 2017-05-31
 *************************************/
 $a.page(function() {
 	  this.init = function(id, param) {
@@ -18,7 +17,7 @@ $a.page(function() {
 
 
 		function setData(data){
-			//console.log('setData:::',data);
+			console.log('setData:::',data);
 			// anbwidget
 			//$("#ranksel").selectRank();
 			//$("#projectsel").selectProject(); //프로젝트
@@ -38,12 +37,7 @@ $a.page(function() {
 				}
 
 				//직원타입
-				if(data.empFlag != undefined){
-					$("#stafftypesel").selectCommon({type : 'staffType', para:data.empFlag});
-				}else{
-					$("#stafftypesel").selectCommon({type : 'staffType'});
-				}
-
+				$("#stafftypesel").selectCommon({type : 'staffType'});
 
 				//업무지역
 				if(data.workPosition != ""){
@@ -61,10 +55,13 @@ $a.page(function() {
 
 				//직원구분
 				if(data.workPosition != ""){
-					$("#empFlagsel").selectCommon({type : 'staffType', para:data.workPosition}); //직원구분
+					$("#empFlagsel").selectCommon({type : 'staffType', para:data.empFlag}); //직원구분
 				}else{
 					$("#empFlagsel").selectCommon({type : 'staffType'});
 				}
+
+				$("#staffsel").selectStaff();
+				
 				//데이터 바인딩
 				$('#bindarea').setData(data);
 
@@ -75,6 +72,8 @@ $a.page(function() {
 				$("#workareasel").selectCommon({type : 'workArea'});
 				$("#teamsel").selectCommon({type : 'team'});
 				$("#empFlagsel").selectCommon({type : 'staffType'});
+
+				$("#staffsel").selectStaff();
 			}
 
 		}
@@ -120,11 +119,11 @@ $a.page(function() {
 			 	delete vData.workCd;
 
 				console.log("[get vData is] " , JSON.stringify(vData));
-				//alert('현재 수정은 안됨(400에러(Bad Request 발생 - 주석처리))');
-	       ANBTX.U('/employee' , vData, function(res){
-	           console.log("[직원등록] ", res);
-				 		$a.navigate('staff.html');
-	       });
+				alert('현재 수정은 안됨(400에러(Bad Request 발생 - 주석처리))');
+	      // ANBTX.U('/employee' , vData, function(res){
+	      //     console.log("[직원등록] ", res);
+				// 		//$a.navigate('staff.html');
+	      // });
       }else{
         console.log("stop");
 
