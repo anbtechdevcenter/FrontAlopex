@@ -98,6 +98,42 @@ $a.page(function() {
 				data.seqDevice = seqDevice;
 				pid = '/device';
 				console.log(data);
+				data = {
+							  "bringProof": "string",
+							  "desc01": "string",
+							  "desc02": "string",
+							  "desc03": "string",
+							  "desc04": "string",
+							  "desc05": "string",
+							  "desc06": "string",
+							  "desc07": "string",
+							  "desc08": "string",
+							  "desc09": "string",
+							  "desc10": "string",
+							  "desc11": "string",
+							  "desc12": "string",
+							  "desc13": "string",
+							  "desc14": "string",
+							  "desc15": "string",
+							  "desc16": "string",
+							  "desc17": "string",
+							  "desc18": "string",
+							  "desc19": "string",
+							  "desc20": "string",
+							  "deviceModel": "string",
+							  "deviceName": "string",
+							  "deviceSn": "string",
+							  "deviceState": "string",
+							  "deviceType": "string",
+							  "disposalDate": "2017-06-01T00:38:48.104Z",
+							  "makersId": "string",
+							  "makersName": "string",
+							  "purchaseDate": "2017-06-01T00:38:48.104Z",
+							  "rentalEdate": "2017-06-01T00:38:48.104Z",
+							  "rentalEmpId": "string",
+							  "rentalSdate": "2017-06-01T00:38:48.104Z",
+							  "seqDevice": "DEV_2017053014352727"
+							}
 				ANBTX.U(pid, data, function(){
 					alert(msg);
 					$a.close('success');

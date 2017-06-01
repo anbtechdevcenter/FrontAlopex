@@ -38,7 +38,12 @@ $a.page(function() {
 				}
 
 				//직원타입
-				$("#stafftypesel").selectCommon({type : 'staffType'});
+				if(data.empFlag != undefined){
+					$("#stafftypesel").selectCommon({type : 'staffType', para:data.empFlag});
+				}else{
+					$("#stafftypesel").selectCommon({type : 'staffType'});
+				}
+
 
 				//업무지역
 				if(data.workPosition != ""){
@@ -56,7 +61,7 @@ $a.page(function() {
 
 				//직원구분
 				if(data.workPosition != ""){
-					$("#empFlagsel").selectCommon({type : 'staffType', para:data.empFlag}); //직원구분
+					$("#empFlagsel").selectCommon({type : 'staffType', para:data.workPosition}); //직원구분
 				}else{
 					$("#empFlagsel").selectCommon({type : 'staffType'});
 				}
@@ -115,11 +120,11 @@ $a.page(function() {
 			 	delete vData.workCd;
 
 				console.log("[get vData is] " , JSON.stringify(vData));
-				alert('현재 수정은 안됨(400에러(Bad Request 발생 - 주석처리))');
-	      // ANBTX.U('/employee' , vData, function(res){
-	      //     console.log("[직원등록] ", res);
-				// 		//$a.navigate('staff.html');
-	      // });
+				//alert('현재 수정은 안됨(400에러(Bad Request 발생 - 주석처리))');
+	       ANBTX.U('/employee' , vData, function(res){
+	           console.log("[직원등록] ", res);
+				 		$a.navigate('staff.html');
+	       });
       }else{
         console.log("stop");
 

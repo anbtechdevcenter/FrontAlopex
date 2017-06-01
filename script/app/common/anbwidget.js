@@ -175,10 +175,10 @@ $(function(){
           keyword = "COD_2017051911095827";
           selectedCd = "workCd";
           break;
-          case "team" :
-            keyword = "COD_2017051917305250";
-            selectedCd = "teamCd";
-            break;
+        case "team" :
+          keyword = "COD_2017051917305250";
+          selectedCd = "teamCd";
+          break;
         default:
 
       }

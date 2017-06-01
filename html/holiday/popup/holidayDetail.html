@@ -7,63 +7,140 @@
   <!-- 업무화면 소스 -->
 <script type="text/javascript" src="/script/app/holiday/popup/holidayDetail.js"></script>
 
-<style>
-  div#codeTypeWrap {
-    margin : 10px;
-  }
-</style>
-
-
-<title>근태 상세</title>
+<title>근태 관리</title>
 </head>
 <body>
-
-
-<div id="divWrap"  style="margin-left:10px;">
-  <label>근태순번</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: seqDevice"/>
-
-  <label>근태구분</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceType"/>
-
-  <label>근태상태</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceState"/>
-
-  <label>근태명</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceName"/>
-
-  <label>시리얼번호</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceSn"/>
-
-  <label>제조사코드</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: makersId"/>
-
-  <label>제조사명</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: makersName"/>
-
-  <label>모델명</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceModel"/>
-
-  <label>반입증여부</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: bringProof"/>
-
-  <label>구입일자</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: purchaseDate"/>
-
-  <label>사용자사번</label>
-  <input id="txtTitle" type="text" class="Textinput" data-bind="value: rentalEmpId"/>
-
-
-<div>
-  <button class="Button" id="btnUpdate">수정</button>
-  <button class="Button" id="btnCreate">등록</button>
-  <button class="Button" id="btnDelete">삭제</button>
-  <button class="Button" id="btnClose">닫기</button>
+<div id="Ptable">
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="panel panel-default">
+              <div class="panel-body" id="bindarea">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                  <form role="form">
+                                    <div class="form-group">
+                                      <label>사번</label> <input class="form-control Textinput" data-bind="value: empId">
+                                    </div>
+                                    <div class="form-group">
+                                      <lable>이름</label>
+                                      <input class="form-control Textinput" data-bind="value:empNm">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>일수</label>
+                                        <input class="form-control Textinput" data-bind="value: holidayDay"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <label>사번</label>
+                                      <input type="text" class="form-control Textinput" data-bind="value: empId"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <label>이름</label>
+                                      <input type="text" class="form-control Textinput" data-bind="value: empNm"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <label>일수</label>
+                                      <input type="text" class="form-control Textinput" data-bind="value: holidayDay"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <label>시작일자</label>
+                                      <input type="text" class="form-control Textinput" data-bind="value: holidaySdate"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <label>종료일자</label>
+                                      <input type="text" class="form-control Textinput" data-bind="value: holidayEdate"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <label>사유</label>
+                                      <input type="text" class="form-control Textinput" data-bind="value: holidayReason"/>
+                                    </div>
+                                    <div class="form-group">
+                                      <label>휴일특근코드</label>
+                                      <input type="text" class="form-control Textinput" data-bind="value: holidayType"/>
+                                    </div>
+                                  </form>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                              <form role="form">
+                                <div class="form-group">
+                                  <label>등록자ID</label>
+                                  <input type="text" class="form-control Textinput" data-bind="value: regEmpId"/>
+                                </div>
+                                <div class="form-group">
+                                  <label>등록자명</label>
+                                  <input type="text" class="form-control Textinput" data-bind="value: regEmpNm"/>
+                                </div>
+                                <div class="form-group">
+                                  <label>등록일</label>
+                                  <input type="text" class="form-control Textinput" data-bind="value: registDt"/>
+                                </div>
+                                <div class="form-group">
+                                  <label>휴일순번</label>
+                                  <input type="text" class="form-control Textinput" data-bind="value: seqHoliday"/>
+                                </div>
+                                <div class="form-group">
+                                  <label>결재1_일자</label>
+                                  <input type="text" class="form-control Textinput" data-bind="value: app1Date"/>
+                                </div>
+                                <div class="form-group">
+                                  <label>결재1_ID</label>
+                                  <div id="app1EmpId"></div>
+                                  <!-- <input type="text" class="form-control Textinput" data-bind="value: app1EmpId"/> -->
+                                </div>
+                                <div class="form-group">
+                                  <label>결재1_명</label>
+                                  <input type="text" class="form-control Textinput" data-bind="value: app1EmpNm"/>
+                                </div>
+                                <div class="form-group">
+                                  <label>결재2_일자</label>
+                                  <input type="text" class="form-control Textinput" data-bind="value: app2Date"/>
+                                </div>
+                                <div class="form-group">
+                                  <label>결재2_ID</label>
+                                  <div id="app2EmpId"></div>
+                                  <!-- <input type="text" class="form-control Textinput" data-bind="value: app2EmpId"/> -->
+                                </div>
+                                <div class="form-group">
+                                  <label>결재2_명</label>
+                                  <input type="text" class="form-control Textinput" data-bind="value: app2EmpNm"/>
+                                </div>
+                              </form>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /#page-wrapper -->
+          </div>
+      </div>
+      <!-- /.col-lg-12 -->
+  </div>
 </div>
 
+<!-- popup Bottom  -->
+<div class="t_center Popup_Bottom" >
+  <div class="margin_t5">
+    <button class="Button Pbutton" id="btnUpdate">수정</button>
+    <button class="Button Pbutton" id="btnCreate">등록</button>
+    <button class="Button Pbutton" id="btnDelete">삭제</button>
+    <button class="Button Pbutton" id="btnClose">닫기</button>
+  </div>
 </div>
-
-
+<!--// popup Bottom  -->
 
 
 </body>

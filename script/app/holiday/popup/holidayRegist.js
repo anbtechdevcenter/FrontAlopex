@@ -36,6 +36,10 @@ $a.page(function() {
 				// 수정인 경우 넘겨온 데이터 받기
 				$(btnCId).hide();
 			}
+			// anbwidget
+			$("#app1EmpId").selectStaff();
+			$("#app2EmpId").selectStaff();
+
 			$(wrapId).setData(param);
 
 		}

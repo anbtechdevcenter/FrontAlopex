@@ -82,7 +82,16 @@ $a.page(function() {
 
 			var sdata = $("#grid_holiday").alopexGrid("dataGet", {_state :{focused:true}});
 			console.log("sdata", sdata);
-			$a.navigate('holidayDetail.html', sdata);
+			//$a.navigate('holidayDetail.html', sdata);
+
+			$a.popup({
+				title : '근태등록',
+				url : 'popup/holidayDetail.html',
+				data : sdata,
+				width:1100,
+				height:800,
+			});
+
 			//if(sdata.length > 0) openPopup('R');
 		};
 
