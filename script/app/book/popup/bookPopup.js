@@ -21,6 +21,7 @@ $a.page(function() {
 
 
 		function setData(param){
+			console.log('param:::',param);
 			if(callType=='C'){
 				// 등록인 경우
 				var year = moment().format("YYYY");

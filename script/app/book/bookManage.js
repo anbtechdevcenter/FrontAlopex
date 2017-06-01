@@ -49,7 +49,7 @@ $a.page(function() {
 
 
       // 기타 이벤트 정의
-			$("#grid").on("click", '.bodycell', this.grid_dblClick);
+			$("#grid").on("dblclick", '.bodycell', this.grid_dblClick);
 		};
 
     /**
@@ -97,7 +97,7 @@ $a.page(function() {
     * 도서 상세 정보 조회
     */
     this.grid_dblClick = function(){
-			var sdata = $("#grid").alopexGrid("dataGet", {_state :{selected:true}});
+			var sdata = $("#grid").alopexGrid("dataGet", {_state :{focused:true}});
 			if(sdata.length > 0) openPopup('R');
 		};
     /**
@@ -110,10 +110,10 @@ $a.page(function() {
 				data.type = type;
 				title = '도서등록';
 			}else if(type == 'R'){
-				var sdata = $("#grid").alopexGrid("dataGet", {_state :{selected:true}});
+				var sdata = $("#grid").alopexGrid("dataGet", {_state :{focused:true}});
 				data = sdata[0];
 				data.type = type;
-        console.log(data);
+        console.log('R:::',data);
 				title = '도서정보 상세조회';
 			}
 			var popupUrl = "/html/book/popup/bookPopup.html";

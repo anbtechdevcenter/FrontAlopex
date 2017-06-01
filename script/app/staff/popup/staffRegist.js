@@ -4,6 +4,11 @@
 * @create : 2017-05-18
 *************************************/
 $a.page(function() {
+	var gridId = "#grid",
+		wrapId = "#divWrap",
+		btnCId = "#btnCreate",
+		btnUId = "#btnUpdate",
+		btnDId = "#btnDelete";
 	  this.init = function(id, param) {
 
   		this.defineEvent();
@@ -14,7 +19,7 @@ $a.page(function() {
 
 
 		function setData(){
-      $("#staffWrap").validator();
+      $(wrapId).validator();
 			readStaff();
 
 			// anbwidget
@@ -27,7 +32,7 @@ $a.page(function() {
     * 이벤트 처리
     */
 		this.defineEvent = function(){
-			$("#btnStaffRegister").on("click", this.btnStaffRegister);
+			$("#btnRegist").on("click", this.btnRegist);
 			$("#btnClose").on("click", this.btnClose);
 
 		};
@@ -36,19 +41,11 @@ $a.page(function() {
     /*
     * 저장 버튼 액션
     */
-		this.btnStaffRegister = function(e){
-			console.log("click");
-			var data = $("#staffRegistWrap").getData();
-			console.log("[data is] ", data);
+		this.btnRegist = function(e){
+      var check = $(wrapId).validate();
 
-			//return false;
-
-      var check = $("#staffWrap").validate();
-
-			console.log(" >> ", check);
-			return false;
       if(check){
-        var data = $("#staffWrap").getData();
+        var data = $(wrapId).getData();
         console.log("[get data is] " , data);
 
 				//형태에 맞게 넣어줘야 함.
@@ -56,6 +53,7 @@ $a.page(function() {
 				console.log("[get vData is] " , vData);
 	      ANBTX.C('/employee' , vData, function(res){
 	          console.log("[직원등록] ", res);
+						$a.close('success');
 	      });
       }else{
         console.log("stop");
@@ -82,7 +80,7 @@ $a.page(function() {
 					console.log("[직원] ", res);
 					var gridData = [];
 
-					var selData = $("#staffWrap").getData();
+					var selData = $(wrapId).getData();
 					//console.log("selData is ", selData);
 					if(selData){
 						if(selData.rankCode!=""){

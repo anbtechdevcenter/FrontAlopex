@@ -4,6 +4,8 @@
 * @create : 2017-05-31
 *************************************/
 $a.page(function() {
+
+	var wrapId = "#divWrap";
 	  this.init = function(id, param) {
 			setData();
 
@@ -29,16 +31,16 @@ $a.page(function() {
     * 등록 버튼 액션
     */
 		this.btnRegistPopup = function(e){
-			var check = $("#divWrap").validate();
-			console.log(check);
+			var check = $(wrapId).validate();
+			//console.log(check);
       if(check){
-        var data = $("#divWrap").getData();
-        console.log("[get data is] " , data);
+        var data = $(wrapId).getData();
+      //  console.log("[get data is] " , data);
 
 				//형태에 맞게 넣어줘야 함.
 				var vData = {};
-				var time = new Date();
-				console.log(time);
+				var today = moment().format("YYYY-MM-DD");
+				console.log(today);
 				vData['applyQty'] = data.applyQty;
 				if(data.applyQty == 5){
 					vData['buyPrice'] = 25500;
@@ -47,12 +49,12 @@ $a.page(function() {
 				} else if(data.applyQty == 20){
 					vData['buyPrice'] = 102000;
 				}
-
-				vData['applyDate'] = time;
+				//console.log(vData);
+				vData['applyDate'] = today;
 
 				vData['employee'] = {};
 				vData.employee.empId = data.empId;
-				vData.employee.regEmpNm = data.regEmpNm; //필수값?
+				vData.employee.regEmpNm = "123213";//data.regEmpNm; //필수값?
 
 				vData.fixedQty  = data.fixedQty ;
 				vData.mealType  = data.mealType ;
@@ -60,18 +62,22 @@ $a.page(function() {
 				vData.seqMeal  = data.seqMeal ;
 				vData.userInfo  = data.userInfo ;
 
-				console.log("[get vData is] " , vData);
+				console.log("[get vData is] " , JSON.stringify(vData));
 	       ANBTX.C('/meal' , vData, function(res){
-	           $a.close('success');
+					console.log("[get res is] " , res)
+					if(res.error == 201){ //201 성공
+						$a.close('success');
+					}else{
+						console.log("errorMessage:::" , res.errorMessage);
+					}
+
 	       });
 
       }else{
         console.log("stop");
-
       }
 
       e.preventDefault();
-
 		};
 
 		/*
