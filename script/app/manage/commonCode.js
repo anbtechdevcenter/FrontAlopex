@@ -12,7 +12,7 @@ var popupUrl = "/html/manage/popup/commonCodePopup.html",
 
 	  this.init = function(id, param) {
 
-			
+
 
 
       codeTypeGet();
@@ -92,8 +92,8 @@ var popupUrl = "/html/manage/popup/commonCodePopup.html",
 				 url : popupUrl,
 				 title : '공통코드 수정',
 				 data : seldata,
-				 width : 300,
-				 height : 250,
+				 width : 400,
+				 height : 410,
 				 callback : function(res){
 					 //console.log("res " , res);
 					 if(res=="success"){

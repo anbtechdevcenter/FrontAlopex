@@ -7,42 +7,47 @@
 </head>
   <body>
   <!-- contents  -->
-  <div class="padding_5p" id="commonCodeTypeWrap">
-    <table class="Ptable">
-      <colgroup>
-        <col width="75px;">
-        <col width="">
-      </colgroup>
-      <tbody>
-        <tr>
-          <td>코드타입명</td>
-          <td><div id="selcodetypePop" style="width: 100%;"></div></td>
-        </tr>
-        <tr>
-          <td>코드명</td>
-          <td><input id="codeTypeNm" class="Textinput" data-bind="value:codeTypeNm"/></td>
-        </tr>
-        <tr>
-          <td>등록일자</td>
-          <td>
-            <div class="Dateinput" data-format="yyyy-MM-dd">
-              <input data-bind="value:registDate">
+  <div id="Ptable">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel-default">
+                <div class="panel-body" id="divTypeWrap">
+                          <div class="panel panel-default">
+                              <div class="panel-body">
+                                  <form role="form">
+                                      <div class="form-group">
+                                        <label>코드타입명</label>
+                                        <div id="selcodetypePop"></div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>코드명</label>
+                                        <input id="codeTypeNm" class="form-control Textinput" data-bind="value:codeTypeNm"/>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>등록일자</label>
+                                        <input class="form-control Dateinput" data-format="yyyy-MM-dd" id="txtDate" data-bind="value:registDate">
+                                      </div>
+                                      <div class="form-group">
+                                        <label>사용여부</label>
+                                        <label class="ImageRadio">
+                                          <input class="Radio" name="useYnNm" value="Y" data-bind="checked:useYn"/><span class="margin_l5"> 사용</span>
+                                        </label>
+                                        <label class="ImageRadio">
+                                            <input class="Radio" name="useYnNm" value="N" data-bind="checked:useYn"/> <span class="margin_l5">미사용</span>
+                                        </label>
+                                      </div>
+                                  </form>
+                              </div>
+                              <!-- /.panel-body -->
+                          </div>
+                          <!-- /.panel -->
+                  <!-- /.row -->
+              </div>
+              <!-- /#page-wrapper -->
             </div>
-          </td>
-        </tr>
-        <tr>
-          <td>사용여부</td>
-          <td>
-            <label class="ImageRadio">
-              <input class="Radio" name="useYnNm" value="Y" data-bind="checked:useYn"/><span class="margin_l5"> 사용</span>
-            </label>
-            <label class="ImageRadio">
-                <input class="Radio" name="useYnNm" value="N" data-bind="checked:useYn"/> <span class="margin_l5">미사용</span>
-            </label>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
   </div>
   <!-- // contents  -->
   <!-- popup Bottom  -->

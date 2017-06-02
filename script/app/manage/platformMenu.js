@@ -68,6 +68,7 @@ $a.page(function() {
       var pops =  $a.popup({
 				 url : popupUrl,
 				 title : '메뉴 등록',
+         height: 550,
 				 data : {'type' : 'C'},
 				 callback : function(res){
 					 console.log("res " , res);
@@ -102,6 +103,7 @@ $a.page(function() {
         var pops =  $a.popup({
            url : popupUrl,
            title : '메뉴 수정',
+           height: 550,
            data : seldata,
            callback : function(res){
              console.log("res " , res);

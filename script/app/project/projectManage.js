@@ -109,7 +109,7 @@ $a.page(function() {
 				 data : data,
 				 iframe : false,
 				 width : 400,
-				 height : 300,
+				 height : 405,
 				 callback : function(res){
 					 if(res=="success"){
 						 readProjectList();
