@@ -4,13 +4,26 @@
 * @create : 2017-05-18
 *************************************/
 $a.page(function() {
+	// $('#susername').on('keypress', function (event) {
+	// 	console.log("enter");
+	// 	if(event.keyCode == 13){
+	// 	}
+	// });
+	// $('#spassword').on('keypress', function (event) {
+	// 	if(event.keyCode == 13){
+	// 		console.log("enter");
+	// 	}
+	// });
+	// $('#authlogin').click(function() { $('#target').keydown(); });
+	//
+	// $("#susername").keypress(function() { alert("Handler for .keypress() called."); });
 
 	  this.init = function(id, param) {
 
       $a.session('token');   //초기화
 
-$('body').progress().remove();  //progress 종료
-        $("#authlogin").on('click', function(){
+			$('body').progress().remove();  //progress 종료
+      $("#authlogin").on('click', function(){
           var username = $("#susername").val();
           var password = $("#spassword").val();
           var data = {
@@ -21,7 +34,7 @@ $('body').progress().remove();  //progress 종료
 
 				//	console.log("data is " , data);
 
-          $.ajax({
+      	$.ajax({
             type : 'POST',
             url : "http://restnfeel.com:8080/api/oauth/token",
             data : data,
@@ -34,20 +47,15 @@ $('body').progress().remove();  //progress 종료
 							var access_token = res.access_token;
               console.log("login back ", res, access_token);
               $a.session("access_token", access_token);
-              $a.navigate("/html/manage/codeType.html");
+              $a.navigate("/html/home.html");
             },
 						error : function(error){
 							console.log("[error] ", error);
 						}
           });
+      });
 
 
-
-        });
 
 	  };
-
-
-
-
 });
