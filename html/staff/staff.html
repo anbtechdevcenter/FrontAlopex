@@ -1,69 +1,51 @@
+<!-- 업무소스 -->
+<script type="text/javascript" src="/script/app/staff/staff.js"></script>
 
-<!DOCTYPE html>
-<html lang="en">
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">직원현황</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <i class="fa fa-user fa-fw"></i> 직원현황
+              </div>
+              <!-- /.panel-heading -->
+              <div class="panel-body">
+							<!-- /.panel-heading -->
+								<div id="staffWrap">
+									<label>이름</label>
+									<input data-bind="value:empNm"/>
+									<label class="margin_l10">직급</label>
+									<div id="ranksel" ></div>
+									<label class="margin_l10">Project</label>
+									<div id="projectsel" ></div>
+									<label class="margin_l10">근무지역</label>
+									<div id="workareasel" ></div>
+									<label class="margin_l10">팀</label>
+									<div id="teamsel" ></div>
+									<label class="margin_l10">계약구분</label>
+									<div id="stafftypesel" ></div>
 
-<head>
-		<!-- html5 방식 -->
-		<link rel="import" href="/html/header/header.html">
+									<label class="margin_l10">퇴사</label>
+									<input class="Checkbox" data-bind="checked:levaveFlag"/>
 
-		<!-- 업무소스 -->
-		<script type="text/javascript" src="/script/app/staff/staff.js"></script>
-
-
-		<title>FrontAlopex by ANBTECH</title>
-</head>
-
-<body>
-
-<div w3-include-html="/html/layout/top.html"></div>
-    <div id="page-wrapper">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">직원현황</h1>
-            </div>
-            <!-- /.col-lg-12 -->
-        </div>
-        <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-user fa-fw"></i> 직원현황
-                    </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-										<!-- /.panel-heading -->
-													<div id="staffWrap">
-														<label>이름</label>
-														<input data-bind="value:empNm"/>
-														<label class="margin_l10">직급</label>
-														<div id="ranksel" ></div>
-														<label class="margin_l10">Project</label>
-														<div id="projectsel" ></div>
-														<label class="margin_l10">근무지역</label>
-														<div id="workareasel" ></div>
-														<label class="margin_l10">팀</label>
-														<div id="teamsel" ></div>
-														<label class="margin_l10">계약구분</label>
-														<div id="stafftypesel" ></div>
-
-														<label class="margin_l10">퇴사</label>
-														<input class="Checkbox" data-bind="checked:levaveFlag"/>
-
-														<div class="f_Right">
-														<button class="Button margin_l10" id="btnStaffRegister">최초직원등록</button>
-														<button class="Button" id="btnStaffDelete">선택직원삭제</button>
-														<button class="Button" id="btnSearch">직원조회</button>
-														</div>
-													</div>
-														<div class="margin_t10">
-															<div id="grid_staff"></div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
+									<div class="f_Right">
+									<button class="Button margin_l10" id="btnStaffRegister">최초직원등록</button>
+									<button class="Button" id="btnStaffDelete">선택직원삭제</button>
+									<button class="Button" id="btnSearch">직원조회</button>
 									</div>
-									<div w3-include-html="/html/layout/bottom.html"></div>
-								</body>
-</html>
+								</div>
+								<div class="margin_t10">
+									<div id="grid_staff"></div>
+								</div>
+							</div>
+				</div>
+			</div>
+		</div>
+	</div>

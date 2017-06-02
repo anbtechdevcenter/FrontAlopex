@@ -80,7 +80,10 @@ $a.page(function() {
            var inLi = document.createElement('li');
            var inA = document.createElement('a');
            inA.textContent= mnName;
-           inA.setAttribute("href", mnUrl);
+           //inA.setAttribute("href", mnUrl);
+
+           var vMenuClick = "menuClick('"+ mnUrl +"')";
+           inA.setAttribute("onclick", vMenuClick);
 
            inLi.appendChild(inA);
           // findObj.append('<ul><li><a href="#">'+ mnName+'</a></li></ul>');

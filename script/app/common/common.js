@@ -72,7 +72,12 @@ ANBTX.D = function(id, callback) {
   }else {
      $a.request(id, {
           'method' : 'DELETE',
-          'error': callback
+          'success': callback
      });
   }
+}
+
+//메뉴 클릭 함수
+function menuClick(mnUrl){
+	$('#divContent').load(mnUrl);
 }

@@ -1,68 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <!-- html5 방식 -->
-  <link rel="import" href="/html/header/header.html">
-
-  <!-- 업무화면 소스 -->
+<!-- 업무화면 소스 -->
 <script type="text/javascript" src="/script/app/manage/commonCode.js"></script>
-<title>공통코드관리 [작업중]</title>
-</head>
-<body>
-  <div w3-include-html="/html/layout/top.html"></div>
-      <div id="page-wrapper">
-          <div class="row">
-              <div class="col-lg-12">
-                  <h1 class="page-header">공통코드관리</h1>
-              </div>
-              <!-- /.col-lg-12 -->
-          </div>
-          <!-- /.row -->
-          <div class="row">
-              <div class="col-lg-12">
-                  <div class="panel panel-default">
-                      <div class="panel-heading">
-                          <i class="fa fa-user fa-fw"></i> 공통코드 현황
-                      </div>
-                      <div class="panel-body">
-                        <div id="codeTypeWrap">
-                          <label>코드타입명</label>
-                          <div id="selcodetype"></div>
-                          <label class="margin_l10">코드 아이디</label>
-                          <input class="Textinput" data-bind="value:codeId"/>
-                          <label class="margin_l10">코드명</label>
-                          <input id="codeTypeNm" class="Textinput" data-bind="value:codeNm"/>
-                          <label class="margin_l10">등록일자</label>
-                          <div class="Dateinput" data-format="yyyy-MM-dd">
-                              <input data-bind="value:registDate">
-                          </div>
-                          <label class="margin_l10">사용여부</label>
-                          <label class="ImageRadio">
-                              <input class="Radio" name="useYnNm" value="Y" data-bind="value:useYn"/> 사용
-                          </label>
-                          <label class="ImageRadio">
-                              <input class="Radio" name="useYnNm" value="N" data-bind="value:useYn"/> 미사용
-                          </label>
-                          <div class="f_Right">
-                        	<button class="Button" id="btnSearch">조회</button>
-                        	<button class="Button" id="btnRegiste">등록</button>
-                        	<button class="Button" id="btnDelete">선택삭제</button>
-                        </div>
-                        </div>
-                      	<div class="margin_t10">
-                      		<div id="grid"></div>
-                      	</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <div w3-include-html="/html/layout/bottom.html"></div>
 
-            <script>
-            // 인클루드 처리를 위한 내용
-              w3.includeHTML();
-            </script>
-                       
-          </body>
-</html>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">공통코드관리</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-user fa-fw"></i> 공통코드 현황
+                </div>
+                <div class="panel-body">
+                  <div id="codeTypeWrap">
+                    <label>코드타입명</label>
+                    <div id="selcodetype"></div>
+                    <label class="margin_l10">코드 아이디</label>
+                    <input class="Textinput" data-bind="value:codeId"/>
+                    <label class="margin_l10">코드명</label>
+                    <input id="codeTypeNm" class="Textinput" data-bind="value:codeNm"/>
+                    <label class="margin_l10">등록일자</label>
+                    <div class="Dateinput" data-format="yyyy-MM-dd">
+                        <input data-bind="value:registDate">
+                    </div>
+                    <label class="margin_l10">사용여부</label>
+                    <label class="ImageRadio">
+                        <input class="Radio" name="useYnNm" value="Y" data-bind="value:useYn"/> 사용
+                    </label>
+                    <label class="ImageRadio">
+                        <input class="Radio" name="useYnNm" value="N" data-bind="value:useYn"/> 미사용
+                    </label>
+                    <div class="f_Right">
+                  	<button class="Button" id="btnSearch">조회</button>
+                  	<button class="Button" id="btnRegiste">등록</button>
+                  	<button class="Button" id="btnDelete">선택삭제</button>
+                  </div>
+                  </div>
+                	<div class="margin_t10">
+                		<div id="grid"></div>
+                	</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
