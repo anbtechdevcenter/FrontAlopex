@@ -117,8 +117,8 @@ $a.page(function() {
 				 title : title,
 				 data : data,
 				 iframe : false,
-				 width : 800,
-				 height : 800,
+				 width : 900,
+				 height : 890,
 				 callback : function(res){
 					 if(res=="success"){
 						 readDeviceList();

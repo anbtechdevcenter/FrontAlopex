@@ -10,176 +10,202 @@
 <title>장비 관리</title>
 </head>
 <body>
-  <!-- contents  -->
-  <div class="padding_5p" id="divWrap">
-    <table class="Ptable">
-      <colgroup>
-        <col width="">
-        <col width="">
-      </colgroup>
-      <tbody>
-        <tr>
-          <td>장비순번</td>
-          <td>
-            <input id="txtTitle" type="text" class="Textinput" data-bind="value: seqDevice"/>
-          </td>
-        </tr>
-        <tr>
-          <td>장비구분</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceType"/></td>
-        </tr>
-        <tr>
-          <td>장비상태</td>
-          <td>
-            <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceState"/>
-          </td>
-        </tr>
-        <tr>
-          <td>장비명</td>
-          <td>
-          <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceName"/>
-          </td>
-        </tr>
-        <tr>
-          <td>시리얼번호</td>
-          <td>
-          <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceSn"/>
-          </td>
-        </tr>
-        <tr>
-          <td>제조사코드</td>
-          <td>
-          <input id="txtTitle" type="text" class="Textinput" data-bind="value: makersId"/>
-          </td>
-        </tr>
-        <tr>
-          <td>제조사명</td>
-          <td>
-            <input id="txtTitle" type="text" class="Textinput" data-bind="value: makersName"/>
-          </td>
-        </tr>
-        <tr>
-          <td>모델명</td>
-          <td>
-            <input id="txtTitle" type="text" class="Textinput" data-bind="value: deviceModel"/>
-          </td>
-        </tr>
-        <tr>
-          <td>반입증여부</td>
-          <td>
-            <input id="txtTitle" type="text" class="Textinput" data-bind="value: bringProof"/>
-          </td>
-        </tr>
-        <tr>
-          <td>구입일자</td>
-          <td>
-            <input id="txtTitle" type="text" class="Textinput" data-bind="value: purchaseDate"/>
-          </td>
-        </tr>
-        <tr>
-          <td>사용자사번</td>
-          <td>
-            <input id="txtTitle" type="text" class="Textinput" data-bind="value: rentalEmpId"/>
-          </td>
-        </tr>
-        <tr>
-          <td>지급일자</td>
-          <td>
-            <input id="txtTitle" type="text" class="Textinput" data-bind="value: rentalSdate"/>
-          </td>
-        </tr>
-        <tr>
-          <td>반납일자</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: rentalEdate"/></td>
-        </tr>
-        <tr>
-          <td>폐기일자</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: bringProof"/></td>
-        </tr>
-        <tr>
-          <td>CPU</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc01"/></td>
-        </tr>
-        <tr>
-          <td>Memory</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc02"/></td>
-        </tr>
-        <tr>
-          <td>HDD</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc03"/></td>
-        </tr>
-        <tr>
-          <td>SSD</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc04"/></td>
-        </tr>
-        <tr>
-          <td>유선 MAX ADDRESS</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc05"/></td>
-        </tr>
-        <tr>
-          <td>무선 MAX ADDRESS</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc06"/></td>
-        </tr>
-        <tr>
-          <td>DESC_07</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc07"/></td>
-        </tr>
-        <tr>
-          <td>DESC_08</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc08"/></td>
-        </tr>
-        <tr>
-          <td>DESC_09</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc09"/></td>
-        </tr>
-        <tr>
-          <td>DESC_10</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc10"/></td>
-        </tr>
-        <tr>
-          <td>DESC_11</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc11"/></td>
-        </tr>
-        <tr>
-          <td>DESC_12</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc12"/></td>
-        </tr>
-        <tr>
-          <td>DESC_13</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc13"/></td>
-        </tr>
-        <tr>
-          <td>DESC_14</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc14"/></td>
-        </tr>
-        <tr>
-          <td>DESC_15</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc15"/></td>
-        </tr>
-        <tr>
-          <td>DESC_16</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc16"/></td>
-        </tr>
-        <tr>
-          <td>DESC_17</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc17"/></td>
-        </tr>
-        <tr>
-          <td>DESC_18</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc18"/></td>
-        </tr>
-        <tr>
-          <td>DESC_19</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc19"/></td>
-        </tr>
-        <tr>
-          <td>DESC_20</td>
-          <td><input id="txtTitle" type="text" class="Textinput" data-bind="value: desc20"/></td>
-        </tr>
-      </tbody>
-    </table>
+  <div id="Ptable">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body" id="bindarea">
+                  <div class="row">
+                      <div class="col-lg-3">
+                          <div class="panel panel-default">
+                              <!-- /.panel-heading -->
+                              <div class="panel-body">
+                                    <form role="form">
+                                      <div class="form-group">
+                                        <label>장비순번</label> <input class="form-control Textinput" data-bind="value: seqDevice">
+                                      </div>
+                                      <div class="form-group">
+                                        <label>장비구분</label>
+                                        <input class="form-control Textinput" data-bind="value:deviceType">
+                                      </div>
+                                      <div class="form-group">
+                                          <label>장비상태</label>
+                                          <input class="form-control Textinput" data-bind="value: deviceState"/>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>장비명</label>
+                                        <input type="text" class="form-control Textinput" data-bind="value: deviceName"/>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>시리얼번호</label>
+                                        <input type="text" class="form-control Textinput" data-bind="value: deviceSn"/>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>제조사코드</label>
+                                        <input type="text" class="form-control Textinput" data-bind="value: makersId"/>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>제조사명</label>
+                                        <input type="text" class="form-control Textinput" data-bind="value: makersName"/>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>모델명</label>
+                                        <input type="text" class="form-control Textinput" data-bind="value: deviceModel"/>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>반입증여부</label>
+                                        <input type="text" class="form-control Textinput" data-bind="value: bringProof"/>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>구입일자</label>
+                                        <input type="text" class="form-control Textinput" data-bind="value: purchaseDate"/>
+                                      </div>
+                                    </form>
+                              </div>
+                              <!-- /.panel-body -->
+                          </div>
+                          <!-- /.panel -->
+                      </div>
+                      <!-- /.col-lg-6 -->
+                      <div class="col-lg-3">
+                          <div class="panel panel-default">
+                              <!-- /.panel-heading -->
+                              <div class="panel-body">
+                                <form role="form">
+                                  <div class="form-group">
+                                    <label>사용자사번</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: rentalEmpId"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>지급일자</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: rentalSdate"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>반납일자</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: rentalEdate"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>폐기일자</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: bringProof"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>CPU</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc01"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>Memory</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc02"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>HDD</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc03"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>SSD</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc04"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>유선 <span style="font-size:10px;">MAX ADDRESS</span></label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc05"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>무선 <span style="font-size:10px;"> MAX ADDRESS</span></label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc06"/>
+                                  </div>
+                                </form>
+                              </div>
+                              <!-- /.panel-body -->
+                          </div>
+                          <!-- /.panel -->
+                      </div>
+                      <!-- /.col-lg-6 -->
+                      <div class="col-lg-3">
+                          <div class="panel panel-default">
+                              <!-- /.panel-heading -->
+                              <div class="panel-body">
+                                <form role="form">
+                                  <div class="form-group">
+                                    <label>DESC_07</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc07"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>DESC_08</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc08"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>DESC_09</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc09"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>DESC_10</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc10"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>DESC_11</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc11"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>DESC_12</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc12"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>DESC_13</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc13"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>DESC_14</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc14"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>DESC_15</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc15"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>DESC_16</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc16"/>
+                                  </div>
+                                </form>
+                              </div>
+                              <!-- /.panel-body -->
+                          </div>
+                          <!-- /.panel -->
+                      </div>
+                      <div class="col-lg-3">
+                          <div class="panel panel-default">
+                              <!-- /.panel-heading -->
+                              <div class="panel-body">
+                                <form role="form">
+                                  <div class="form-group">
+                                    <label>DESC_17</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc17"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>DESC_18</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc18"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>DESC_19</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc19"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label>DESC_20</label>
+                                    <input type="text" class="form-control Textinput" data-bind="value: desc20"/>
+                                  </div>
+                                </form>
+                              </div>
+                              <!-- /.panel-body -->
+                          </div>
+                          <!-- /.panel -->
+                      </div>
+                  </div>
+                  <!-- /.row -->
+              </div>
+              <!-- /#page-wrapper -->
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
   </div>
-  <!-- // contents  -->
 
 <!-- popup Bottom  -->
 <div class="t_center Popup_Bottom" >
