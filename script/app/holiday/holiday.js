@@ -4,6 +4,14 @@
 * @create : 2017-05-26
 *************************************/
 $a.page(function() {
+
+		var wrapId = "#divWrap",
+			gridId = "#grid_Holiday",
+			btnR = "#btnR",
+			btnD = "#btnD",
+			popupUrl1 = "/html/staff/popup/staffRegist.html",
+			popupUrl2 = "/html/staff/popup/staffDetail.html";
+
 	  this.init = function(id, param) {
 			// 인클루드 처리를 위한 내용
 			//w3.includeHTML();
@@ -30,19 +38,19 @@ $a.page(function() {
 * 이벤트 처리
 */
 		this.defineEvent = function(){
-			$("#btnSearch").on("click", this.btnSearch);
-			$("#btnHolidayRegister").on("click", this.btnHolidayRegister);
-			$("#btnHolidayDelete").on("click", this.btnHolidayDelete);
+			$("#btnR").on("click", this.btnR);
+			$("#btnC").on("click", this.btnC);
+			$("#btnD").on("click", this.btnD);
 
-			$("#grid_holiday").on("dblclick", '.bodycell', this.grid_dblClick);
+			$(gridId).on("dblclick", '.bodycell', this.grid_dblClick);
 		};
 
 		/*
 		* 근태삭제
 		*/
-		this.btnStaffDelete = function(){
+		this.btnD = function(){
 			var check = confirm("삭제하시겠습니까?");
-			var selData = $("#grid_holiday").alopexGrid("dataGet", {_state :{selected:true}});
+			var selData = $(gridId).alopexGrid("dataGet", {_state :{selected:true}});
 			console.log("seldata ", selData);
 			if(check && selData.length>0){
 
@@ -57,19 +65,19 @@ $a.page(function() {
     /*
     * 조회 버튼 액션
     */
-		this.btnSearch = function(){
+		this.btnR = function(){
 			readHoliday();
 		};
 
 		/*
     * 근태 등록 버튼 액션
     */
-		this.btnHolidayRegister = function(){
+		this.btnC = function(){
 			$a.popup({
 				title : '근태등록',
 				url : 'holiday/popup/holidayRegist.html',
 				width:1100,
-				height:800,
+				height:900,
 			});
 		};
 
@@ -78,7 +86,7 @@ $a.page(function() {
 		*/
 		this.grid_dblClick = function(){
 
-			var sdata = $("#grid_holiday").alopexGrid("dataGet", {_state :{focused:true}});
+			var sdata = $(gridId).alopexGrid("dataGet", {_state :{focused:true}});
 			console.log("sdata", sdata);
 			//$a.navigate('holidayDetail.html', sdata);
 
@@ -87,7 +95,7 @@ $a.page(function() {
 				url : 'holiday/popup/holidayDetail.html',
 				data : sdata[0],
 				width:1100,
-				height:800,
+				height:900,
 			});
 
 		};
@@ -104,16 +112,14 @@ $a.page(function() {
 
 					//var selData = $("#holidayWrap").getData();
 
-			 		$('#grid_holiday').alopexGrid("dataSet", res);
+			 		$(gridId).alopexGrid("dataSet", res);
 			 	}
 		  );
 		}
 
-
-
 	  //그리드 초기화
 	  function initGrid() {
-			$('#grid_holiday').alopexGrid({
+			$(gridId).alopexGrid({
 				autoColumnIndex: true,
         defaultColumnMapping : {
           align : 'center'
