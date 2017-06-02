@@ -24,8 +24,6 @@ $a.page(function() {
 			$("#ranksel").selectRank();
 			$("#projectsel").selectProject();
 
-			//workareasel
-
 		}
 
 /**
@@ -51,7 +49,7 @@ $a.page(function() {
 				var userId = AlopexGrid.trimData(selData[0]).empId;
 
 				ANBTX.D('/holiday/'+userId, function(res){
-					readStaff();
+					readHoliday();
 				});
 			}
 		}
@@ -69,7 +67,7 @@ $a.page(function() {
 		this.btnHolidayRegister = function(){
 			$a.popup({
 				title : '근태등록',
-				url : 'popup/holidayRegist.html',
+				url : 'holiday/popup/holidayRegist.html',
 				width:1100,
 				height:800,
 			});
@@ -85,14 +83,13 @@ $a.page(function() {
 			//$a.navigate('holidayDetail.html', sdata);
 
 			$a.popup({
-				title : '근태등록',
-				url : 'popup/holidayDetail.html',
-				data : sdata,
+				title : '근태수정',
+				url : 'holiday/popup/holidayDetail.html',
+				data : sdata[0],
 				width:1100,
 				height:800,
 			});
 
-			//if(sdata.length > 0) openPopup('R');
 		};
 
     /*
@@ -100,7 +97,7 @@ $a.page(function() {
     */
 		function readHoliday(){
 			var pid = '/holiday';
-			console.log('pid :: ' + pid);
+			//console.log('pid :: ' + pid);
 			ANBTX.R(pid,
 			 	function(res){
 					console.log("[근태] ", res);

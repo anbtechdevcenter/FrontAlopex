@@ -1,13 +1,7 @@
 /*********************************
-<<<<<<< HEAD
-* 프로젝트 관리 팝업
-* @author : 김영우
-* @create : 2017-05-22
-=======
-* 근태 관리 팝업
+* 근태 관리 상세 팝업
 * @author : 김수한
 * @create : 2017-05-30
->>>>>>> b762266fe06c17994aa259dd000c65e7fd85cb2a
 *************************************/
 $a.page(function() {
 
@@ -28,6 +22,7 @@ $a.page(function() {
 
 
 		function setData(param){
+			console.log('param:::',param);
 			if(callType=='C'){
 				// 등록인 경우
 				$(btnUId).hide();

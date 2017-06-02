@@ -31,13 +31,13 @@ $a.page(function() {
 		this.btnRegist = function(){
 			$a.popup({
 				title : '식권등록',
-				url : 'popup/mealRegist.html',
+				url : 'meal/popup/mealRegist.html',
 				height:300,
 				callback: function (data) { // $a.close(data) API 사용 시 동작하는 콜백
 					console.log('success:::', data);
-            // if(data == 'success'){
-            // 	readBoard();
-        		// }
+          if(data == 'success'){
+          	readBoard();
+        	}
         }
 			});
 		};
