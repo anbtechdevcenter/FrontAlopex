@@ -51,13 +51,16 @@ $a.page(function() {
 			if(check){
 
 				var selData = $("#grid_meal").alopexGrid("dataGet", {_state : {selected:true}});
-console.log(selData);
+				//console.log(selData);
 				if(selData.length>0){
 					var seqMeal = selData[0].seqMeal;
 
 					ANBTX.D('/meal/'+seqMeal,
 						function(res){
-							readBoard();
+							if(res.status == '204'){
+								readBoard();
+							}
+
 						}
 					);
 				}else{

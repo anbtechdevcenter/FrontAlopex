@@ -72,7 +72,7 @@ ANBTX.D = function(id, callback) {
   }else {
      $a.request(id, {
           'method' : 'DELETE',
-          'success': callback
+          'error': callback
      });
   }
 }

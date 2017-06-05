@@ -57,7 +57,9 @@ $a.page(function() {
 				var userId = AlopexGrid.trimData(selData[0]).empId;
 
 				ANBTX.D('/holiday/'+userId, function(res){
-					readHoliday();
+					if(res.status == '204'){
+						readHoliday();
+					}
 				});
 			}
 		}
