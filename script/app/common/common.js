@@ -79,5 +79,16 @@ ANBTX.D = function(id, callback) {
 
 //메뉴 클릭 함수
 function menuClick(mnUrl){
-	$('#divContent').load(mnUrl);
+
+  if(mnUrl == "/swagger-ui.html"){
+    $a.popup({
+      title : 'swagger-ui',
+      url : "http://restnfeel.com:8080/swagger-ui.html",
+      width:1100,
+      height:900,
+      iframe : true
+    });
+  }else{
+    $('#divContent').load(mnUrl);
+  }
 }

@@ -43,7 +43,7 @@ $a.page(function() {
 			$("#btnD").on("click", this.btnD);
 
 			$(gridId).on("dblclick", '.bodycell', this.grid_dblClick);
-		};
+		};;
 
 		/*
 		* 근태삭제
@@ -110,7 +110,7 @@ $a.page(function() {
 			//console.log('pid :: ' + pid);
 			ANBTX.R(pid,
 			 	function(res){
-					console.log("[근태] ", res);
+					console.log("readHoliday [근태] ", res);
 
 					//var selData = $("#holidayWrap").getData();
 
