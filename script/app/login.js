@@ -21,6 +21,9 @@ $a.page(function() {
 	  this.init = function(id, param) {
 
       $a.session('token');   //초기화
+			$a.session("aud", ""); //anbtech 초기화
+			$a.session("authorities", ""); //ROLE_USER 초기화
+			$a.session("user_id", ""); //로그인 이메일 초기화
 
 			$('body').progress().remove();  //progress 종료
       $("#authlogin").on('click', function(){
@@ -48,8 +51,11 @@ $a.page(function() {
               console.log("login back ", res, access_token);
               $a.session("access_token", access_token);
 							var decoded = jwt_decode(access_token);
-
 							console.log("[decoded] ", decoded);
+
+							$a.session("aud", decoded.aud[0]); //anbtech
+							$a.session("authorities", decoded.authorities[0]); //ROLE_USER
+							$a.session("user_id", decoded.user_name); //로그인 이메일
 
               $a.navigate("/html/home.html");
             },

@@ -68,6 +68,8 @@ $a.page(function() {
 				//데이터 바인딩
 				$('#bindarea').setData(data);
 
+
+
 			}else{
 				$("#ranksel").selectRank();
 				$("#projectsel").selectProject();
@@ -77,6 +79,10 @@ $a.page(function() {
 				$("#empFlagsel").selectCommon({type : 'staffType'});
 			}
 
+			//등록자 id 이름 셋팅
+			$("#regEmpId").val($a.session("user_id"));
+			$("#regEmpNm").val($a.session("user_id"));
+			
 		}
 
     /**
@@ -122,8 +128,13 @@ $a.page(function() {
 				console.log("[get vData is] " , JSON.stringify(vData));
 				//alert('현재 수정은 안됨(400에러(Bad Request 발생 - 주석처리))');
 	       ANBTX.U('/employee' , vData, function(res){
-	           console.log("[직원등록] ", res);
-				 		$a.navigate('staff.html');
+	          console.log("[직원등록] ", res);
+						if(res.state == '201'){
+							$a.navigate('staff/staff.html');
+						}else{
+
+						}
+
 	       });
       }else{
         console.log("stop");

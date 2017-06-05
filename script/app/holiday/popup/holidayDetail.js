@@ -33,6 +33,9 @@ $a.page(function() {
 			}
 			$(wrapId).setData(param);
 
+			//등록자 id 이름 셋팅
+			$(wrapId).setData({"regEmpId" : $a.session("user_id"), "regEmpNm" : $a.session("user_id")});
+		
 		}
 
 		/**

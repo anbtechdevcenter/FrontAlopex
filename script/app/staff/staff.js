@@ -32,6 +32,11 @@ $a.page(function() {
 			$("#workareasel").selectCommon({type : 'workArea'});
 			$("#teamsel").selectCommon({type : 'team'});
 //workareasel
+
+			//등록자 id 이름 셋팅
+			$("#regEmpId").val($a.session("user_id"));
+			$("#regEmpNm").val($a.session("user_id"));
+
 		}
 
 /**
@@ -312,7 +317,7 @@ $a.page(function() {
             }
 					}, {
 						key : 'empFlag',
-						title : '직원구분',
+						title : '직원유형',
 						width : '50px',
             render : function(value, data, render, mapping, grid){
 							var vWorkPosition = "";
