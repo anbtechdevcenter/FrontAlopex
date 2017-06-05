@@ -1,0 +1,45 @@
+<!-- 업무소스 -->
+<script type="text/javascript" src="/script/app/openapi/naver_band.js"></script>
+
+<div id="page-wrapper">
+	<div class="row">
+		<div class="col-lg-12">
+		    <h1 class="page-header">네이버 밴드</h1>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+	<div class="row">
+		<div class="col-lg-12">
+		    <div class="panel panel-default">
+		        <div class="panel-heading">
+		            <i class="fa fa-codepen fa-fw"></i> 코드타입 현황
+		        </div>
+		        <!-- /.panel-heading -->
+		        <div class="panel-body">
+							<div id="codeTypeWrap">
+
+								<label for="codeTypeNm">코드타입명</label>
+								<input id="codeTypeNm" class="Textinput" data-bind="value:codeTypeName"/>
+								<label class="margin_l10">사용여부</label>
+								<label class="ImageRadio">
+									<input class="Radio" name="useYnNm" value="Y" data-bind="value:useYn"/> 사용
+								</label>
+								<label class="ImageRadio">
+									<input class="Radio" name="useYnNm" value="N" data-bind="value:useYn"/> 미사용
+								</label>
+								<div class="f_Right">
+									<button class="Button t_Right" id="btnSearch">조회</button>
+									<button class="Button" id="btnUpdate">수정</button>
+									<button class="Button" id="btnRegiste">등록</button>
+									<button class="Button" id="btnDelete">선택삭제</button>
+								</div>
+								<div class="margin_t10">
+									<div id="grid"></div>
+								</div>
+							</div>
+						</div><!-- /.panel-body -->
+				</div><!-- /.panel panel-default -->
+		</div><!-- /.col-lg-12 -->
+	</div><!-- /.row -->
+</div>
