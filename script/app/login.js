@@ -47,7 +47,10 @@ $a.page(function() {
 							var access_token = res.access_token;
               console.log("login back ", res, access_token);
               $a.session("access_token", access_token);
-              $a.navigate("/html/home.html");
+							var decoded = jwt_decode(access_token);
+							console.log("[decoded] ", decoded);
+
+              //$a.navigate("/html/home.html");
             },
 						error : function(error){
 							console.log("[error] ", error);
