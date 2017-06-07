@@ -47,28 +47,34 @@ $a.page(function() {
 
 				//업무지역
 				if(data.workPosition != ""){
-					$("#workareasel").selectCommon({type : 'workArea', para:data.workPosition}); //업무지역
+					$("#workareasel").selectCommon({type : 'workArea', para:data.workPosition});
 				}else{
-					$("#workareasel").selectCommon({type : 'workArea'}); //업무지역
+					$("#workareasel").selectCommon({type : 'workArea'});
 				}
 
 				//팀
 				if(data.workPosition != ""){
-					$("#teamsel").selectCommon({type : 'team', para:data.team}); //팀
+					$("#teamsel").selectCommon({type : 'team', para:data.team});
 				}else{
 					$("#teamsel").selectCommon({type : 'team'});
 				}
 
 				//직원구분
 				if(data.workPosition != ""){
-					$("#empFlagsel").selectCommon({type : 'staffType', para:data.workPosition}); //직원구분
+					$("#empFlagsel").selectCommon({type : 'staffType', para:data.workPosition});
 				}else{
 					$("#empFlagsel").selectCommon({type : 'staffType'});
 				}
+
+				//결혼유무
+				if(data.maritalState != ""){
+					$("#maritalsel").selectCommon({type : 'maritalState', para:data.maritalState});
+				}else{
+					$("#maritalsel").selectCommon({type : 'maritalState'});
+				}
+
 				//데이터 바인딩
 				$('#bindarea').setData(data);
-
-
 
 			}else{
 				$("#ranksel").selectRank();
@@ -77,6 +83,7 @@ $a.page(function() {
 				$("#workareasel").selectCommon({type : 'workArea'});
 				$("#teamsel").selectCommon({type : 'team'});
 				$("#empFlagsel").selectCommon({type : 'staffType'});
+				$("#maritalsel").selectCommon({type : 'maritalState'});
 			}
 
 			//등록자 id 이름 셋팅
