@@ -10,7 +10,7 @@ $a.page(function() {
  * 타입별로 정의 (strin, boolean, number, array, object)
  * 아래는 string 타입에 대해서만 정의함.
  */
-	var wrapId = "#commonCodeTypeWrap",
+	var wrapId = "#divTypeWrap",
     commSelCodeType ="#selcodetypePop",
     callType = 'C',
     btnUId = "#btnCommonCodeU"

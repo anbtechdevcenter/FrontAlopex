@@ -73,7 +73,9 @@
 																				<label>직원주소상세</label>
 																				<input class="form-control Textinput" data-bind="value: empAddrDtl" id="empAddrDtl">
 																			</div>
-
+																			<div class="form-group" style="display:none">
+																				<label>regEmpId</label> <input class="form-control Textinput" data-bind="value: regEmpId" id="regEmpId">
+																			</div>
 																		</form>
 															</div>
 															<!-- /.panel-body -->
@@ -97,16 +99,19 @@
 																		<label>직급</label>
 																		<div class="form-control" id="ranksel" ></div>
 																	</div>
-																	<div class="form-group">
+																	<div class="form-group" style="display:none">
 																		<label>직원ID </label> <input class="form-control Textinput" data-bind="value: empId" id="empId">
 																	</div>
-																	<div class="form-group">
+																	<div class="form-group" style="display:none">
 																		<label>직원 패스워드</label> <input class="form-control Textinput" data-bind="value: empPwd" id="empPwd">
 																	</div>
 																	<div class="form-group">
 												            <label>입사일</label>
 												            <input class="form-control Dateinput" data-bind="value: enteringDate" id="enteringDate">
 												          </div>
+																	<div class="form-group">
+																		<label>퇴사일</label> <input class="form-control Dateinput" data-bind="value: leaveDate" id="leaveDate">
+																	</div>
 																	<div class="form-group">
 											                <label>프로젝트</label> <select class="form-control" id="projectsel" ></select>
 											            </div>
@@ -115,10 +120,8 @@
 												          </div>
 												          <div class="form-group">
 												          <label>근무위치</label><div class="form-control" id="workareasel" ></div>
-																	<div class="form-group">
-																		<label>퇴사일</label> <input class="form-control Dateinput" data-bind="value: leaveDate" id="leaveDate">
-																	</div>
-																	<div class="form-group">
+																</div>
+																	<div class="form-group" style="display:none">
 																		<label>로그인일시</label> <input class="form-control Dateinput" data-bind="value: loginDate" id="loginDate">
 																	</div>
 																	<div class="form-group">
@@ -127,8 +130,8 @@
 																	<div class="form-group">
 																	<label>photo</label> <input class="form-control Textinput" data-bind="value: photo" id="photo">
 																	</div>
-																	<div class="form-group">
-																	<label>regEmpId</label> <input class="form-control Textinput" data-bind="value: regEmpId" id="regEmpId">
+
+																	<div class="form-group" style="display:none">
 																	<label>regEmpNm</label> <input class="form-control Textinput" data-bind="value: regEmpNm" id="regEmpNm">
 																	</div>
 																</form>

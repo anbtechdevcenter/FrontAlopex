@@ -7,14 +7,11 @@ $a.page(function() {
 
 	var gridId = "#grid",
 		wrapId = "#divWrap",
-		callType = 'C',
 		btnCId = "#btnCreate",
 		btnUId = "#btnUpdate",
-		btnDId = "#btnDelete",
 		seqDevice = '';
 
 	  this.init = function(id, param) {
-			callType = param.type;
 			seqDevice = param.seqDevice;
 			this.defineEvent();
 			setData(param);
@@ -22,17 +19,19 @@ $a.page(function() {
 
 
 		function setData(param){
-			console.log('param:::',param);
-			if(callType=='C'){
-				// 등록인 경우
-				$(btnUId).hide();
-				$(btnDId).hide();
-			}else{
-				// 수정인 경우 넘겨온 데이터 받기
-				$(btnCId).hide();
-			}
+
 			$(wrapId).setData(param);
 
+			// anbwidget
+			//직원선택
+			$("#empId").selectStaff({type:"empId"});
+			//결재1
+			$("#app1EmpId").selectStaff({type:"app1EmpId"});
+			//결재2
+			$("#app2EmpId").selectStaff({type:"app2EmpId"});
+
+			//등록자 id 이름 셋팅
+			$(wrapId).setData({"regEmpId" : $a.session("user_id"), "regEmpNm" : $a.session("user_id")});
 		}
 
 		/**
@@ -42,7 +41,6 @@ $a.page(function() {
 			$("#btnClose").on("click", this.btnClose);
 			$(btnCId).on("click", this.btnRegiste);
 			$(btnUId).on("click", this.btnUpdate);
-			$(btnDId).on("click", this.btnDelete);
 		};
 
 
@@ -69,17 +67,9 @@ $a.page(function() {
 		};
 
 		/*
-		* 프로젝트 삭제
-		*/
-		this.btnDelete = function(){
-			transactionAction('D');
-		};
-
-		/*
 		* transaction 에 대한 공통함수
 		  action : C - 등록
 			         U - 수정
-							 D - 삭제
 		*/
 		function transactionAction(action){
 			var msg = ''
@@ -90,6 +80,7 @@ $a.page(function() {
 			if(action == 'C'){
 				msg = '등록완료되었습니다.';
 				pid = '/device';
+				console.log('data:::',data);
 				ANBTX.C(pid, data, function(res){
 					alert(msg);
 					$a.close('success');
@@ -100,13 +91,6 @@ $a.page(function() {
 				pid = '/device';
 				console.log(data);
 				ANBTX.U(pid, data, function(){
-					alert(msg);
-					$a.close('success');
-				});
-			} else if(action == 'D'){
-				msg = '삭제완료되었습니다.';
-				pid = '/device/'+seqDevice;
-				ANBTX.D(pid, function(){
 					alert(msg);
 					$a.close('success');
 				});

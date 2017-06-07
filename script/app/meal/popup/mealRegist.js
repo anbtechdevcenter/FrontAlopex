@@ -16,7 +16,7 @@ $a.page(function() {
 
 		function setData(){
 			// anbwidget
-			$("#staffsel").selectStaff();
+			$("#staffsel").selectStaff({type:"empId"});
 		}
 
     /**
