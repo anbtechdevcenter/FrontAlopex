@@ -56,8 +56,7 @@ ANBTX.U = function(id, data, callback) {
     return false;
   }else {
      $a.request(id, {
-          'method' : 'PATCH',
-          'processData' : false,
+          'method' : 'PUT',
           'data' : data,
           'error': callback
      });
