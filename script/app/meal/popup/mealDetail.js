@@ -60,8 +60,9 @@ $a.page(function() {
 					$("#empFlagsel").selectCommon({type : 'staffType'});
 				}
 
-				$("#staffsel").selectStaff();
-				
+				//직원
+				$("#staffsel").selectStaff({type:"empId"});
+
 				//데이터 바인딩
 				$('#bindarea').setData(data);
 
@@ -73,7 +74,7 @@ $a.page(function() {
 				$("#teamsel").selectCommon({type : 'team'});
 				$("#empFlagsel").selectCommon({type : 'staffType'});
 
-				$("#staffsel").selectStaff();
+				$("#staffsel").selectStaff({type:"empId"});
 			}
 
 		}

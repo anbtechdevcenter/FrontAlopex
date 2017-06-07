@@ -15,7 +15,7 @@ $a.page(function() {
 		function setData(){
 			readBoard();
 
-			$("#staffsel").selectStaff();
+			$("#staffsel").selectStaff({type:"empId"});
 		}
 
 /**

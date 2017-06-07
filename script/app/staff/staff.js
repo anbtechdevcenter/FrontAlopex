@@ -31,7 +31,7 @@ $a.page(function() {
 			$("#stafftypesel").selectCommon({type : 'staffType'});
 			$("#workareasel").selectCommon({type : 'workArea'});
 			$("#teamsel").selectCommon({type : 'team'});
-//workareasel
+			//workareasel
 
 			//등록자 id 이름 셋팅
 			$("#regEmpId").val($a.session("user_id"));
@@ -43,7 +43,6 @@ $a.page(function() {
 * 이벤트 처리
 */
 		this.defineEvent = function(){
-			$("#btnTest").on("click", this.btnTest);
 
 			$("#btnSearch").on("click", this.btnSearch);
 			$("#btnStaffRegister").on("click", this.btnStaffRegister);
