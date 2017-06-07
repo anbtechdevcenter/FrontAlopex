@@ -96,14 +96,6 @@ $a.page(function() {
 		* 직원 상세 페이지 이동
 		*/
 		this.grid_dblClick = function(){
-			//$a.navigate('staffDetail.html', {empId: 'EMP_2017032123252012'});
-
-			 //var sdata = $(gridId).alopexGrid("dataGet", {_state :{focused:true}});
-			 //console.log("sdata", sdata);
-			// $a.navigate('staffDetail.html', sdata);
-			//if(sdata.length > 0) openPopup('R');
-
-
 			var sdata = $(gridId).alopexGrid("dataGet", {_state :{focused:true}});
 			data = sdata[0];
 
@@ -113,6 +105,13 @@ $a.page(function() {
 				url : popupUrl2,
 				width:1100,
 				height:800,
+				callback : function(res){
+					console.log("res::::",res);
+					if(res=="success"){
+						readStaff();
+						$(pops).close();
+					}
+				}
 			});
 		};
 

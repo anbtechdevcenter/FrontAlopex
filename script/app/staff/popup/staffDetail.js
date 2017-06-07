@@ -82,7 +82,7 @@ $a.page(function() {
 			//등록자 id 이름 셋팅
 			$("#regEmpId").val($a.session("user_id"));
 			$("#regEmpNm").val($a.session("user_id"));
-			
+
 		}
 
     /**
@@ -90,6 +90,7 @@ $a.page(function() {
     */
 		this.defineEvent = function(){
 			$("#btnStaffUpdate").on("click", this.btnStaffUpdate);
+			$("#btnClose").on("click", this.btnClose);
 		};
 
 
@@ -98,15 +99,11 @@ $a.page(function() {
     */
 		this.btnStaffUpdate = function(e){
 
-			 var data = $("#bindarea").getData();
-			 //console.log("[data is] ", data);
-
-			//return false;
+			var data = $("#bindarea").getData();
 
       var check = $("#bindarea").validate();
 
-			//console.log(" >> ", check);
-      if(check){
+			if(check){
         var data = $("#bindarea").getData();
         //console.log("[get data is] " , data);
 
@@ -126,25 +123,26 @@ $a.page(function() {
 			 	delete vData.workCd;
 
 				console.log("[get vData is] " , JSON.stringify(vData));
-				//alert('현재 수정은 안됨(400에러(Bad Request 발생 - 주석처리))');
-	       ANBTX.U('/employee' , vData, function(res){
-	          console.log("[직원등록] ", res);
-						if(res.state == '201'){
-							$a.navigate('staff/staff.html');
-						}else{
-
-						}
-
-	       });
+				ANBTX.U('/employee' , vData, function(res){
+		      console.log("[직원등록] ", res);
+					if(res.error == '201'){
+						$a.close('success');
+					}
+	      });
       }else{
         console.log("stop");
-
       }
 
       e.preventDefault();
 
 		};
 
+		/*
+    * 닫기 버튼 액션
+    */
+		this.btnClose = function(e){
+			$a.close();
+		};
 
     /*
     * 직원조회

@@ -40,10 +40,10 @@ $a.page(function() {
 						var errorCode = err.error;
 						var resUrl = err.responseURL;
 						var errMsg = err.errorMessage;
-						//if(errorCode=='403'){
+						if(errorCode != '201'){
 							alert(errorCode+"\n"+errMsg+"\n"+resUrl);
 							return false;
-						//}
+						}
 					//}
 				},
 
