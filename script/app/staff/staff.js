@@ -81,8 +81,8 @@ $a.page(function() {
 			var pops =  $a.popup({
 				title : '직원등록',
 				url : popupUrl1,//'popup/staffRegist.html',
-				width:500,
-				height:440,
+				width:1000,
+				height:800,
 				callback : function(res){
 					if(res=="success"){
 						readStaff();

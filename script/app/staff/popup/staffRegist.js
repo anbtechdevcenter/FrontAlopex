@@ -6,9 +6,7 @@
 $a.page(function() {
 	var gridId = "#grid",
 		wrapId = "#divWrap",
-		btnCId = "#btnCreate",
-		btnUId = "#btnUpdate",
-		btnDId = "#btnDelete";
+		btnCId = "#btnCreate";
 	  this.init = function(id, param) {
 
   		this.defineEvent();
@@ -19,12 +17,17 @@ $a.page(function() {
 
 
 		function setData(){
-      $(wrapId).validator();
-			readStaff();
+      // anbwidget
+			$("#ranksel").selectRank();
+			$("#projectsel").selectProject();
+			$("#stafftypesel").selectCommon({type : 'staffType'});
+			$("#workareasel").selectCommon({type : 'workArea'});
+			$("#teamsel").selectCommon({type : 'team'});
+			$("#empFlagsel").selectCommon({type : 'staffType'});
 
-			// anbwidget
-			$("#userRank").selectRank();
-			$("#userProject").selectProject();
+			//등록자 id 이름 셋팅
+			$("#regEmpId").val($a.session("user_id"));
+			$("#regEmpNm").val($a.session("user_id"));
 
 		}
 
@@ -49,9 +52,22 @@ $a.page(function() {
         console.log("[get data is] " , data);
 
 				//형태에 맞게 넣어줘야 함.
-				var vData = {empNm: data.empNm, email: data.email, project :{prjId : data.prjId}, rank: {rankCode : data.rankCode}};
-				console.log("[get vData is] " , vData);
-	      ANBTX.C('/employee' , vData, function(res){
+//				var vData = {empNm: data.empNm, email: data.email, project :{prjId : data.prjId}, rank: {rankCode : data.rankCode}};
+				var vData = data;
+				//object일 경우
+				vData['project'] = {};
+				vData.project.prjId = data.prjId;
+				vData['rank'] = {};
+				vData.rank.rankCode = data.rankCode;
+
+				vData.team = data.teamCd;
+				vData.workPosition = data.workCd;
+
+			 	delete vData.teamCd;
+			 	delete vData.workCd;
+
+				console.log("[get data1 is] " , data);
+	      ANBTX.C('/employee' , data, function(res){
 	          console.log("[직원등록] ", res);
 						$a.close('success');
 	      });
@@ -70,34 +86,5 @@ $a.page(function() {
 		this.btnClose = function(e){
 			$a.close();
 		};
-
-    /*
-    * 직원조회
-    */
-		function readStaff(){
-			ANBTX.R('/employee',
-			 	function(res){
-					console.log("[직원] ", res);
-					var gridData = [];
-
-					var selData = $(wrapId).getData();
-					//console.log("selData is ", selData);
-					if(selData){
-						if(selData.rankCode!=""){
-						//	console.log("[1] ", selData.rankCode);
-							gridData = res.filter(function(val){
-								//console.log("[val us ] ", val);
-								return val.rank.rankCode === selData.rankCode;
-							});
-						}else{
-							gridData = res;
-						}
-
-					}
-
-			 		$('#grid_staff').alopexGrid("dataSet", gridData);
-			 	}
-		  );
-		}
 
 });
