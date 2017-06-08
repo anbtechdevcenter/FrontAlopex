@@ -78,7 +78,7 @@ ANBTX.D = function(id, callback) {
 
 //메뉴 클릭 함수
 function menuClick(mnUrl){
-
+  $('body').progress();
   //swagger-ui 일때는 팝업으로
   if(mnUrl == "/swagger-ui.html"){
     $a.popup({

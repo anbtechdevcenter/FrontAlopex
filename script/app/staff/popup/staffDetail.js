@@ -73,6 +73,13 @@ $a.page(function() {
 					$("#maritalsel").selectCommon({type : 'maritalState'});
 				}
 
+				// 생일상태
+				if(data.lunarState != ""){
+					$("#lunarStatesel").selectCommon({type : 'lunarState', para:data.lunarState});
+				}else{
+					$("#lunarStatesel").selectCommon({type : 'lunarState'});
+				}
+
 				//데이터 바인딩
 				$('#bindarea').setData(data);
 
@@ -84,6 +91,7 @@ $a.page(function() {
 				$("#teamsel").selectCommon({type : 'team'});
 				$("#empFlagsel").selectCommon({type : 'staffType'});
 				$("#maritalsel").selectCommon({type : 'maritalState'});
+				$("#lunarStatesel").selectCommon({type : 'lunarState'});
 			}
 
 			//등록자 id 이름 셋팅

@@ -148,7 +148,7 @@ $(function(){
 
 
   /**
-  * 직원유형 셀렉트
+  * 유형 셀렉트
   */
   $.widget("ui.selectCommon", {
     options : {
@@ -184,6 +184,10 @@ $(function(){
           keyword = "COD_2017060716454510";
           selectedCd = "maritalState";
           break;
+        case "lunarState" :
+          keyword = "COD_2017060809375314";
+          selectedCd = "lunarState";
+          break;
 
         default:
       }
@@ -218,12 +222,18 @@ $(function(){
                 ,teamCd: vPara
               });
               break;
-              case "maritalState" :
-                $(comp).setData({
-                  codeTypeList: vals
-                  ,maritalState: vPara
-                });
-                break;
+            case "maritalState" :
+              $(comp).setData({
+                codeTypeList: vals
+                ,maritalState: vPara
+              });
+              break;
+            case "lunarState" :
+              $(comp).setData({
+                codeTypeList: vals
+                ,lunarState: vPara
+              });
+              break;
 
             default:
 

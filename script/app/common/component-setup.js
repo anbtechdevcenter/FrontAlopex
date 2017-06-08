@@ -41,6 +41,11 @@ $a.page(function() {
 						var resUrl = err.responseURL;
 						var errMsg = err.errorMessage;
 						if(errorCode != '201'){
+							alert("처리 되었습니다.");
+						}else	if(errorCode != '403'){
+							alert("권한이 없습니다.");
+							return false;
+						}else{
 							alert(errorCode+"\n"+errMsg+"\n"+resUrl);
 							return false;
 						}
