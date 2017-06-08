@@ -2,8 +2,69 @@
 <html lang="en">
 
 <head>
-		<!-- html5 방식 -->
-		<link rel="import" href="/html/header/header.html">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<link rel="stylesheet" type="text/css" href="/css/lib/alopex/alopex-ui-default.css" />
+	<link rel="stylesheet" href="http://grid.alopex.io/dist/css/alopex-grid.css" />
+	<link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+
+	<script type="text/javascript" src="/script/lib/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/script/lib/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/script/lib/alopex/alopex-ui.min.js"></script>
+	<script type="text/javascript" src="/script/lib/alopex/alopex-grid-trial.min.js"></script>
+
+
+	<!--3rd party libs -->
+	<script type="text/javascript" src="/script/lib/w3c/w3.js"></script>
+	<script type="text/javascript" src="/script/lib/moment/moment.min.js"></script>
+	<script type="text/javascript" src="/script/lib/moment/moment-with-locales.min.js"></script>
+	<script type="text/javascript" src="/script/lib/jwtdecode/jwt-decode.min.js"></script>
+
+	<!-- app custom libs -->
+	<script type="text/javascript" src="/script/app/common/component-setup.js"></script>
+	<script type="text/javascript" src="/script/app/common/common.js"></script>
+	<script type="text/javascript" src="/script/app/common/anbwidget.js"></script>
+
+	<script type="text/javascript" src="/script/app/common/menumake.js"></script>
+
+
+	<!-- Bootstrap Core CSS -->
+	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- MetisMenu CSS -->
+	<link href="/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="/dist/css/sb-admin-2.css" rel="stylesheet">
+
+	<!-- Morris Charts CSS -->
+	<link href="/vendor/morrisjs/morris.css" rel="stylesheet">
+
+	<!-- Custom Fonts -->
+	<link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<!-- commone.css  -->
+	<link rel="stylesheet" type="text/css" href="/css/common.css" />
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+
+	<!-- IE CHECK -->
+	<script>
+	var agent = navigator.userAgent.toLowerCase();
+	  //  console.log("browse ", agent);
+	if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (agent.indexOf("msie") != -1) ) {
+	  alert("IE 지원을 추후 예정입니다. HTML5 표준을 준수하는 브라우저를 사용바랍니다..");
+	}
+
+	</script>
+
 
 		<!-- 업무소스 -->
 		<script type="text/javascript" src="/script/app/home.js"></script>
@@ -13,8 +74,65 @@
 
 <body>
 
-<div w3-include-html="/html/layout/top.html"></div>
+	<!-- Navigation -->
+	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+	    <div class="navbar-header">
+	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	        </button>
+	        <a class="navbar-brand" href="index.html">ANBTECH ADMIN</a>
+	    </div>
+	    <!-- /.navbar-header -->
+
+	    <ul class="nav navbar-top-links navbar-right">
+	      <li>
+	          <a href="#" title="메인홈페이지로 가기" target="_blank">
+	              <i class="fa fa-home fa-fw"></i>
+	          </a>
+	      </li>
+	      <li>
+	          <a href="https://www.hiworks.com" title="메일로 가기" target="_blank">
+	              <i class="fa fa-envelope fa-fw"></i>
+	          </a>
+	      </li>
+	      <li>
+	          <a href="/index.html">
+	              <i class="fa fa-user fa-fw"></i>
+	          </a>
+	      </li>
+
+	    </ul>
+	    <!-- /.navbar-top-links -->
+
+
+
+	    <div class="navbar-default sidebar" role="navigation">
+	        <div class="sidebar-nav navbar-collapse">
+
+	          <div id="sidemenu-dynamic"></div>
+
+	        </div>
+	        <!-- /.sidebar-collapse -->
+	    </div>
+	    <!-- /.navbar-static-side -->
+	</nav>
+
 <div id="divContent"></div>
-<div w3-include-html="/html/layout/bottom.html"></div>
+</div>
+<!-- /.panel-body -->
+</div>
+<!-- /.panel -->
+</div>
+</div>
+<!-- /.row -->
+</div>
+<!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
 </body>
 </html>
