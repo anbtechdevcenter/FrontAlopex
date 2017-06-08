@@ -33,8 +33,8 @@ $a.page(function() {
 						var errorCode = err.error;
 						var resUrl = err.responseURL;
 						var errMsg = err.errorMessage;
-						if(errorCode == '201'){
-							alert("처리 되었습니다.");
+						if(errorCode == '201'){ //생성
+						}else	if(errorCode == '204'){ //삭제
 						}else	if(errorCode == '403'){
 							alert("권한이 없습니다.403");
 							return false;
