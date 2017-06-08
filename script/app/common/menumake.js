@@ -63,7 +63,7 @@ $a.page(function() {
          var mnName = val.mnName;
          var mnUrl = val.mnUrl;
          var mnDepth = val.mnDepth;
-      //   console.log("[ul] ",  mnName);
+        // console.log("[ul] ",  mnName);
 
          if(mnDepth > 1){
 
@@ -104,7 +104,7 @@ $a.page(function() {
        $.each(inUlIdxArr, function(idx,val){
          var clName = val;
          var selLi = $(ul).find("#"+clName);
-      //   console.log(clName+" [ul] ", selLi );
+      //console.log(clName+" [ul] ", selLi );
         //if()
          var inUl = document.createElement('ul');
          inUl.className = "nav nav-second-level";
@@ -114,8 +114,10 @@ $a.page(function() {
            }
            //console.log("[>>] ",i, v);
          });
+         if(selLi[0] !== undefined){
+           selLi[0].appendChild(inUl);
+         }
 
-         selLi[0].appendChild(inUl);
        });
 
 
