@@ -5,9 +5,6 @@
 *************************************/
 $a.page(function() {
 	  this.init = function(id, param) {
-			//console.log('param::::',param);
-			// 인클루드 처리를 위한 내용
-			//w3.includeHTML();
 
 			this.defineEvent();
 
@@ -61,7 +58,11 @@ $a.page(function() {
 				}
 
 				//직원
-				$("#staffsel").selectStaff({type:"empId"});
+				if(data.empId != ""){
+					$("#staffsel").selectStaff({type:"empId", para : param.empId});
+				}else{
+					$("#staffsel").selectStaff({type:"empId"});
+				}
 
 				//데이터 바인딩
 				$('#bindarea').setData(data);

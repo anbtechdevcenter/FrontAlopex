@@ -1,9 +1,6 @@
 /*********************************
-<<<<<<< HEAD
 * 설명 작성
-=======
 * 장비 조회
->>>>>>> b762266fe06c17994aa259dd000c65e7fd85cb2a
 * @author : 김수한 과장
 * @create : 2017-05-30
 *************************************/
@@ -101,12 +98,12 @@ $a.page(function() {
 				data.type = type;
 				title = '장비 등록';
 			}else if(type == 'R'){
-				var sdata = $(gridId).alopexGrid("dataGet", {_state :{selected:true}});
+				var sdata = $(gridId).alopexGrid("dataGet", {_state :{focused:true}});
 				data = sdata[0];
 				data.type = type;
 				title = '장비 관리';
 			}else if(type == 'U'){
-				var sdata = $(gridId).alopexGrid("dataGet", {_state :{selected:true}});
+				var sdata = $(gridId).alopexGrid("dataGet", {_state :{focused:true}});
 				data = sdata[0];
 				data.type = type;
 				title = '장비 수정';

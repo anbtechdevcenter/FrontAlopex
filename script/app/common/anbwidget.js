@@ -278,6 +278,11 @@ $(function(){
           selectedCd = "app2EmpId";
           comp.setAttribute("id", selectedCd);
           break;
+        case "rentalEmpId" : //장비사용자사번
+          selectedCd = "rentalEmpId";
+          comp.setAttribute("id", selectedCd);
+          break;
+
       }
 
     //  comp.className = "Divselect";
@@ -307,6 +312,13 @@ $(function(){
             ,app2EmpId: vPara
           });
           break;
+        case "rentalEmpId" :
+          $(comp).setData({
+            attachList: res
+            ,rentalEmpId: vPara
+          });
+          break;
+
         default:
 
       }

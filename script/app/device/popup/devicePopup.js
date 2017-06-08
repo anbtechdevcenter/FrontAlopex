@@ -21,7 +21,7 @@ $a.page(function() {
 	  };
 
 
-		function setData(param){
+		function setData(, para : param.){
 			if(callType=='C'){
 				// 등록인 경우
 				$(btnUId).hide();
@@ -30,6 +30,14 @@ $a.page(function() {
 				// 수정인 경우 넘겨온 데이터 받기
 				$(btnCId).hide();
 			}
+
+			//사용자사번
+			// if(data.rentalEmpId != ""){
+			// 	$("#staffsel").selectStaff({type:"rentalEmpId", para : param.rentalEmpId});
+			// }else{
+				$("#staffsel").selectStaff({type:"rentalEmpId"});
+			//}
+
 			$(wrapId).setData(param);
 
 		}
@@ -97,43 +105,7 @@ $a.page(function() {
 				msg = '수정완료되었습니다.';
 				data.seqDevice = seqDevice;
 				pid = '/device';
-				console.log(data);
-				data = {
-							  "bringProof": "string",
-							  "desc01": "string",
-							  "desc02": "string",
-							  "desc03": "string",
-							  "desc04": "string",
-							  "desc05": "string",
-							  "desc06": "string",
-							  "desc07": "string",
-							  "desc08": "string",
-							  "desc09": "string",
-							  "desc10": "string",
-							  "desc11": "string",
-							  "desc12": "string",
-							  "desc13": "string",
-							  "desc14": "string",
-							  "desc15": "string",
-							  "desc16": "string",
-							  "desc17": "string",
-							  "desc18": "string",
-							  "desc19": "string",
-							  "desc20": "string",
-							  "deviceModel": "string",
-							  "deviceName": "string",
-							  "deviceSn": "string",
-							  "deviceState": "string",
-							  "deviceType": "string",
-							  "disposalDate": "2017-06-01T00:38:48.104Z",
-							  "makersId": "string",
-							  "makersName": "string",
-							  "purchaseDate": "2017-06-01T00:38:48.104Z",
-							  "rentalEdate": "2017-06-01T00:38:48.104Z",
-							  "rentalEmpId": "string",
-							  "rentalSdate": "2017-06-01T00:38:48.104Z",
-							  "seqDevice": "DEV_2017053014352727"
-							}
+				console.log('U :::::',data);
 				ANBTX.U(pid, data, function(){
 					alert(msg);
 					$a.close('success');

@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-body" id="bindarea">
+                <div class="panel-body" id="divWrap">
                   <div class="row">
                       <div class="col-lg-3">
                           <div class="panel panel-default">
@@ -29,8 +29,8 @@
                                         <input class="form-control Textinput" data-bind="value:deviceType">
                                       </div>
                                       <div class="form-group">
-                                          <label>장비상태</label>
-                                          <input class="form-control Textinput" data-bind="value: deviceState"/>
+                                        <label>장비상태</label>
+                                        <input class="form-control Textinput" data-bind="value: deviceState"/>
                                       </div>
                                       <div class="form-group">
                                         <label>장비명</label>
@@ -58,7 +58,7 @@
                                       </div>
                                       <div class="form-group">
                                         <label>구입일자</label>
-                                        <input type="text" class="form-control Textinput" data-bind="value: purchaseDate"/>
+                                        <input type="text" class="form-control Dateinput" data-bind="value: purchaseDate"/>
                                       </div>
                                     </form>
                               </div>
@@ -73,20 +73,20 @@
                               <div class="panel-body">
                                 <form role="form">
                                   <div class="form-group">
-                                    <label>사용자사번</label>
-                                    <input type="text" class="form-control Textinput" data-bind="value: rentalEmpId"/>
+                                    <label>사용자</label>
+                                    <div id="staffsel"></div>
                                   </div>
                                   <div class="form-group">
                                     <label>지급일자</label>
-                                    <input type="text" class="form-control Textinput" data-bind="value: rentalSdate"/>
+                                    <input type="text" class="form-control Dateinput" data-bind="value: rentalSdate"/>
                                   </div>
                                   <div class="form-group">
                                     <label>반납일자</label>
-                                    <input type="text" class="form-control Textinput" data-bind="value: rentalEdate"/>
+                                    <input type="text" class="form-control Dateinput" data-bind="value: rentalEdate"/>
                                   </div>
                                   <div class="form-group">
                                     <label>폐기일자</label>
-                                    <input type="text" class="form-control Textinput" data-bind="value: bringProof"/>
+                                    <input type="text" class="form-control Dateinput" data-bind="value: bringProof"/>
                                   </div>
                                   <div class="form-group">
                                     <label>CPU</label>
