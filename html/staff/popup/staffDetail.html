@@ -21,7 +21,7 @@
             <div class="panel-default">
                 <div class="panel-body" id="bindarea">
 									<div class="row">
-										<div class="col-lg-4">
+										<div class="col-lg-3">
 												<div class="panel panel-default">
 														<div class="panel-heading">
 																직원 사진
@@ -29,16 +29,15 @@
 														<!-- /.panel-heading -->
 														<div class="panel-body">
 															<form role="form">
-																<label class="img-rounded" style="height:250px;">
+																<label class="img-rounded" style="height:245px;">
 																	사진
 																</label>
-
 															</form>
 															<button type="button" class="btn btn-primary btn-lg btn-block" id="btnStaffRegister">직원사진등록</button>
 														</div>
 													</div>
 										</div>
-										<div class="col-lg-8">
+										<div class="col-lg-9">
 												<div class="panel panel-default">
 														<div class="panel-heading">
 																직원 상세정보
@@ -46,82 +45,146 @@
 
 														<!-- /.panel-heading -->
 														<div class="panel-body">
-																<div class="col-lg-6">
-															<form role="form">
-																<div class="form-group">
-																	<label>한글이름</label> <input class="form-control Textinput" data-bind="value: empNm" id="empNm">
-																</div>
-																<div class="form-group">
-																	<label>영문이름</label>
-																	<input class="form-control Textinput" data-bind="value: empEngNm" id="empEngNm">
-																</div>
-																<div class="form-group">
-																		<label>출생국가</label>
-																		<input class="form-control Textinput" data-bind="value: birthState" id="birthState">
-																</div>
-																<div class="form-group">
-																<label>생일상태</label>
-																<div class="form-control" id="lunarStatesel" ></div>
-																</div>
-																<div class="form-group">
-																		<label>생일</label>
-																		<input class="form-control Dateinput" data-bind="value: birthDate" id="birthDate">
-																</div>
+															<div class="col-lg-6">
+																<form role="form">
+																	<div class="form-group">
+																		<div class="form-group">
+																			<div class="col-lg-4" style="padding-right:0px; padding-left:0px;">
+																				<label>한글이름</label> <input class="form-control Textinput" data-bind="value: empNm" id="empNm">
+																			</div>
+																		</div>
+																		<div class="col-lg-8" style="padding-right:0px;">
+																			<div class="form-group">
+																				<label>영문이름</label>
+																				<input class="form-control Textinput" data-bind="value: empEngNm" id="empEngNm">
+																			</div>
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<div class="form-group">
+																			<div class="col-lg-4" style="padding-right:0px; padding-left:0px;">
+																				<label>생일상태</label> <div class="form-control" id="lunarStatesel" ></div>
+																			</div>
+																		</div>
+																		<div class="col-lg-8" style="padding-right:0px;">
+																			<div class="form-group">
+																				<label>생일</label>
+																				<input class="form-control Dateinput" data-bind="value: birthDate" id="birthDate">
+																			</div>
+																		</div>
+																	</div>
+																</form>
 															</div>
 															<div class="col-lg-6">
-																<div class="form-group">
-																	<label>결혼상태</label> <input class="form-control Textinput" data-bind="value: maritalState" id="maritalState">
-																</div>
-																<div class="form-group">
-																	<label>결혼기념일</label> <input class="form-control Dateinput" data-bind="value: maritalDate" id="maritalDate">
-																</div>
-																<div class="form-group">
-																		<label>전화번호</label>
-																		<input class="form-control Textinput" data-bind="value: empTel" id="empTel">
-																</div>
-																<div class="form-group">
-																	<label>핸드폰</label> <input class="form-control Textinput" data-bind="value: empHp" id="empHp">
-																</div>
-
-																<div class="form-group">
-																	<label>우편번호</label>
-																	<input class="form-control Textinput" data-bind="value: empZip" id="empZip">
-																</div>
-																<div class="form-group">
-																	<label>주소</label>
-																	<input class="form-control Textinput" data-bind="value: empAddr" id="empAddr">
-																</div>
-																<div class="form-group">
-																	<label>주소상세</label>
-																	<input class="form-control Textinput" data-bind="value: empAddrDtl" id="empAddrDtl">
-																</div>
-
-
-
+																<form role="form">
+																	<div class="form-group">
+																		<div class="form-group">
+																			<div class="col-lg-4" style="padding-right:0px; padding-left:0px;">
+																				<label>결혼상태</label><div class="form-control" id="maritalsel" ></div>
+																			</div>
+																		</div>
+																		<div class="col-lg-8" style="padding-right:0px;">
+																			<div class="form-group">
+																				<label>결혼기념일</label> <input class="form-control Dateinput" data-bind="value: maritalDate" id="maritalDate">
+																			</div>
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<div class="col-lg-4" style="padding-right:0px; padding-left:0px;">
+																			<div class="form-group">
+																				<label>전화번호</label>
+																				<input class="form-control Textinput" data-bind="value: empTel" id="empTel">
+																			</div>
+																		</div>
+																		<div class="col-lg-8" style="padding-right:0px;">
+																			<div class="form-group">
+																				<label>핸드폰</label> <input class="form-control Textinput" data-bind="value: empHp" id="empHp">
+																			</div>
+																		</div>
+																	</div>
+																</form>
 															</div>
-
-															</form>
-												</div>
+															<div class="col-lg-12" style="margin-top:-15px; margin-bottom:-4px;">
+																<form role="form">
+																	<div class="form-group">
+																		<div class="col-lg-4" style="padding-right:0px; padding-left:0px;">
+															        <label>우편번호</label>
+															        <input class="form-control Textinput" data-bind="value: empZip" id="empZip" style="width:200px;">
+																		</div>
+																	</div>
+																	<div class="col-lg-8" style="padding-right:0px;">
+																		<div class="form-group">
+																			<label>주소</label>
+																			<input class="form-control Textinput" data-bind="value: empAddr" id="empAddr">
+															     </div>
+																 </div>
+																	 <div class="form-group">
+																		 <label>주소상세</label>
+ 																    <input class="form-control Textinput" data-bind="value: empAddrDtl" id="empAddrDtl">
+ 															     </div>
+																</form>
+															</div>
+														</div>
+													</div>
 												<!-- /.panel-body -->
 										</div>
 										<!-- /.panel -->
 								</div>
-										<!-- /.col-lg-6 -->
-										<div class="col-lg-12">
-												<div class="panel panel-default">
-														<div class="panel-heading">
-																회사 개인 정보
-														</div>
-														<!-- /.panel-heading -->
-														<div class="panel-body">
+								<div class="col-lg-12">
+										<div class="panel panel-default">
+												<div class="panel-heading">
+														회사 개인 정보
+												</div>
+												<div class="panel-body">
+													<div class="col-lg-6">
 															<form role="form">
 																<div class="form-group">
-																	<label>직원유형</label>
-																	<div class="form-control" id="empFlagsel" ></div>
+																	<div class="col-lg-6" style="padding-right:0px; padding-left:0px;">
+																		<div class="form-group">
+																			<label>직원유형</label>
+																			<div class="form-control" id="empFlagsel" ></div>
+																		</div>
+																	</div>
+																	<div class="col-lg-6" style="padding-right:0px;">
+																		<div class="form-group">
+																			<label>직급</label>
+																			<div class="form-control" id="ranksel" ></div>
+																		</div>
+																	</div>
 																</div>
 																<div class="form-group">
-																	<label>직급</label>
-																	<div class="form-control" id="ranksel" ></div>
+																		<label>주민등록번호</label> <input class="form-control Textinput">
+																</div>
+																<div class="form-group">
+																	<div class="col-lg-6" style="padding-right:0px; padding-left:0px;">
+																		<div class="form-group">
+																			<label>입사일</label>
+																			<input class="form-control Dateinput" data-bind="value: enteringDate" id="enteringDate">
+																		</div>
+																	</div>
+																	<div class="col-lg-6" style="padding-right:0px;">
+																		<div class="form-group">
+																			<label>퇴사일</label> <input class="form-control Dateinput" data-bind="value: leaveDate" id="leaveDate">
+																		</div>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<div class="col-lg-6" style="padding-right:0px; padding-left:0px;">
+																		<div class="form-group">
+																			<label>팀 </label> <div class="form-control" id="teamsel" ></div>
+																		</div>
+																	</div>
+																	<div class="col-lg-6" style="padding-right:0px;">
+																		<div class="form-group">
+																			<label>근무위치</label><div class="form-control" id="workareasel" ></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label>상시 출입증 번호</label> <input class="form-control Textinput" data-bind="value: alwaysPassCardNumber" id="alwaysPassCardNumber">
+																</div>
+																<div class="form-group">
+																		<label>프로젝트</label> <select class="form-control" id="projectsel" ></select>
 																</div>
 																<div class="form-group">
 																	<label>직원ID </label> <input class="form-control Textinput" data-bind="value: empId" id="empId">
@@ -129,62 +192,46 @@
 																<div class="form-group">
 																	<label>직원 패스워드</label> <input class="form-control Textinput" data-bind="value: empPwd" id="empPwd">
 																</div>
-																<div class="form-group">
-																	<label>입사일</label>
-																	<input class="form-control Dateinput" data-bind="value: enteringDate" id="enteringDate">
-																</div>
-																<div class="form-group">
-																		<label>프로젝트</label> <select class="form-control" id="projectsel" ></select>
-																</div>
-																<div class="form-group">
-																<label>팀 </label> <div class="form-control" id="teamsel" ></div>
-																</div>
-																<div class="form-group">
-																<label>근무위치</label><div class="form-control" id="workareasel" ></div>
-															</div>
-																<div class="form-group">
-																	<label>퇴사일</label> <input class="form-control Dateinput" data-bind="value: leaveDate" id="leaveDate">
-																</div>
+
 																<div class="form-group">
 																	<label>로그인일시</label> <input class="form-control Dateinput" data-bind="value: loginDate" id="loginDate">
 																</div>
-																<div class="form-group">
-																<label>회사전화</label> <input class="form-control Textinput" data-bind="value: officeTel" id="officeTel">
-																</div>
-
-																<div class="form-group">
-																<label>welcome_Id</label> <input class="form-control Textinput" data-bind="value: welcomeId" id="welcomeId">
-																</div>
-																<div class="form-group">
-																<label>welcome_Password</label> <input class="form-control Textinput" data-bind="value: welcomePassword" id="welcomePassword">
-																</div>
-
-
-																<div class="form-group">
-																<label>현업 부서</label> <input class="form-control Textinput" data-bind="value: businessDepartment" id="businessDepartment">
-																</div>
-																<div class="form-group">
-																<label>현업 이메일</label> <input class="form-control Textinput" data-bind="value: businessEmail" id="businessEmail">
-																</div>
-																<div class="form-group">
-																<label>현업 이름</label> <input class="form-control Textinput" data-bind="value: businessName" id="businessName">
-																</div>
-																<div class="form-group">
-																<label>상시 출입증 번호</label> <input class="form-control Textinput" data-bind="value: alwaysPassCardNumber" id="alwaysPassCardNumber">
-																</div>
-																<div class="form-group">
-																<label>photo</label> <input class="form-control Textinput" data-bind="value: photo" id="photo">
-																</div>
-
-																<div class="form-group">
-																<label>regEmpNm</label> <input class="form-control Textinput" data-bind="value: regEmpNm" id="regEmpNm">
-																</div>
 															</form>
-														</div>
-														<!-- /.panel-body -->
+													</div>
+													<div class="col-lg-6">
+														<form role="form">
+															<div class="form-group">
+																<label>회사전화</label> <input class="form-control Textinput" data-bind="value: officeTel" id="officeTel">
+															</div>
+															<div class="form-group">
+																<label>welcome_Id</label> <input class="form-control Textinput" data-bind="value: welcomeId" id="welcomeId">
+															</div>
+															<div class="form-group">
+																<label>welcome_Password</label> <input class="form-control Textinput" data-bind="value: welcomePassword" id="welcomePassword">
+															</div>
+															<div class="form-group">
+																<label>현업 부서</label> <input class="form-control Textinput" data-bind="value: businessDepartment" id="businessDepartment">
+															</div>
+															<div class="form-group">
+																<label>현업 이메일</label> <input class="form-control Textinput" data-bind="value: businessEmail" id="businessEmail">
+															</div>
+															<div class="form-group">
+																<label>현업 이름</label> <input class="form-control Textinput" data-bind="value: businessName" id="businessName">
+															</div>
+
+															<div class="form-group">
+																<label>photo</label> <input class="form-control Textinput" data-bind="value: photo" id="photo">
+															</div>
+															<div class="form-group">
+																<label>regEmpNm</label> <input class="form-control Textinput" data-bind="value: regEmpNm" id="regEmpNm">
+															</div>
+														</form>
+													</div>
 												</div>
-												<!-- /.panel -->
+											</div>
 										</div>
+												<!-- /.panel -->
+
 									</div>
 									<!-- /.row -->
 							</div>
