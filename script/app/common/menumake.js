@@ -9,7 +9,7 @@ $a.page(function() {
 //console.log("[mkmenu token] ", access_token);
 
      // 메뉴 처리해 주기
-     ANBTX.R('/menu', function(res){
+     ANBTX.R('/menu/WEB', function(res){
       // console.log("[menu] ", res);
 
         var ul = document.createElement('ul');

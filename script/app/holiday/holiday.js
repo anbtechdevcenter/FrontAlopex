@@ -106,7 +106,7 @@ $a.page(function() {
     * 근태조회
     */
 		function readHoliday(){
-			var pid = '/holiday';
+			var pid = '/holiday/loginUser';
 			//console.log('pid :: ' + pid);
 			ANBTX.R(pid,
 			 	function(res){
