@@ -1,5 +1,9 @@
 $a.page(function() {
 	  this.init = function(id, param) {
+
+			// 인클루드 처리를 위한 내용
+				w3.includeHTML();
+
 		  //ToDo List 조회를 위해서 서버 정보 세팅
 		  //a.request.setup은 모든 reqeust에 공통으로 사용되므로 통신을 여러 번 사용하는 프로젝트에서는 각 페이지에서 정의하지 않고 common.js 같은 파일에 따로 작성하여 사용하시면 됩니다.
 
@@ -33,15 +37,10 @@ $a.page(function() {
 						var errorCode = err.error;
 						var resUrl = err.responseURL;
 						var errMsg = err.errorMessage;
-						if(errorCode != '201'){
-							alert("처리 되었습니다.");
-						}else	if(errorCode != '403'){
-							alert("권한이 없습니다.");
-							return false;
-						}else{
+						//if(errorCode=='403'){
 							alert(errorCode+"\n"+errMsg+"\n"+resUrl);
 							return false;
-						}
+						//}
 					//}
 				},
 
