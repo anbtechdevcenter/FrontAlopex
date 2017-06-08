@@ -143,7 +143,7 @@ $a.page(function() {
     * 메뉴를 조회한다.
     */
     function readMenu(){
-      ANBTX.R('/menu', function(res){
+      ANBTX.R('/menu/WEB', function(res){
         res.sort(function(a,b){
           return a.mnOrder < b.mnOrder ? -1 :  a.mnOrder > b.mnOrder ? 1 : 0;
         });

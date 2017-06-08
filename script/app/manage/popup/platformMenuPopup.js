@@ -62,7 +62,7 @@ $a.page(function() {
       // 포커스 처리
       $("#pmenuNm").focus();
 
-      ANBTX.R('/menu', function(res){
+      ANBTX.R('/menu/WEB', function(res){
           menuArr = res;
       },true);
 
@@ -148,6 +148,7 @@ $a.page(function() {
         return false;
       }
 
+      seldata.platformType ='WEB';
 
       ANBTX.C('/menu', seldata, function(res){
         $a.close('success');
@@ -219,7 +220,8 @@ $a.page(function() {
         return false;
       }
 
-
+      seldata.platformType = 'WEB';
+      
       ANBTX.C('/menu', seldata, function(res){
         console.log('res::',res);
         $a.close('success');
