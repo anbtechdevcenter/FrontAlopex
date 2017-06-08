@@ -90,15 +90,15 @@
 																		</div>
 																	</div>
 																	<div class="form-group">
-																		<div class="col-lg-4" style="padding-right:0px; padding-left:0px;">
-																			<div class="form-group">
-																				<label>전화번호</label>
-																				<input class="form-control Textinput" data-bind="value: empTel" id="empTel">
-																			</div>
-																		</div>
-																		<div class="col-lg-8" style="padding-right:0px;">
+																		<div class="col-lg-6" style="padding-right:0px; padding-left:0px;">
 																			<div class="form-group">
 																				<label>핸드폰</label> <input class="form-control Textinput" data-bind="value: empHp" id="empHp">
+																			</div>
+																		</div>
+																		<div class="col-lg-6" style="padding-right:0px;">
+																			<div class="form-group">
+																				<label>비상연락망</label>
+																				<input class="form-control Textinput" data-bind="value: empTel" id="empTel">
 																			</div>
 																		</div>
 																	</div>
@@ -187,21 +187,35 @@
 																		<label>프로젝트</label> <select class="form-control" id="projectsel" ></select>
 																</div>
 																<div class="form-group">
-																	<label>직원ID </label> <input class="form-control Textinput" data-bind="value: empId" id="empId">
+																	<div class="col-lg-6" style="padding-right:0px; padding-left:0px;">
+																		<div class="form-group">
+																			<label>현업 부서</label> <input class="form-control Textinput" data-bind="value: businessDepartment" id="businessDepartment">
+																		</div>
+																	</div>
+																	<div class="col-lg-6" style="padding-right:0px;">
+																		<div class="form-group">
+																			<label>현업 이름 / 직책</label> <input class="form-control Textinput" data-bind="value: businessName" id="businessName">
+																		</div>
+																	</div>
 																</div>
 																<div class="form-group">
-																	<label>직원 패스워드</label> <input class="form-control Textinput" data-bind="value: empPwd" id="empPwd">
-																</div>
-
-																<div class="form-group">
-																	<label>로그인일시</label> <input class="form-control Dateinput" data-bind="value: loginDate" id="loginDate">
+																	<label>현업 이메일</label> <input class="form-control Textinput" data-bind="value: businessEmail" id="businessEmail">
 																</div>
 															</form>
 													</div>
 													<div class="col-lg-6">
 														<form role="form">
 															<div class="form-group">
+																<label>직원ID </label> <input class="form-control Textinput" data-bind="value: empId" id="empId">
+															</div>
+															<div class="form-group">
+																<label>직원 패스워드</label> <input class="form-control Textinput" data-bind="value: empPwd" id="empPwd">
+															</div>
+															<div class="form-group">
 																<label>회사전화</label> <input class="form-control Textinput" data-bind="value: officeTel" id="officeTel">
+															</div>
+															<div class="form-group">
+																<label>로그인일시</label> <input class="form-control Dateinput" data-bind="value: loginDate" id="loginDate">
 															</div>
 															<div class="form-group">
 																<label>welcome_Id</label> <input class="form-control Textinput" data-bind="value: welcomeId" id="welcomeId">
@@ -210,20 +224,10 @@
 																<label>welcome_Password</label> <input class="form-control Textinput" data-bind="value: welcomePassword" id="welcomePassword">
 															</div>
 															<div class="form-group">
-																<label>현업 부서</label> <input class="form-control Textinput" data-bind="value: businessDepartment" id="businessDepartment">
-															</div>
-															<div class="form-group">
-																<label>현업 이메일</label> <input class="form-control Textinput" data-bind="value: businessEmail" id="businessEmail">
-															</div>
-															<div class="form-group">
-																<label>현업 이름</label> <input class="form-control Textinput" data-bind="value: businessName" id="businessName">
-															</div>
-
-															<div class="form-group">
-																<label>photo</label> <input class="form-control Textinput" data-bind="value: photo" id="photo">
-															</div>
-															<div class="form-group">
 																<label>regEmpNm</label> <input class="form-control Textinput" data-bind="value: regEmpNm" id="regEmpNm">
+															</div>
+															<div class="form-group">
+																<label>기타사항</label> <textarea class="form-control" rows="" style="height:40px;"></textarea>
 															</div>
 														</form>
 													</div>
