@@ -47,28 +47,41 @@ $a.page(function() {
 
 				//업무지역
 				if(data.workPosition != ""){
-					$("#workareasel").selectCommon({type : 'workArea', para:data.workPosition}); //업무지역
+					$("#workareasel").selectCommon({type : 'workArea', para:data.workPosition});
 				}else{
-					$("#workareasel").selectCommon({type : 'workArea'}); //업무지역
+					$("#workareasel").selectCommon({type : 'workArea'});
 				}
 
 				//팀
 				if(data.workPosition != ""){
-					$("#teamsel").selectCommon({type : 'team', para:data.team}); //팀
+					$("#teamsel").selectCommon({type : 'team', para:data.team});
 				}else{
 					$("#teamsel").selectCommon({type : 'team'});
 				}
 
 				//직원구분
 				if(data.workPosition != ""){
-					$("#empFlagsel").selectCommon({type : 'staffType', para:data.workPosition}); //직원구분
+					$("#empFlagsel").selectCommon({type : 'staffType', para:data.workPosition});
 				}else{
 					$("#empFlagsel").selectCommon({type : 'staffType'});
 				}
+
+				//결혼유무
+				if(data.maritalState != ""){
+					$("#maritalsel").selectCommon({type : 'maritalState', para:data.maritalState});
+				}else{
+					$("#maritalsel").selectCommon({type : 'maritalState'});
+				}
+
+				// 생일상태
+				if(data.lunarState != ""){
+					$("#lunarStatesel").selectCommon({type : 'lunarState', para:data.lunarState});
+				}else{
+					$("#lunarStatesel").selectCommon({type : 'lunarState'});
+				}
+
 				//데이터 바인딩
 				$('#bindarea').setData(data);
-
-
 
 			}else{
 				$("#ranksel").selectRank();
@@ -77,12 +90,14 @@ $a.page(function() {
 				$("#workareasel").selectCommon({type : 'workArea'});
 				$("#teamsel").selectCommon({type : 'team'});
 				$("#empFlagsel").selectCommon({type : 'staffType'});
+				$("#maritalsel").selectCommon({type : 'maritalState'});
+				$("#lunarStatesel").selectCommon({type : 'lunarState'});
 			}
 
 			//등록자 id 이름 셋팅
 			$("#regEmpId").val($a.session("user_id"));
 			$("#regEmpNm").val($a.session("user_id"));
-			
+
 		}
 
     /**
@@ -90,6 +105,7 @@ $a.page(function() {
     */
 		this.defineEvent = function(){
 			$("#btnStaffUpdate").on("click", this.btnStaffUpdate);
+			$("#btnClose").on("click", this.btnClose);
 		};
 
 
@@ -98,15 +114,11 @@ $a.page(function() {
     */
 		this.btnStaffUpdate = function(e){
 
-			 var data = $("#bindarea").getData();
-			 //console.log("[data is] ", data);
-
-			//return false;
+			var data = $("#bindarea").getData();
 
       var check = $("#bindarea").validate();
 
-			//console.log(" >> ", check);
-      if(check){
+			if(check){
         var data = $("#bindarea").getData();
         //console.log("[get data is] " , data);
 
@@ -126,25 +138,26 @@ $a.page(function() {
 			 	delete vData.workCd;
 
 				console.log("[get vData is] " , JSON.stringify(vData));
-				//alert('현재 수정은 안됨(400에러(Bad Request 발생 - 주석처리))');
-	       ANBTX.U('/employee' , vData, function(res){
-	          console.log("[직원등록] ", res);
-						if(res.state == '201'){
-							$a.navigate('staff/staff.html');
-						}else{
-
-						}
-
-	       });
+				ANBTX.U('/employee' , vData, function(res){
+		      console.log("[직원등록] ", res);
+					if(res.error == '201'){
+						$a.close('success');
+					}
+	      });
       }else{
         console.log("stop");
-
       }
 
       e.preventDefault();
 
 		};
 
+		/*
+    * 닫기 버튼 액션
+    */
+		this.btnClose = function(e){
+			$a.close();
+		};
 
     /*
     * 직원조회

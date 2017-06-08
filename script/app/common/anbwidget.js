@@ -148,7 +148,7 @@ $(function(){
 
 
   /**
-  * 직원유형 셀렉트
+  * 유형 셀렉트
   */
   $.widget("ui.selectCommon", {
     options : {
@@ -164,6 +164,7 @@ $(function(){
       var keyword = "";
       var intype = this.options.type;
       var vPara = this.options.para;
+      console.log('intype:::',intype);
       var selectedCd  = "codeId";
       // 하드코딩 코드 값이 아닌, codeType로 부터 받아온 텍스트명의 값을 넣어주는것으로 변경 피
       switch (intype) {
@@ -179,8 +180,16 @@ $(function(){
           keyword = "COD_2017051917305250";
           selectedCd = "teamCd";
           break;
-        default:
+        case "maritalState" :
+          keyword = "COD_2017060716454510";
+          selectedCd = "maritalState";
+          break;
+        case "lunarState" :
+          keyword = "COD_2017060809375314";
+          selectedCd = "lunarState";
+          break;
 
+        default:
       }
       comp.setAttribute("data-bind-option", "codeId:codeNm");
       comp.setAttribute("data-bind","options: codeTypeList, selectedOptions : "+selectedCd);
@@ -213,11 +222,22 @@ $(function(){
                 ,teamCd: vPara
               });
               break;
+            case "maritalState" :
+              $(comp).setData({
+                codeTypeList: vals
+                ,maritalState: vPara
+              });
+              break;
+            case "lunarState" :
+              $(comp).setData({
+                codeTypeList: vals
+                ,lunarState: vPara
+              });
+              break;
+
             default:
 
           }
-
-
         }, true);
 
       return $(this.element).replaceWith(comp);
