@@ -11,7 +11,7 @@ $a.page(function() {
  * 아래는 string 타입에 대해서만 정의함.
  */
 	var wrapId = "#wrapId",
-    gridId = "#grid1",
+    gridId = "#grid",
 		popupUrl = "/html/project/popup/projectPopup.html";
 
 
@@ -42,10 +42,8 @@ $a.page(function() {
 		this.defineEvent = function(){
 			$("#btnSearch").on("click", this.btnSearch);
 			$("#btnRegiste").on("click", this.btnRegiste);
-			$("#grid1").on("click", '.bodycell', this.grid_dblClick);
+			$(gridId).on("dblclick", '.bodycell', this.grid_dblClick);
 		};
-
-
 
 		/**
 		* 아래부터는 구현을 위한 함수 작성
@@ -65,7 +63,7 @@ $a.page(function() {
 		function readProjectList(){
 			ANBTX.R('/project',
 			 	function(res){
-					$('#grid1').alopexGrid("dataSet", res);
+					$(gridId).alopexGrid("dataSet", res);
 			 	}
 		  );
 		}
@@ -81,7 +79,7 @@ $a.page(function() {
 		* 프로젝트 조회
 		*/
 		this.grid_dblClick = function(){
-			var sdata = $("#grid1").alopexGrid("dataGet", {_state :{selected:true}});
+			var sdata = $(gridId).alopexGrid("dataGet", {_state :{focused:true}});
 			if(sdata.length > 0) openPopup('R');
 		};
 
@@ -97,7 +95,7 @@ $a.page(function() {
 				data.type = type;
 				title = '프로젝트 등록';
 			}else if(type == 'R'){
-				var sdata = $("#grid1").alopexGrid("dataGet", {_state :{selected:true}});
+				var sdata = $(gridId).alopexGrid("dataGet", {_state :{focused:true}});
 				data = sdata[0];
 				data.type = type;
 				title = '프로젝트 관리';
@@ -125,7 +123,7 @@ $a.page(function() {
     *
     ****************************************/
 	  function initGrid() {
-			$('#grid1').alopexGrid({
+			$(gridId).alopexGrid({
         defaultColumnMapping : {
           align : 'center'
         },
