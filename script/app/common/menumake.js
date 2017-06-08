@@ -110,12 +110,12 @@ $a.page(function() {
          inUl.className = "nav nav-second-level";
          $.each(inUlArr, function(i, v){
            if(val === v.pKey){
-             inUl.append(v.pVal);
+             inUl.appendChild(v.pVal);
            }
            //console.log("[>>] ",i, v);
          });
 
-         selLi[0].append(inUl);
+         selLi[0].appendChild(inUl);
        });
 
 
