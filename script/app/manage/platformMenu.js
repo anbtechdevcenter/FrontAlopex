@@ -14,11 +14,23 @@ $a.page(function() {
     gridId = "#platmenuGrid",
 		popupUrl = "/html/manage/popup/platformMenuPopup.html";
 
-  var parentArr = [];
+  var parentArr = []
+      ,roleOpt = [{
+        authorityName: 'ROLE_ADMIN',
+        authNm : '어드민 [시스템관리자]'
+      },{
+        authorityName: 'ROLE_MANAGER',
+        authNm : '관리자 [팀장급이상]'
+      },{
+        authorityName: 'ROLE_USER',
+        authNm : '일반사용자'
+      }];
 
 	  this.init = function(id, param) {
-      // 인클루드 처리를 위한 내용
-			// w3.includeHTML();
+
+      // 화면 초기 데이터 및 초기 화면 그리는 부분 함수
+			setData();
+
 
       readMenu();
 
@@ -28,8 +40,7 @@ $a.page(function() {
       // 이벤트 정의 함수부분
 			this.defineEvent();
 
-      // 화면 초기 데이터 및 초기 화면 그리는 부분 함수
-			setData();
+
 
 	  };
 
@@ -38,7 +49,9 @@ $a.page(function() {
     * 데이터 세팅 및 UI Draw 코드 처리
     ****************************************/
 		function setData(){
-
+      $(wrapId).setData({
+        roleOpt :roleOpt
+      })
 		}
 
 		/**
@@ -47,7 +60,7 @@ $a.page(function() {
 		this.defineEvent = function(){
       // 아래는 기본 CRUD 처리.
       $("#btnPlatMenuC").on("click", this.btnPlatMenuC);
-			$("#btnR").on("click", this.btnR);
+			$("#btnPlatMenuR").on("click", this.btnR);
 			$("#btnPlatMenuU").on("click", this.btnPlatMenuU);
 			$("#btnPlatMenuD").on("click", this.btnPlatMenuD);
 
@@ -55,7 +68,7 @@ $a.page(function() {
       $(gridId).on( "cellEditEnd" , function(e){
         var data = AlopexGrid.parseEvent(e).data;
 
-        console.log(data);
+        //console.log(data);
         $("#platmenuGrid").alopexGrid('dataGet', {_state:{edited:true}});
       });
       // 기타 이벤트 정의
@@ -65,13 +78,14 @@ $a.page(function() {
 		* 메뉴등록을 위한 팝업 처리
 		*/
 		this.btnPlatMenuC = function(){
+
       var pops =  $a.popup({
 				 url : popupUrl,
 				 title : '메뉴 등록',
          height: 550,
-				 data : {'type' : 'C'},
+				 data : {'type' : 'C' },
 				 callback : function(res){
-					 console.log("res " , res);
+					 //console.log("res " , res);
 					 if(res=="success"){
 						 readMenu();
 						 //console.log("[pops] " , pops);
@@ -86,7 +100,7 @@ $a.page(function() {
 		* R
 		*/
 		this.btnR = function(){
-
+      readMenu();
 		}
 
     /**
@@ -106,7 +120,7 @@ $a.page(function() {
            height: 550,
            data : seldata,
            callback : function(res){
-             console.log("res " , res);
+             //console.log("res " , res);
              if(res=="success"){
                readMenu();
                //console.log("[pops] " , pops);
@@ -143,16 +157,24 @@ $a.page(function() {
     * 메뉴를 조회한다.
     */
     function readMenu(){
-      ANBTX.R('/menu/WEB', function(res){
+      var seldata = $(wrapId).getData();
+      var roleName = seldata.authorityName;
+
+      //console.log("[ROLE IS ] " , roleName, seldata);
+
+      //return false;
+
+      ANBTX.R('/menu/WEB/'+roleName, function(res){
         res.sort(function(a,b){
           return a.mnOrder < b.mnOrder ? -1 :  a.mnOrder > b.mnOrder ? 1 : 0;
         });
         $(gridId).alopexGrid('dataSet', res);
         parentArr = res;
-        console.log(parentArr);
+        //console.log(parentArr);
       }, true);
 
       $(gridId).alopexGrid("expandTreeNode");
+
     }
 
     /**

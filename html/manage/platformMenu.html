@@ -28,7 +28,10 @@
                         <input class="Radio" name="useYnNm" value="N" data-bind="value:useYn"/> 미사용
                       </label>
                       <div class="f_Right">
-                        <button class="Button" id="btnSearch">조회</button>
+                        <select id="ROLE_SEL" class="Select" data-bind-option="authorityName:authNm"
+                          data-bind="options:roleOpt, selectedOptions:authorityName">
+                        </select>
+                        <button class="Button" id="btnPlatMenuR">조회</button>
                         <button class="Button" id="btnPlatMenuU">수정</button>
                         <button class="Button" id="btnPlatMenuC">등록</button>
                         <button class="Button" id="btnPlatMenuD">선택삭제</button>
