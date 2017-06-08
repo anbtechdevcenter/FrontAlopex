@@ -14,8 +14,8 @@
 	<script type="text/javascript" src="/script/lib/alopex/alopex-ui.min.js"></script>
 	<script type="text/javascript" src="/script/lib/alopex/alopex-grid-trial.min.js"></script>
 
-
 	<!--3rd party libs -->
+	<script type="text/javascript" src="/script/lib/w3c/w3.js"></script>
 	<script type="text/javascript" src="/script/lib/moment/moment.min.js"></script>
 	<script type="text/javascript" src="/script/lib/moment/moment-with-locales.min.js"></script>
 	<script type="text/javascript" src="/script/lib/jwtdecode/jwt-decode.min.js"></script>
@@ -52,6 +52,19 @@
 	    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
+
+
+	<!-- IE CHECK -->
+	<script>
+	var agent = navigator.userAgent.toLowerCase();
+	  //  console.log("browse ", agent);
+	if ( (navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (agent.indexOf("msie") != -1) ) {
+	  alert("IE 지원을 추후 예정입니다. HTML5 표준을 준수하는 브라우저를 사용바랍니다..");
+	}
+
+	</script>
+
+
 		<!-- 업무소스 -->
 		<script type="text/javascript" src="/script/app/home.js"></script>
 
