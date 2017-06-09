@@ -38,6 +38,9 @@ $a.page(function() {
 						}else	if(errorCode == '403'){
 							alert("권한이 없습니다.403");
 							return false;
+						}else	if(errorCode == '401'){
+							//alert("권한이 없습니다.401");
+							//$a.navigate('/index.html');
 						}else{
 							alert(errorCode+"\n"+errMsg+"\n"+resUrl);
 							return false;

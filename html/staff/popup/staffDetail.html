@@ -104,6 +104,15 @@
 																	</div>
 																</form>
 															</div>
+															<div class="col-lg-6" style="padding-right:0px;">
+																<div class="form-group">
+																	<label>배우자전화번호</label>
+																	<input class="form-control Textinput" data-bind="value: spouseTel" id="spouseTel">
+																</div>
+															</div>
+															<div class="col-lg-6">
+																	<label>주민등록번호</label> <input class="form-control Textinput" data-bind="value: rrNumber" id="rrNumber">
+															</div>
 															<div class="col-lg-12" style="margin-top:-15px; margin-bottom:-4px;">
 																<form role="form">
 																	<div class="form-group">
@@ -153,9 +162,6 @@
 																	</div>
 																</div>
 																<div class="form-group">
-																		<label>주민등록번호</label> <input class="form-control Textinput">
-																</div>
-																<div class="form-group">
 																	<div class="col-lg-6" style="padding-right:0px; padding-left:0px;">
 																		<div class="form-group">
 																			<label>입사일</label>
@@ -181,10 +187,10 @@
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label>상시 출입증 번호</label> <input class="form-control Textinput" data-bind="value: alwaysPassCardNumber" id="alwaysPassCardNumber">
+																	<label>프로젝트</label> <select class="form-control" id="projectsel" ></select>
 																</div>
 																<div class="form-group">
-																		<label>프로젝트</label> <select class="form-control" id="projectsel" ></select>
+																	<label>상시 출입증 번호</label> <input class="form-control Textinput" data-bind="value: alwaysPassCardNumber" id="alwaysPassCardNumber">
 																</div>
 																<div class="form-group">
 																	<div class="col-lg-6" style="padding-right:0px; padding-left:0px;">
@@ -205,10 +211,10 @@
 													</div>
 													<div class="col-lg-6">
 														<form role="form">
-															<div class="form-group">
+															<div class="form-group" style="display:none">
 																<label>직원ID </label> <input class="form-control Textinput" data-bind="value: empId" id="empId">
 															</div>
-															<div class="form-group">
+															<div class="form-group" style="display:none">
 																<label>직원 패스워드</label> <input class="form-control Textinput" data-bind="value: empPwd" id="empPwd">
 															</div>
 															<div class="form-group">
@@ -223,11 +229,11 @@
 															<div class="form-group">
 																<label>welcome_Password</label> <input class="form-control Textinput" data-bind="value: welcomePassword" id="welcomePassword">
 															</div>
-															<div class="form-group">
+															<div class="form-group" style="display:none">
 																<label>regEmpNm</label> <input class="form-control Textinput" data-bind="value: regEmpNm" id="regEmpNm">
 															</div>
 															<div class="form-group">
-																<label>기타사항</label> <textarea class="form-control" rows="" style="height:40px;"></textarea>
+																<label>기타사항</label> <textarea class="form-control" rows="3" style="height:40px;"></textarea>
 															</div>
 														</form>
 													</div>
