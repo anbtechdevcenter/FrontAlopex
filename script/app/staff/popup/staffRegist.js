@@ -24,6 +24,8 @@ $a.page(function() {
 			$("#workareasel").selectCommon({type : 'workArea'});
 			$("#teamsel").selectCommon({type : 'team'});
 			$("#empFlagsel").selectCommon({type : 'staffType'});
+			$("#maritalsel").selectCommon({type : 'maritalState'});
+			$("#lunarStatesel").selectCommon({type : 'lunarState'});
 
 			//등록자 id 이름 셋팅
 			$("#regEmpId").val($a.session("user_id"));

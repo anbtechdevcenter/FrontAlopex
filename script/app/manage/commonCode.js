@@ -12,9 +12,6 @@ var popupUrl = "/html/manage/popup/commonCodePopup.html",
 
 	  this.init = function(id, param) {
 
-
-
-
       codeTypeGet();
 			initGrid();
 
@@ -27,7 +24,6 @@ var popupUrl = "/html/manage/popup/commonCodePopup.html",
 
 		function setData(){
 			readCodeType();
-
 
       $("#selcodetype").selectCodeType();
 			//
@@ -90,10 +86,10 @@ var popupUrl = "/html/manage/popup/commonCodePopup.html",
 			var sdata = seldata.type = "C";
 			var pops =  $a.popup({
 				 url : popupUrl,
-				 title : '공통코드 수정',
+				 title : '공통코드 등록',
 				 data : seldata,
 				 width : 400,
-				 height : 410,
+				 height : 550,
 				 callback : function(res){
 					 //console.log("res " , res);
 					 if(res=="success"){
@@ -104,7 +100,6 @@ var popupUrl = "/html/manage/popup/commonCodePopup.html",
 
 				 }
 			 });
-
 
 		};
 
