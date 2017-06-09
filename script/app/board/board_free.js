@@ -14,8 +14,6 @@ $a.page(function() {
     gridId = "#grid",
 		popupUrl = "/html/manage/popup/codeTypePopup.html";
 
-
-
 	  this.init = function(id, param) {
 
       // 그리드 존재시 그리스 선언부 함수 (구현코드는 제일 하단에 위치함)
@@ -44,7 +42,7 @@ $a.page(function() {
       // 아래는 기본 CRUD 처리.
 			$("#btnSearch").on("click", this.btnSearch);
 			$("#btnRegiste").on("click", this.btnRegiste);
-			$("#grid1").on("click", '.bodycell', this.grid_dblClick);
+			$("#grid1").on("dblclick", '.bodycell', this.grid_dblClick);
 
 
       // 기타 이벤트 정의
@@ -81,7 +79,7 @@ $a.page(function() {
 		* 게시글 조회
 		*/
 		this.grid_dblClick = function(){
-			var sdata = $("#grid1").alopexGrid("dataGet", {_state :{selected:true}});
+			var sdata = $("#grid1").alopexGrid("dataGet", {_state :{focused:true}});
 			if(sdata.length > 0) openPopup('R');
 		};
 
@@ -97,11 +95,11 @@ $a.page(function() {
 				data.type = type;
 				title = '글 작성';
 			}else if(type == 'R'){
-				var sdata = $("#grid1").alopexGrid("dataGet", {_state :{selected:true}});
+				var sdata = $("#grid1").alopexGrid("dataGet", {_state :{focused:true}});
 				data = sdata[0];
 				data.type = type;
-        console.log(data);
-				title = '글 수정(추후 글 조회 및 버튼을 이용하여 수정기능 반영필요)';
+        //console.log(data);
+				title = '글 수정';
 			}
 			var popupUrl = "/html/board/popup/boardPopup_free.html";
 			var pops =  $a.popup({
@@ -117,8 +115,6 @@ $a.page(function() {
 				 }
 			 });
 		}
-
-
 
 	  //그리드 초기화
 	  function initGrid() {

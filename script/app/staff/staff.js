@@ -62,8 +62,9 @@ $a.page(function() {
 			if(check && selData.length>0){
 
 				var userId = AlopexGrid.trimData(selData[0]).empId;
-
+				var msg = '등록완료되었습니다.';
 				ANBTX.D('/employee/'+userId, function(res){
+					alert(msg);
 					readStaff();
 				});
 			}

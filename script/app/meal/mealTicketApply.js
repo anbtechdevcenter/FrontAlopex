@@ -23,9 +23,10 @@ $a.page(function() {
 */
 		this.defineEvent = function(){
 			$("#btnRegist").on("click", this.btnRegist);
-			$('#btnDelete').on("click", this.btnDelete);
+			$("#btnDelete").on("click", this.btnDelete);
 			$("#btnSearch").on("click", this.btnSearch);
-			$("#btnTest").on("click", this.btnTest);
+			$("#grid_meal").on("click", this.btnUpdate);
+			$("#grid_meal").on("dblclick", '.bodycell', this.grid_dblClick);
 		};
 
 		this.btnRegist = function(){
@@ -39,6 +40,28 @@ $a.page(function() {
           	readBoard();
         	}
         }
+			});
+		};
+
+		/*
+		* 식권 상세 페이지 이동
+		*/
+		this.grid_dblClick = function(){
+			var sdata = $("#grid_meal").alopexGrid("dataGet", {_state :{focused:true}});
+			data = sdata[0];
+			$a.popup({
+				title : '식권수정',
+				data : data,
+				url : "/html/meal/popup/mealDetail.html",
+				width:1100,
+				height:800,
+				callback : function(res){
+					console.log("res::::",res);
+					if(res=="success"){
+						readBoard();
+						$(pops).close();
+					}
+				}
 			});
 		};
 

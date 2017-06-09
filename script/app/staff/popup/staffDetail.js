@@ -137,10 +137,12 @@ $a.page(function() {
 			 	delete vData.teamCd;
 			 	delete vData.workCd;
 
-				console.log("[get vData is] " , JSON.stringify(vData));
+				//console.log("[get vData is] " , JSON.stringify(vData));
 				ANBTX.U('/employee' , vData, function(res){
-		      console.log("[직원등록] ", res);
+		      //console.log("[직원등록] ", res);
 					if(res.error == '201'){
+						var msg = "수정 되었습니다.";
+						alert(msg);
 						$a.close('success');
 					}
 	      });

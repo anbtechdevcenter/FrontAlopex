@@ -28,6 +28,7 @@ $a.page(function() {
 				var today = moment().format("YYYY-MM-DD");
 				param.bookYear = year;
 				param.purchaseDate = today;
+				param.registDate = today;
 				$(btnUId).hide();
 				$(btnDId).hide();
 			}else{
@@ -36,6 +37,9 @@ $a.page(function() {
 				seqId = param.seqBook;
 				console.log(seqId);
 			}
+
+			$("#staffsel").selectStaff({type:"purchaseEmpId"});
+
 			$(wrapId).setData(param);
 		}
 

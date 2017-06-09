@@ -9,10 +9,7 @@ $a.page(function() {
 		wrapId = "#codeTypeWrap",
 		popupUrl = "/html/manage/popup/codeTypePopup.html";
 
-
 	  this.init = function(id, param) {
-
-
 
 			initGrid();
 
@@ -46,20 +43,19 @@ $a.page(function() {
 
 		};
 
-
-
 		/*
 		* 직원삭제
 		*/
 		this.btnDelete = function(){
 			var check = confirm("삭제하시겠습니까?");
 			var selData = selectedGridData();
-	//		console.log("seldata ", selData);
 			if(check){
 
 				var userId = selData.codeType;
-//console.log(">> ", userId);
+
 				ANBTX.D('/codeType/'+userId, function(res){
+					var msg = "삭제 하였습니다.";
+					alert(msg);
 					readCodeType();
 				});
 			}

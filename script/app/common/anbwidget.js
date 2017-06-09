@@ -264,66 +264,20 @@ $(function(){
       var vPara = this.options.para;
       var selectedCd  = "";
 
-      // 하드코딩 코드 값이 아닌, codeType로 부터 받아온 텍스트명의 값을 넣어주는것으로 변경 피
-      switch (intype) {
-        case "empId": //결재1
-          selectedCd = "empId";
-          comp.setAttribute("id", selectedCd);
-          break;
-        case "app1EmpId" : //결재1
-          selectedCd = "app1EmpId";
-          comp.setAttribute("id", selectedCd);
-          break;
-        case "app2EmpId" : //결재2
-          selectedCd = "app2EmpId";
-          comp.setAttribute("id", selectedCd);
-          break;
-        case "rentalEmpId" : //장비사용자사번
-          selectedCd = "rentalEmpId";
-          comp.setAttribute("id", selectedCd);
-          break;
-
-      }
-
-    //  comp.className = "Divselect";
+      selectedCd = intype;
+      comp.setAttribute("id", selectedCd);
 
       comp.setAttribute("data-bind-option", "empId:empNm");
       comp.setAttribute("data-bind","options: attachList, selectedOptions : "+selectedCd);
 
       ANBTX.R('/employee', function(res){
-      res.unshift({"empId":"", "empNm": "==선택=="});
-      //    console.log("[menu sel is] ", filterData);
-      switch (intype) {
-        case "empId":
-          $(comp).setData({
-            attachList: res
-            ,empFlag: vPara
-          });
-          break;
-        case "app1EmpId" :
-          $(comp).setData({
-            attachList: res
-            ,app1EmpId: vPara
-          });
-          break;
-        case "app2EmpId" :
-          $(comp).setData({
-            attachList: res
-            ,app2EmpId: vPara
-          });
-          break;
-        case "rentalEmpId" :
-          $(comp).setData({
-            attachList: res
-            ,rentalEmpId: vPara
-          });
-          break;
+        res.unshift({"empId":"", "empNm": "==선택=="});
 
-        default:
+        var vId = intype;
+        var object = {attachList: res,vId: vPara};
+        $(comp).setData(object);
 
-      }
-
-        }, true);
+      }, true);
 
       return $(this.element).replaceWith(comp);
     }

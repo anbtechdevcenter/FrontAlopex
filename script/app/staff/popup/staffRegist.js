@@ -71,6 +71,8 @@ $a.page(function() {
 				console.log("[get data1 is] " , data);
 	      ANBTX.C('/employee' , data, function(res){
 	          console.log("[직원등록] ", res);
+						var msg = "등록 되었습니다.";
+						alert(msg);
 						$a.close('success');
 	      });
       }else{
