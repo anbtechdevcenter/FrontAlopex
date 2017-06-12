@@ -34,11 +34,11 @@ $a.page(function() {
 						var resUrl = err.responseURL;
 						var errMsg = err.errorMessage;
 						if(errorCode == '201'){//생성
-							//alert("처리 되었습니다.");
+							//alert("처리되었습니다.");
 						}else	if(errorCode == '403'){
 							alert("권한이 없습니다.403");
 							return false;
-						}else	if(errorCode == '401'){//수정
+						}else	if(errorCode == '401'){
 							//alert("권한이 없습니다.401");
 							//$a.navigate('/index.html');
 						}else	if(errorCode == '204'){ //삭제

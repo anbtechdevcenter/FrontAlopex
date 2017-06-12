@@ -15,6 +15,7 @@ $a.page(function() {
 
 	  this.init = function(id, param) {
 			callType = param.type;
+			console.log(callType);
 			this.defineEvent();
 			setData(param);
 	  };
@@ -25,15 +26,14 @@ $a.page(function() {
 				// 등록인 경우
 				$(btnUId).hide();
 				$(btnDId).hide();
+			}else if(callType=='U'){
+				// 수정인 경우 넘겨온 데이터 받기
+				$(btnCId).hide();
+				$(btnDId).hide();
 			}else{
 				// 수정인 경우 넘겨온 데이터 받기
 				$(btnCId).hide();
-				prjId = param.prjId;
-				if(param.prjStatus == 'Active'){
-					$("#chkActive").setChecked(true);
-				}else{
-					$("#chkActive").setChecked(false);
-				}
+				$(btnUId).hide();
 			}
 			$(wrapId).setData(param);
 
@@ -49,31 +49,29 @@ $a.page(function() {
 			$(btnDId).on("click", this.btnDelete);
 		};
 
-
-
     /*
-    * 조회 버튼 액션
+    * 닫기 버튼 액션
     */
 		this.btnClose = function(){
 			$a.close();
 		};
 
 		/*
-		* 프로젝트 등록
+		* 등록 버튼 액션
 		*/
 		this.btnRegiste = function(){
 			transactionAction('C');
 		};
 
 		/*
-		* 프로젝트 수정
+		* 수정 버튼 액션
 		*/
 		this.btnUpdate = function(){
 			transactionAction('U');
 		};
 
 		/*
-		* 프로젝트 삭제
+		* 삭제 버튼 액션
 		*/
 		this.btnDelete = function(){
 			transactionAction('D');
@@ -90,29 +88,24 @@ $a.page(function() {
 				, pId = ''
 				, data = $(wrapId).getData()
 				, pdata = {};
-			if($("#chkActive").prop("checked") == true){
-				data.prjStatus = 'Active';
-			}else{
-				data.prjStatus = 'Terminated';
-			}
+
 			if(action == 'C'){
 				msg = '등록완료되었습니다.';
-				pid = '/project';
+				pid = '/gw_rank';
 				ANBTX.C(pid, data, function(res){
 					alert(msg);
 					$a.close('success');
 				});
 			}	else if(action == 'U'){
 				msg = '수정완료되었습니다.';
-				data.prjId = prjId;
-				pid = '/project';
+				pid = '/gw_rank';
 				ANBTX.U(pid, data, function(){
 					alert(msg);
 					$a.close('success');
 				});
 			} else if(action == 'D'){
 				msg = '삭제완료되었습니다.';
-				pid = '/project/'+prjId;
+				pid = '/gw_rank/'+data.arId;
 				ANBTX.D(pid, function(){
 					alert(msg);
 					$a.close('success');
