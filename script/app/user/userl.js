@@ -12,7 +12,7 @@ $a.page(function() {
  */
 	var wrapId = "#wrapId",
     gridId = "#grid",
-		popupUrl = "/html/user/popup/classlPopup.html";
+		popupUrl = "/html/user/popup/userlPopup.html";
 
 	  this.init = function(id, param) {
       // 그리드 존재시 그리스 선언부 함수 (구현코드는 제일 하단에 위치함)
@@ -62,7 +62,7 @@ $a.page(function() {
     * 프로젝트 조회
     */
 		function readList(){
-			ANBTX.R('/gw_class',
+			ANBTX.R('/gw_user',
 			 	function(res){
 					$(gridId).alopexGrid("dataSet", res);
 			 	}
@@ -98,19 +98,19 @@ $a.page(function() {
 			var title = '';
 			if(type == 'C'){
 				data.type = type;
-				title = '부서조직 등록';
+				title = '사용자 등록';
 			}else if(type == 'U'){
 				var sdata = $(gridId).alopexGrid("dataGet", {_state :{focused:true}});
 				data = sdata[0];
 				data.type = type;
-				title = '부서조직 관리';
+				title = '사용자 관리';
 			}else if(type == 'D'){
 				var sdata = $(gridId).alopexGrid("dataGet", {_state :{focused:true}});
 				data = sdata[0];
 				data.type = type;
-				title = '부서조직 삭제';
+				title = '사용자 삭제';
 			}
-			var popupUrl = "/html/user/popup/classlPopup.html";
+			var popupUrl = "/html/user/popup/userlPopup.html";
 			var pops =  $a.popup({
 				 url : popupUrl,
 				 title : title,
@@ -138,21 +138,33 @@ $a.page(function() {
           align : 'center'
         },
 				columnMapping : [
-					{ align : 'center', numberingColumn : true, title: 'No', width : '20px' },
-					{ key : 'acName', title: '조직(부서)명', width : '100px' },
-          { key : 'acLevel', title : '레벨', width : '40px' },
-					{ key : 'acCode', title : '조직코드', width : '40px' },
-          { key : 'acId', title : 'acId', width : '30px'},
-          { key : 'acAncestor', title : '상위', width : '30px'},
-          { key : 'chiefId', title : '직책보임자사번', width : '30px'},
-          { key : 'clCode', title : 'code', width : '30px'},
-          { key : 'clPidisuse', title : 'clPidisuse', width : '30px'},
-          { key : 'isuse', title : '사용여부', width : '30px'}
+          { key : 'acCode', title: 'acCode', width : '50px' },
+					{ key : 'acId', title: 'acId', width : '50px' },
+					{ key : 'accessCode', title: 'accessCode', width : '50px' },
+					{ key : 'address', title: 'address', width : '50px' },
+					{ key : 'auId', title: 'auId', width : '50px' },
+					{ key : 'code', title: 'code', width : '50px' },
+					{ key : 'decision', title: 'decision', width : '50px' },
+					{ key : 'email', title: 'email', width : '50px' },
+					{ key : 'enterDay', title: 'enterDay', width : '50px' },
+					{ key : 'fax', title: 'fax', width : '50px' },
+					{ key : 'handTel', title: 'handTel', width : '50px' },
+					{ key : 'homeTel', title: 'homeTel', width : '50px' },
+					{ key : 'id', title: 'id', width : '50px' },
+					{ key : 'mainJob', title: 'mainJob', width : '50px' },
+					{ key : 'name', title: 'name', width : '50px' },
+					{ key : 'officeTel', title: 'officeTel', width : '50px' },
+					{ key : 'passwd', title: 'passwd', width : '50px' },
+					{ key : 'pid', title: 'pid', width : '50px' },
+					{ key : 'postNo', title: 'postNo', width : '50px' },
+					{ key : 'rank', title: 'rank', width : '50px' },
+					{ key : 'regiDate', title: 'regiDate', width : '50px' },
+					{ key : 'review', title: 'review', width : '50px' },
 				],
       	// tree : {
       	// 	useTree : true,
       	// 	idKey : "acId", //노드를 지시하는 유일한 값이 저장된 키값
-      	// 	parentIdKey : "acAncestor", //자신의 상위(parent) 노드를 지시하는 ID가 저장된 키값
+      	// 	parentIdKey : "PARENT_NODE_ID", //자신의 상위(parent) 노드를 지시하는 ID가 저장된 키값
       	// 	//expandedKey : "NODE_EXPANDED", //데이터가 그리드에 입력되는 시점에 초기 펼쳐짐 여부를 저장하고 있는 키값
         //
       	// 	idGenerator :
